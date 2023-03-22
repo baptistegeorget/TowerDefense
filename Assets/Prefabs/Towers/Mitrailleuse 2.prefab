@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 9092297713981665979}
   - component: {fileID: 1657200721168722972}
   - component: {fileID: 7791830259625622909}
+  - component: {fileID: -1454388342998599781}
   m_Layer: 0
   m_Name: Mitrailleuse 2
   m_TagString: Untagged
@@ -252,6 +253,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1454388342998599781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382999672683353543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f51eea56263621409dde7711f8109c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
+  range: 15
+  fireRate: 1
+  fireCountDown: 0
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  partToRotate: {fileID: 0}
+  enemyTag: Enemy
 --- !u!1 &5656148599679872397
 GameObject:
   m_ObjectHideFlags: 0

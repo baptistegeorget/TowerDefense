@@ -1,19 +1,39 @@
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Mitrailleuse : MonoBehaviour
 {
-    private Transform target;
-    public float range = 15f;
-
-    public string enemyTag = "Enemy";
-    public Transform partToRotate;
-    public float turnSpeed = 10f;
-    public float fireRate = 1f;
+    // Les attributs de la tourelle
+    public int level;
+    public int range;
+    public int fireRate;
     public float fireCountDown;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
 
-    // Start is called before the first frame update
+    // Parties de la tourelle
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public Transform partToRotate;
+
+    // Cibles
+    private Transform target;
+    public string enemyTag = "Enemy";
+
+    private void Awake()
+    {
+        switch (level)
+        {
+            case 1:
+                range = 10;
+                fireRate = 1;
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+    }
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -43,7 +63,6 @@ public class Turret : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target == null)
@@ -52,7 +71,7 @@ public class Turret : MonoBehaviour
         }
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * 10).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         if (fireCountDown <= 0f)
         {
