@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public int cameraSpeed = 30;
-    public int border = 10;
-    public int zoom = 5;
-    public int dezoom = 20;
-    public int top = 100;
-    public int bottom = 10;
-    public int left = 10;
-    public int right = 10;
+    public float cameraSpeed = 30f;
+    public float border = 10f;
+    public float zoom = 5f;
+    public float dezoom = 20f;
+    public float top = 20f;
+    public float bottom = 20f;
+    public float left = 20f;
+    public float right = 20f;
 
-    private Vector3 cameraPosition;
+    private Vector3 startPosition;
 
     private void Start()
     {
-        cameraPosition = transform.position;
+        startPosition = transform.position;
     }
 
     void Update()
     {
         // Déplacement de la caméra vers l'avant
-        if ((Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border) && cameraPosition.z <= cameraPosition.z + top)
+        if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
         {
             transform.Translate(Vector3.forward * cameraSpeed * Time.deltaTime, Space.World);
         }
@@ -44,11 +44,12 @@ public class CameraController : MonoBehaviour
             transform.Translate(Vector3.right * cameraSpeed * Time.deltaTime, Space.World);
         }
 
-        // Zoom et dézoom de la caméra
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Vector3 positionCamera = transform.position;
-        positionCamera.y -= scroll * 100 * cameraSpeed * Time.deltaTime;
-        positionCamera.y = Mathf.Clamp(positionCamera.y, zoom, dezoom);
-        transform.position = positionCamera;
+        Vector3 newPosition = transform.position;
+        newPosition.y -= scroll * 100 * cameraSpeed * Time.deltaTime;
+        newPosition.y = Mathf.Clamp(newPosition.y, zoom, dezoom);
+        newPosition.x = Mathf.Clamp(newPosition.x, startPosition.x - left, startPosition.x + right);
+        newPosition.z = Mathf.Clamp(newPosition.z, startPosition.z - bottom, startPosition.z + top);
+        transform.position = newPosition;
     }
 }

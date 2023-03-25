@@ -1884,6 +1884,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 30
   border: 10
+  zoom: 5
+  dezoom: 20
+  top: 10
+  bottom: 10
+  left: 10
+  right: 10
 --- !u!1001 &1173728918
 PrefabInstance:
   m_ObjectHideFlags: 0
