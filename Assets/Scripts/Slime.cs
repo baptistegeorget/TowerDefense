@@ -5,6 +5,7 @@ public class Slime : MonoBehaviour
     // Les attributs du monstre
     public int speed = 1;
     public int health = 10;
+    public int armor = 0;
     private int money;
 
     // Le prochain waypoint
