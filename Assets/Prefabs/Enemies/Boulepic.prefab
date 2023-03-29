@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6753291993534802967}
   - component: {fileID: 6265443750580975274}
+  - component: {fileID: -295925252295302329}
   m_Layer: 0
   m_Name: Boulepic
   m_TagString: Untagged
@@ -337,6 +338,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-295925252295302329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6265443750580975277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfac47a1e56defb40ba2488155b24b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  health: 10
+  armor: 0
 --- !u!1 &6345317035672501409
 GameObject:
   m_ObjectHideFlags: 0
