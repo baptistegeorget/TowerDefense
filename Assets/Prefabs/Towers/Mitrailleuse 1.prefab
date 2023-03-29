@@ -164,11 +164,10 @@ MonoBehaviour:
   level: 1
   range: 15
   fireRate: 1
-  fireCountDown: 0
   firePoint: {fileID: 531375239}
   bulletPrefab: {fileID: 8363739417905936676, guid: dbb3d09ad0c31f94887918cca27d201e, type: 3}
   partToRotate: {fileID: 3573378198655469136}
-  enemyTag: Enemy
+  enemyTag: Slime
 --- !u!1 &4299019226411506837
 GameObject:
   m_ObjectHideFlags: 0
