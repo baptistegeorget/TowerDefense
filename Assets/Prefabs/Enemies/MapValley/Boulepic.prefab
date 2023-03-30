@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1235224348212672533}
   - component: {fileID: 1904942019794526888}
   - component: {fileID: 7382589665197107683}
+  - component: {fileID: -4186146429907164334}
   m_Layer: 0
   m_Name: Boulepic
   m_TagString: Boulepic
@@ -192,9 +193,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfac47a1e56defb40ba2488155b24b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4186146429907164334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904942019794526895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6afd5f37f2493b4297defd2cfb06229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed: 1
   health: 10
   armor: 0
+  money: 0
 --- !u!1 &2659241289790376228
 GameObject:
   m_ObjectHideFlags: 0

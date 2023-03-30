@@ -4,7 +4,25 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public Transform slimePrefab;
+    public Transform boulepicPrefab;
+    public Transform centaurePrefab;
+    public Transform chamanPrefab;
+    public Transform chauvesourisPrefab;
+    public Transform dragonPrefab;
+    public Transform ghostPrefab;
+    public Transform healerPrefab;
+    public Transform invocateurPrefab;
+    public Transform lapinouPrefab;
+    public Transform ninjaPrefab;
+    public Transform rainettePrefab;
+    public Transform serpentPrefab;
+    public Transform tankPrefab;
+    public Transform victimePrefab;
     public Transform enemyPrefab;
+
+    public static int EnemiesAlives = 0;
+
     public Transform spawnPoint;
     public float timeBetweenWaves = 5.5f;
     public Text waveCountdownTimer;
@@ -35,5 +53,6 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlives++;
     }
 }

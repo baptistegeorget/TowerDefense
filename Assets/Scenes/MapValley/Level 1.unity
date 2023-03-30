@@ -1629,7 +1629,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e3cf0807f88874cb5b9e3c3a73e797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8879994666329149229, guid: 3103077d01a4516499f6ab7e7939133e, type: 3}
+  slimePrefab: {fileID: 0}
+  boulepicPrefab: {fileID: 0}
+  centaurePrefab: {fileID: 0}
+  chamanPrefab: {fileID: 0}
+  chauvesourisPrefab: {fileID: 0}
+  dragonPrefab: {fileID: 0}
+  ghostPrefab: {fileID: 0}
+  healerPrefab: {fileID: 0}
+  invocateurPrefab: {fileID: 0}
+  lapinouPrefab: {fileID: 0}
+  ninjaPrefab: {fileID: 0}
+  rainettePrefab: {fileID: 0}
+  serpentPrefab: {fileID: 0}
+  tankPrefab: {fileID: 0}
+  victimePrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1235224348212672533, guid: 5e9118a40c8ad6e42849a55891ee151f, type: 3}
   spawnPoint: {fileID: 443873737}
   timeBetweenWaves: 5.5
   waveCountdownTimer: {fileID: 437279322}
@@ -1862,14 +1877,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172788118}
-  m_LocalRotation: {x: 0.6260672, y: 0.001169582, z: -0.0009389101, w: 0.7797677}
-  m_LocalPosition: {x: 102.32265, y: 12.374362, z: 92.05194}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 102.55, y: 9.16, z: 85.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &1172788122
 MonoBehaviour:
   m_ObjectHideFlags: 0

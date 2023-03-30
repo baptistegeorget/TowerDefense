@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class Mitrailleuse : MonoBehaviour
 {
@@ -6,37 +8,15 @@ public class Mitrailleuse : MonoBehaviour
     public int level;
     public int range;
     public int fireRate;
-    public float fireCountDown;
 
     // Parties de la tourelle
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Transform partToRotate;
 
-    // Cibles
+    private string[] enemiesTags = {"Boulepic", "Slime"};
     private Transform target;
-    public string enemyTag = "Boulepic";
-
-    private void Awake()
-    {
-        switch (level)
-        {
-            case 1:
-                range = 10;
-                fireRate = 1;
-                break;
-            case 2:
-                range = 10;
-                fireRate = 1;
-                break;
-            case 3:
-                range = 10;
-                fireRate = 1;
-                break;
-            default:
-                break;
-        }
-    }
+    private float fireCountDown;
 
     void Start()
     {
@@ -45,10 +25,16 @@ public class Mitrailleuse : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] ennemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = {};
+        foreach (string enemyTag in enemiesTags)
+        {
+            GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
+            enemies = enemies.Concat(temp).ToArray();
+        }
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        foreach (GameObject enemy in ennemies)
+
+        foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
@@ -69,7 +55,6 @@ public class Mitrailleuse : MonoBehaviour
 
     void Update()
     {
-        
         if (target == null)
         {
             return;
