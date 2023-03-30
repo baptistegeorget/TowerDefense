@@ -15,7 +15,7 @@ public class Mitrailleuse : MonoBehaviour
 
     // Cibles
     private Transform target;
-    public string enemyTag = "Enemy";
+    public string enemyTag = "Boulepic";
 
     private void Awake()
     {
@@ -26,8 +26,12 @@ public class Mitrailleuse : MonoBehaviour
                 fireRate = 1;
                 break;
             case 2:
+                range = 10;
+                fireRate = 1;
                 break;
             case 3:
+                range = 10;
+                fireRate = 1;
                 break;
             default:
                 break;
@@ -65,6 +69,7 @@ public class Mitrailleuse : MonoBehaviour
 
     void Update()
     {
+        
         if (target == null)
         {
             return;

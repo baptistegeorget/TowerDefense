@@ -481,7 +481,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8879994666329149229}
   - component: {fileID: 8879994666329149218}
-  - component: {fileID: -5911264204168410410}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -527,18 +526,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-5911264204168410410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8104162337610126743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfac47a1e56defb40ba2488155b24b35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  health: 10
-  armor: 0
