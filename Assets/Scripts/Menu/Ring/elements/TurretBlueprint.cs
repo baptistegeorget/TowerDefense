@@ -1,23 +1,15 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
 
 [System.Serializable]
 public class TurretBlueprint
 {
-
-
     public Texture icon;
-
     public int price;
-
-    public GameObject prefeb;
+    public GameObject prefab;
 
     public GameObject getPrefab()
     {
-        return prefeb;
+        return prefab;
     }
 
     public Texture getIcon()
@@ -30,5 +22,3 @@ public class TurretBlueprint
         return price;
     }
 }
-
-

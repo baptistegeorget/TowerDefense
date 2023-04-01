@@ -81,7 +81,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerEnter(PointerEventData eventData)
     {
         rect.DOComplete();
-        rect.DOScale(Vector3.one * 1.5f, .3f).SetEase(Ease.OutQuad);
+        rect.DOScale(Vector3.one * 1.1f, .3f).SetEase(Ease.OutQuad);
     }
 
     // action a la sortie de la zonne

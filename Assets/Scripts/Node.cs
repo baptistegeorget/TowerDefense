@@ -11,10 +11,6 @@ public class Node : MonoBehaviour
     private bool possessesTurret = false;
     public RadialMenu radialMenu;
 
-
-
-
-
     // Start is called before the first frame update
     private void Start()
     {
