@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
     public float speed = 7f;
+    public float damage;
+
     public GameObject effect;
 
-    public void Seek(Transform _target)
-    {
-        target = _target;
-    }
+    private Transform target;
 
     void Update()
     {
@@ -28,11 +26,17 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
     void HitTarget()
     {
-        GameObject effectTemp = (GameObject) Instantiate(effect, transform.position, transform.rotation);
-        Destroy(effectTemp, 2f);
-        Destroy(target.gameObject);
+        Enemy enemy = target.GetComponent<Enemy>();
+        enemy.health -= damage * enemy.resistance;
+        GameObject effect = Instantiate(this.effect, transform.position, transform.rotation);
+        Destroy(effect, 2f);
         Destroy(gameObject);
     }
 }

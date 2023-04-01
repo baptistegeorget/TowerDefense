@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private int waypointIndex = 0;
     private Enemy enemy;
 
-    void Start()
+    private void Start()
     {
         enemy = GetComponent<Enemy>();
         target = Waypoints.waypoints[0];
@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 direction = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
     }

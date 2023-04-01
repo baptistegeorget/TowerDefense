@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Linq;
-using System.Collections.Generic;
 
-public class Mitrailleuse : MonoBehaviour
+public class MachineGun: MonoBehaviour
 {
-    // Les attributs de la tourelle
     public int level;
-    public int range;
-    public int fireRate;
+    public float range;
+    public float fireRate;
+    public float damage;
 
-    // Parties de la tourelle
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Transform partToRotate;
@@ -18,12 +16,27 @@ public class Mitrailleuse : MonoBehaviour
     private Transform target;
     private float fireCountDown;
 
-    void Start()
+    private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void UpdateTarget()
+    private void Update()
+    {
+        if (target == null)
+        {
+            return;
+        }
+        Rotation();
+        if (fireCountDown <= 0f)
+        {
+            Shoot();
+            fireCountDown = 1f / fireRate;
+        }
+        fireCountDown -= Time.deltaTime;
+    }
+
+    private void UpdateTarget()
     {
         GameObject[] enemies = {};
         foreach (string enemyTag in enemiesTags)
@@ -33,7 +46,6 @@ public class Mitrailleuse : MonoBehaviour
         }
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -53,32 +65,22 @@ public class Mitrailleuse : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Shoot()
     {
-        if (target == null)
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
+        if (bullet != null)
         {
-            return;
+            bullet.damage = damage;
+            bullet.SetTarget(target);
         }
+    }
+
+    private void Rotation()
+    {
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * 10).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        if (fireCountDown <= 0f)
-        {
-            Shoot();
-            fireCountDown = 1 / fireRate;
-        }
-        fireCountDown -= Time.deltaTime;
-    }
-
-    void Shoot()
-    {
-        GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        if (bullet != null)
-        {
-            bullet.Seek(target);
-        }
     }
 
     private void OnDrawGizmosSelected()
