@@ -11,9 +11,7 @@ public class Node : MonoBehaviour
     public Color startColor;
 
     public Vector3 positionOffset = new Vector3(0, 1.11f, 0);
-
      
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,18 +31,8 @@ public class Node : MonoBehaviour
             Debug.Log("Imo");
             return;
         }
-
         GameObject TurretToBuild = BuildManager.instance.getTurretToBuild();
-       
         turret = (GameObject)Instantiate(TurretToBuild, transform.position + positionOffset, Quaternion.Euler(new Vector3(-90, 0, 0)));
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnMouseExit()

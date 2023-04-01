@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         Move();
-        if (Vector3.Distance(transform.position, target.position) <= 0.001f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.01f)
         {
             GetNextWaypoint();
         }
