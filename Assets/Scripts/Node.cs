@@ -10,7 +10,7 @@ public class Node : MonoBehaviour
 
     public Color startColor;
 
-    public Vector3 positionOffset = new Vector3(0, 1.11f, 0);
+    public Vector3 positionOffset = new Vector3(0, 1.2f, 0);
      
     // Start is called before the first frame update
     private void Start()
