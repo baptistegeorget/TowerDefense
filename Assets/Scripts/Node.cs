@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    //informations de la node
     private Renderer rend;
-
     private Color hoverColor = Color.yellow;
-
-    private GameObject turret;
-
     public Color startColor;
 
-    public Vector3 positionOffset = new Vector3(0, 1.2f, 0);
-     
+    // informations pour le menu ring
+    private bool possessesTurret = false;
+    public RadialMenu radialMenu;
+
+
+
+
+
     // Start is called before the first frame update
     private void Start()
     {
+
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
     }
@@ -26,13 +30,19 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (turret != null)
+        // ouverture du menu ring
+        if (possessesTurret == false)
         {
-            Debug.Log("Imo");
-            return;
+            radialMenu.Toggle(this.transform);
+
         }
-        GameObject TurretToBuild = BuildManager.instance.getTurretToBuild();
-        turret = (GameObject)Instantiate(TurretToBuild, transform.position + positionOffset, Quaternion.Euler(new Vector3(-90, 0, 0)));
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     private void OnMouseExit()
