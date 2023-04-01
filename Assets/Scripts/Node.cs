@@ -5,7 +5,7 @@ public class Node : MonoBehaviour
     //informations de la node
     private Renderer rend;
     private Color hoverColor = Color.yellow;
-    public Color startColor;
+    private Color startColor;
 
     // informations pour le menu ring
     private bool possessesTurret = false;
@@ -29,7 +29,7 @@ public class Node : MonoBehaviour
         // ouverture du menu ring
         if (possessesTurret == false)
         {
-            radialMenu.Toggle(this.transform);
+            radialMenu.Toggle(transform);
 
         }
 

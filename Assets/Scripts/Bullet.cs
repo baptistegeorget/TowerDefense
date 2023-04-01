@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         Enemy enemy = target.GetComponent<Enemy>();
-        enemy.health -= damage * enemy.resistance;
+        enemy.Damage(damage);
         GameObject effect = Instantiate(this.effect, transform.position, transform.rotation);
         Destroy(effect, 2f);
         Destroy(gameObject);

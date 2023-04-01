@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304f306efbd042d43a46294ae97c1b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  builyManager2: {fileID: 0}
+  buildManager: {fileID: 0}
   radialmenu: {fileID: 0}
   label: {fileID: 8615422295840894052}
   icon: {fileID: 6319500027289238376}

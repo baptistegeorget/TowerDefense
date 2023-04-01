@@ -49,17 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5960780c1b20d54baeb65df8e057501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listTurret: []
+  listTurret:
+  - icon: {fileID: 2800000, guid: 3116188d37a6c68429215b1c7001ca8c, type: 3}
+    price: 100
+    prefab: {fileID: 3159607644517687468, guid: e9a1e27a359cf4c448f8387347906283, type: 3}
   positionOffset: {x: 0, y: 1.11, z: 0}
   EntryPrefab: {fileID: 0}
-  Icons:
-  - {fileID: 2800000, guid: 3116188d37a6c68429215b1c7001ca8c, type: 3}
-  - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
-  - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
-  - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
-  - {fileID: 2800000, guid: 3116188d37a6c68429215b1c7001ca8c, type: 3}
-  targetIcon: {fileID: 0}
-  targetBuild: {fileID: 0}
 --- !u!1 &2262080770289906863
 GameObject:
   m_ObjectHideFlags: 0

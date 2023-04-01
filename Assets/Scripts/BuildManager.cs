@@ -7,8 +7,6 @@ public class BuildManager : MonoBehaviour
     // Start is called before the first frame update
     private GameObject turretToBuild;
 
-
-    #region Singleton
     public static BuildManager instance;
 
     public bool SetUp = false;
@@ -32,8 +30,4 @@ public class BuildManager : MonoBehaviour
         }
         instance = this;
     }
-
-    #endregion
-
-
 }
