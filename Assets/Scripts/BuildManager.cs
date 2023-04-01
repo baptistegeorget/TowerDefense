@@ -1,13 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    private GameObject turretToBuild;
+
 
     #region Singleton
     public static BuildManager instance;
 
-    public GameObject getTurretToBuild()
+    public bool SetUp = false;
+
+    public void SetTurretToBuild(GameObject pTurretToBuild)
+    {
+        turretToBuild = pTurretToBuild;
+    }
+
+    public GameObject GetTurretToBuild()
     {
         return turretToBuild;
     }
@@ -24,18 +35,5 @@ public class BuildManager : MonoBehaviour
 
     #endregion
 
-    private GameObject turretToBuild;
 
-    public GameObject StandardTurretPrefab;
-
-    private void Start()
-    {
-        turretToBuild = StandardTurretPrefab;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
