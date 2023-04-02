@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    //informations de la node
+    public RadialMenu radialMenu;
+
     private Renderer rend;
     private Color hoverColor = Color.yellow;
     private Color startColor;
-
-    // informations pour le menu ring
     private bool possessesTurret = false;
-    public RadialMenu radialMenu;
-
-    // Start is called before the first frame update
+    
     private void Start()
     {
 
@@ -35,7 +32,6 @@ public class Node : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
