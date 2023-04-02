@@ -1,33 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private GameObject turretToBuild;
+    private static Vector3 positionOffset = new Vector3(0, 1.2f, 0);
 
-    public static BuildManager instance;
-
-    public bool SetUp = false;
-
-    public void SetTurretToBuild(GameObject pTurretToBuild)
+    public static void BuildTurret(GameObject prefab)
     {
-        turretToBuild = pTurretToBuild;
-    }
-
-    public GameObject GetTurretToBuild()
-    {
-        return turretToBuild;
-    }
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.Log("erreur, il a deja un build manager dans la scène");
-            return;
-        }
-        instance = this;
+        Instantiate(prefab, RadialMenu.node.transform.position + positionOffset, Quaternion.Euler(new Vector3(0, 0, 0)));
+        RadialMenu.node.hasTurret = true;
     }
 }

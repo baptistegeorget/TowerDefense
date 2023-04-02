@@ -1,77 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 
 public class RadialMenu : MonoBehaviour
 {
+    public static Node node;
+
     public TurretBlueprint[] listTurret;
+    public GameObject entryPrefab;
 
-    private GameObject turret;
-    public Vector3 positionOffset = new Vector3(0, 1.2f, 0);
+    private float radius = 200;
+    private List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
 
-    public GameObject EntryPrefab;
-
-    private float Radius = 200;
-
-    private RawImage targetIcon;
-
-    private List<RadialMenuEntry> Entries;
-
-    private Transform node;
-
-    void Start()
+    public void Toggle(Node _node)
     {
-        Entries = new List<RadialMenuEntry>();
-    }
-
-    void AddEntry(string plabel, Texture pIcon, GameObject pPrefab, RadialMenuEntry.RingMenuEntryDelegete pCallback)
-    {
-        GameObject entry = Instantiate(EntryPrefab, transform);
-        RadialMenuEntry rme = entry.GetComponent<RadialMenuEntry>();
-        rme.Setlabel(plabel);
-        rme.SetIcon(pIcon);
-        rme.SetPrefab(pPrefab);
-        rme.SetCallback(pCallback);
-        Entries.Add(rme);
-    }
-
-    public void BuildTurret()
-    {
-            GameObject TurretToBuild = BuildManager.instance.GetTurretToBuild();
-            turret = Instantiate(TurretToBuild, node.position + positionOffset, Quaternion.Euler(new Vector3(-90, 0, 0)));
-            BuildManager.instance.SetUp = false;
-    }
-
-    public void Open()
-    {
-        for (int i = 0; i < listTurret.Length; i++)
+        if (entries.Count == 0)
         {
-            AddEntry(listTurret[i].price.ToString(), listTurret[i].icon, listTurret[i].prefab, SetTargetIcon);
-        }
-        Rearrange();
-    }
-
-    public void Close()
-    {
-        for (int i = 0; i < listTurret.Length; i++)
-        {
-            RectTransform rect = Entries[i].GetComponent<RectTransform>();
-            GameObject entry = Entries[i].gameObject;
-            rect.DOAnchorPos(Vector3.zero, .3f).SetEase(Ease.OutQuad).onComplete = 
-                delegate()
-                {
-                    Destroy(entry);
-                };
-        }
-        Entries.Clear();
-    }
-
-    public void  Toggle(Transform nodeTransform)
-    {
-        if (Entries.Count == 0)
-        {
-            node = nodeTransform;
+            node = _node;
             Open();
         }
         else
@@ -80,22 +25,51 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-    void Rearrange()
+    public void Open()
     {
-        float radiansOfSeparation = (Mathf.PI * 2) / Entries.Count;
-        for (int i = 0; i < Entries.Count; i++)
+        for (int i = 0; i < listTurret.Length; i++)
         {
-            float x = Mathf.Sin(radiansOfSeparation * i) * Radius;
-            float y = Mathf.Cos(radiansOfSeparation * i) * Radius;
-            RectTransform rect = Entries[i].GetComponent<RectTransform>();
-            rect.localScale = Vector3.zero;
-            rect.DOScale(Vector3.one, .3f).SetEase(Ease.OutQuad).SetDelay(.05f*i);
-            rect.DOAnchorPos(new Vector3(x, y, 0), .3f).SetEase(Ease.OutQuad).SetDelay(.05f*i);
+            AddEntry(listTurret[i].price.ToString(), listTurret[i].icon, listTurret[i].prefab);
         }
+        PlaceUI();
     }
 
-    void SetTargetIcon(RadialMenuEntry pEntry)
+    public void Close()
     {
-        targetIcon.texture = pEntry.GetIcon();
+        for (int i = 0; i < entries.Count; i++)
+        {
+            RectTransform rect = entries[i].GetComponent<RectTransform>();
+            GameObject entry = entries[i].gameObject;
+            rect.DOAnchorPos(Vector3.zero, 0.3f).SetEase(Ease.OutQuad).onComplete =
+                delegate ()
+                {
+                    Destroy(entry);
+                };
+        }
+        entries.Clear();
+    }
+
+    void AddEntry(string label, Texture icon, GameObject prefab)
+    {
+        GameObject entry = Instantiate(entryPrefab, transform);
+        RadialMenuEntry rme = entry.GetComponent<RadialMenuEntry>();
+        rme.prefab = prefab;
+        rme.icon.texture = icon;
+        rme.label.text = label;
+        entries.Add(rme);
+    }
+
+    void PlaceUI()
+    {
+        float radiansOfSeparation = (Mathf.PI * 2) / entries.Count;
+        for (int i = 0; i < entries.Count; i++)
+        {
+            float x = Mathf.Sin(radiansOfSeparation * i) * radius;
+            float y = Mathf.Cos(radiansOfSeparation * i) * radius;
+            RectTransform rect = entries[i].GetComponent<RectTransform>();
+            rect.localScale = Vector3.zero;
+            rect.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
+            rect.DOAnchorPos(new Vector3(x, y, 0), 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
+        }
     }
 }
