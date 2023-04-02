@@ -12,7 +12,7 @@ public class MachineGun: MonoBehaviour
     public GameObject bulletPrefab;
     public Transform partToRotate;
 
-    private string[] enemiesTags = {"Boulepic", "Slime"};
+    private string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime"};
     private Transform target;
     private float fireCountDown;
 

@@ -8,7 +8,7 @@ public class RadialMenu : MonoBehaviour
     public TurretBlueprint[] listTurret;
 
     private GameObject turret;
-    public Vector3 positionOffset = new Vector3(0, 1.11f, 0);
+    public Vector3 positionOffset = new Vector3(0, 1.2f, 0);
 
     public GameObject EntryPrefab;
 
@@ -39,7 +39,7 @@ public class RadialMenu : MonoBehaviour
     public void BuildTurret()
     {
             GameObject TurretToBuild = BuildManager.instance.GetTurretToBuild();
-            turret = Instantiate(TurretToBuild, node.position + positionOffset, Quaternion.Euler(new Vector3(0, 0, 0)));
+            turret = Instantiate(TurretToBuild, node.position + positionOffset, Quaternion.Euler(new Vector3(-90, 0, 0)));
             BuildManager.instance.SetUp = false;
     }
 

@@ -7,6 +7,19 @@ TagManager:
   - FxTemporaire
   - Boulepic
   - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime
   layers:
   - Default
   - TransparentFX

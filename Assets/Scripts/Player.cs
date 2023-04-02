@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static int pv;
 
-    // Update is called once per frame
-    void Update()
+    public static void Damage(int damage)
     {
-        
+        pv -= damage;
     }
 }

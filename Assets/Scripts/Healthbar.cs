@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Healthbar : MonoBehaviour
 {
-    public GameObject cameraPrefab;
+    private GameObject cameraPrefab;
 
     private void Awake()
     {
