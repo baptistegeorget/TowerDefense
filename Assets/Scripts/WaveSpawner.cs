@@ -3,38 +3,51 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
-
     public static int EnemiesAlives = 0;
 
+    public Wave[] waves;
     public Transform spawnPoint;
     public float timeBetweenWaves = 5.5f;
+
     private float countdown = 2f;
     private int waveNumber = 0;
 
     void Update()
     {
+        if (EnemiesAlives > 0)
+        {
+            return;
+        }
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
         countdown -= Time.deltaTime;
     }
 
     IEnumerator SpawnWave()
     {
-        waveNumber++;
-        for (int i = 0; i < waveNumber; i++)
+        Wave wave = waves[waveNumber];
+
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
+        waveNumber++;
+
+        if (waveNumber == waves.Length)
+        {
+            Debug.Log("BRAVO");
+            this.enabled = false;
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlives++;
     }
 }
