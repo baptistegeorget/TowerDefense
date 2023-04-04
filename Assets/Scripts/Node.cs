@@ -27,6 +27,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseExit()
     {
+
         rend.material.color = startColor;
     }
 

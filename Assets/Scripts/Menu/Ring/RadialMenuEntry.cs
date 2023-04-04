@@ -21,7 +21,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        BuildManager.BuildTurret(prefab);
+        BuildManager.BuildTurret(prefab, label.text);
         radialmenu.Close();
     }
 
