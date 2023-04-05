@@ -6,6 +6,7 @@ public class Node : MonoBehaviour
     public bool hasTurret = false;
 
     public RadialMenu radialMenu;
+    public RadialMenu UpdagreOrSell;
 
     private Renderer rend;
     private Color hoverColor = Color.yellow;
@@ -23,6 +24,11 @@ public class Node : MonoBehaviour
         {
             radialMenu.Toggle(this);
         }
+        else if (hasTurret == true)
+        {
+            UpdagreOrSell.Toggle(this);
+        }
+        
     }
 
     private void OnMouseExit()
