@@ -1,41 +1,42 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-    public bool hasTurret = false;
-
-    public RadialMenu radialMenu;
-
+    private int levelTower = 0;
+    private Color color;
+    private Color hoverColor;
     private Renderer rend;
-    private Color hoverColor = Color.yellow;
-    private Color startColor;
-    
+
     private void Start()
     {
+        color = GameManager.gameManager.nodeColor;
+        hoverColor = GameManager.gameManager.nodeHoverColor;
         rend = GetComponent<Renderer>();
-        startColor = rend.material.color;
+        rend.material.color = color;
     }
-    
+
     private void OnMouseDown()
     {
-        if (hasTurret == false)
+        if (!GameManager.gameManager.radialMenuHasOpen)
         {
-            radialMenu.Toggle(this);
+            GameManager.gameManager.radialMenuHasOpen = true;
+            //GameManager.gameManager.radialMenu.Toggle(levelTower);
         }
     }
 
     private void OnMouseExit()
     {
-
-        rend.material.color = startColor;
+        if (!GameManager.gameManager.radialMenuHasOpen)
+        {
+            rend.material.color = color;
+        }
     }
 
     private void OnMouseEnter()
     {
-        if (EventSystem.current.IsPointerOverGameObject()){
-            return;
+        if (!GameManager.gameManager.radialMenuHasOpen)
+        {
+            rend.material.color = hoverColor;
         }
-        rend.material.color = hoverColor;
     }
 }

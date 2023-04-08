@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static int pv;
-    public static int money;
-
-    public int startPv = 10;
-    public int startMoney = 30000000;
-
-    public void Start()
+    private int pv;
+    private int money;
+    
+    public Player(int pv, int money)
     {
-        money = startMoney;
-        pv = startPv;
+        this.pv = pv;
+        this.money = money;
     }
 }

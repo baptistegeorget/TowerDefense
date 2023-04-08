@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1013443852073596482}
   - component: {fileID: 133541435349788611}
   - component: {fileID: 4207772786080523482}
-  - component: {fileID: 1606556623236928191}
   m_Layer: 0
   m_Name: hex_forest
   m_TagString: Untagged
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1606556623236928191
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386088547273551096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.01, z: 0.023094}
-  m_Center: {x: 0, y: 0.005, z: 0}

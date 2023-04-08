@@ -6,21 +6,21 @@ public class BuildManager : MonoBehaviour
 
     public static void BuildTurret(GameObject prefab,  string cout)
     {
-        //convertion du label du menuEntry en int
-        int price;
-        int.TryParse(cout, out price);
-        Debug.Log("prix de la tourelle"+ price);
-        //end convertion
+        ////convertion du label du menuEntry en int
+        //int price;
+        //int.TryParse(cout, out price);
+        //Debug.Log("prix de la tourelle"+ price);
+        ////end convertion
 
-        if (Player.money < price)
-        {
-            Debug.Log("Pas assez d'argent pour cela");
-            return;
-        }
-        // payment de la tourelle 
-        Player.money -= price;
-        Instantiate(prefab, RadialMenu.node.transform.position + positionOffset, Quaternion.Euler(new Vector3(0, 0, 0)));
-        RadialMenu.node.hasTurret = true;
-        Debug.Log("Il vous reste" + Player.money);
+        //if (Player.money < price)
+        //{
+        //    Debug.Log("Pas assez d'argent pour cela");
+        //    return;
+        //}
+        //// payment de la tourelle 
+        //Player.money -= price;
+        //Instantiate(prefab, RadialMenu.node.transform.position + positionOffset, Quaternion.Euler(new Vector3(0, 0, 0)));
+        //RadialMenu.node.hasTurret = true;
+        //Debug.Log("Il vous reste" + Player.money);
     }
 }

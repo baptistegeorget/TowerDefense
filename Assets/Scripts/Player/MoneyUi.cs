@@ -7,6 +7,6 @@ public class MoneyUi : MonoBehaviour
     
     void Update()
     {
-        label.text = Player.money.ToString();
+        //label.text = Player.money.ToString();
     }
 }

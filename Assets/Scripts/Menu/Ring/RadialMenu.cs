@@ -4,25 +4,35 @@ using DG.Tweening;
 
 public class RadialMenu : MonoBehaviour
 {
-    public static Node node;
-
-    public TurretBlueprint[] listTurret;
-    public GameObject entryPrefab;
-
+    private TurretBlueprint[] listTurret;
+    private GameObject entryPrefab;
     private float radius = 200;
     private List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
 
-    public void Toggle(Node _node)
+    public RadialMenu(TurretBlueprint[] listTurret)
     {
-        if (entries.Count == 0)
+        this.listTurret = listTurret;
+    }
+
+    public void Toggle(int levelTower)
+    {
+        if (levelTower == 0)
         {
-            node = _node;
             Open();
-        }
+        } 
         else
         {
-            Close();
+            //Amelioration
         }
+        
+        //if (!menuHasOpen)
+        //{
+        //    Open();
+        //}
+        //else
+        //{
+        //    Close();
+        //}
     }
 
     public void Open()
