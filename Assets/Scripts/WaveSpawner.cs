@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic; // Ajout de cette ligne pour utiliser les listes
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemy13;
     public GameObject enemy14;
     public GameObject enemy15;
-    public GameObject[] arrayEnemy;
+    public List<GameObject> listEnemy; // Déclaration de la liste de GameObject
 
     public static int EnemiesAlives = 0;
 
@@ -29,66 +30,55 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 2f;
     private int waveNumber = 0;
 
-
-    void AllEnemies(Wave wave)
+    private void Loop(int count, GameObject enemy)
     {
-        arrayEnemy = new GameObject[wave.enemy1Count + wave.enemy2Count + wave.enemy3Count + wave.enemy4Count + wave.enemy5Count + wave.enemy6Count + wave.enemy7Count + wave.enemy8Count
-             + wave.enemy9Count + wave.enemy10Count + wave.enemy11Count + wave.enemy12Count + wave.enemy13Count + wave.enemy14Count + wave.enemy15Count];
-        for (int i = 0; i < wave.enemy1Count; i++)
+        for (int i = 0; i < count; i++)
         {
-            arrayEnemy[i] = enemy1;
-        }
-        for (int j = wave.enemy1Count; j < wave.enemy2Count + wave.enemy1Count; j++)
-        {
-            arrayEnemy[j] = enemy2;
-        }
-        for (int k = wave.enemy2Count + wave.enemy1Count; k < wave.enemy3Count + wave.enemy2Count + wave.enemy1Count; k++)
-        {
-            arrayEnemy[k] = enemy3;
-        }
-        for (int l = wave.enemy3Count + wave.enemy2Count + wave.enemy1Count; l < wave.enemy4Count + wave.enemy3Count + wave.enemy2Count + wave.enemy1Count; l++)
-        {
-            arrayEnemy[l] = enemy4;
+            listEnemy.Add(enemy);
         }
     }
 
-
-
-    void SuffleArrayEnemy()
+    private void AllEnemies(Wave wave)
     {
-        for (int i = 0; i < arrayEnemy.Length; i++)
-        {
-            int random = Random.Range(i, arrayEnemy.Length);
-            GameObject tempGO = arrayEnemy[random];
-            arrayEnemy[random] = arrayEnemy[i];
-            arrayEnemy[i] = tempGO;
-        } 
+        listEnemy = new List<GameObject>(); // Initialisation de la liste
+        Loop(wave.enemy1Count, enemy1);
+        Loop(wave.enemy2Count, enemy2);
+        Loop(wave.enemy3Count, enemy3);
+        Loop(wave.enemy4Count, enemy4);
+        Loop(wave.enemy5Count, enemy5);
+        Loop(wave.enemy6Count, enemy6);
+        Loop(wave.enemy7Count, enemy7);
+        Loop(wave.enemy8Count, enemy8);
+        Loop(wave.enemy9Count, enemy9);
+        Loop(wave.enemy10Count, enemy10);
+        Loop(wave.enemy11Count, enemy11);
+        Loop(wave.enemy12Count, enemy12);
+        Loop(wave.enemy13Count, enemy13);
+        Loop(wave.enemy14Count, enemy14);
+        Loop(wave.enemy15Count, enemy15);
     }
 
 
-    void Update(){
-        if (EnemiesAlives > 0)
+    private void SuffleListEnemy()
+    {
+        for (int i = 0; i < listEnemy.Count; i++)
         {
-            return;
+            int random = Random.Range(i, listEnemy.Count);
+            GameObject tempGO = listEnemy[random];
+            listEnemy[random] = listEnemy[i];
+            listEnemy[i] = tempGO;
         }
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-            return;
-        }
-        countdown -= Time.deltaTime;
     }
 
-    IEnumerator SpawnWave()
+    private IEnumerator SpawnWave()
     {
         Wave wave = waves[waveNumber];
         AllEnemies(wave);
-        SuffleArrayEnemy();
+        SuffleListEnemy();
 
-        for (int i = 0; i < (arrayEnemy.Length); i++)
+        for (int i = 0; i < (listEnemy.Count); i++)
         {
-            StartCoroutine(SpawnEnemy(arrayEnemy[i]));
+            StartCoroutine(SpawnEnemy(listEnemy[i]));
             yield return new WaitForSeconds(1f / wave.rate);
         }
         waveNumber++;
@@ -100,10 +90,23 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemy(GameObject enemy)
+    private IEnumerator SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(1f/2);
         EnemiesAlives++;
+    }
+    private void Update(){
+        if (EnemiesAlives > 0)
+        {
+            return;
+        }
+        if (countdown <= 0f)
+        {
+            StartCoroutine(SpawnWave());
+            countdown = timeBetweenWaves;
+            return;
+        }
+        countdown -= Time.deltaTime;
     }
 }
