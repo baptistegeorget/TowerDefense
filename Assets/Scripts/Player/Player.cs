@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     public static int money;
 
     public int startPv = 10;
-    public int startMoney = 400;
+    public int startMoney = 30000000;
 
     public void Start()
     {

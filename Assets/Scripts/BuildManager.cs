@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    private static Vector3 positionOffset = new Vector3(0, 1.2f, 0);
+    private static Vector3 positionOffset = new Vector3(0, 1f, 0);
 
     public static void BuildTurret(GameObject prefab,  string cout)
     {
