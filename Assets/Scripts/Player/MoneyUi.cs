@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-
 public class MoneyUi : MonoBehaviour
 {
     public TextMeshProUGUI label;
