@@ -212,9 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f51eea56263621409dde7711f8109c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
-  fireRate: 0
-  damage: 0
+  range: 4
+  fireRate: 1
+  damage: 10
   firePoint: {fileID: 2827896424291289267}
   bulletPrefab: {fileID: 6133813749790203860, guid: 85010c02f33a18c46a8e4372c6af3260, type: 3}
   partToRotate: {fileID: 3052820099537294176}

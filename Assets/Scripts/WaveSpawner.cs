@@ -86,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         if (waveNumber == waves.Length)
         {
             Debug.Log("BRAVO");
-            this.enabled = false;
+            enabled = false;
         }
     }
 
