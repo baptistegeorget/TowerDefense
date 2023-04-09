@@ -4,33 +4,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
+    // Variables à setup dans Unity
+    public PlayerBlueprint[] players;
+    public TowerBlueprint[] towersList;
     public Color nodeColor;
     public Color nodeHoverColor;
-    public TurretBlueprint[] towersList;
-
-    private RadialMenu radialMenu;
-    private bool radialMenuHasOpen = false;
-
-    //private Player player = new Player(20, 300);
+    public int radialMenuRadius;
+    public Vector3 towerPosition;
 
     private void Awake()
     {
-        radialMenu = new RadialMenu();
         gameManager = this;
-    }
-
-    public bool GetRadialMenuHasOpen()
-    {
-        return radialMenuHasOpen;
-    }
-
-    public void SetRadialMenuHasOpen(bool radialMenuHasOpen)
-    {
-        this.radialMenuHasOpen = radialMenuHasOpen;
-    }
-
-    public RadialMenu GetRadialMenu()
-    {
-        return radialMenu;
     }
 }

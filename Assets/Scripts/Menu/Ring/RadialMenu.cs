@@ -4,74 +4,138 @@ using DG.Tweening;
 
 public class RadialMenu : MonoBehaviour
 {
-    private GameObject entryPrefab;
-    private float radius;
-    private List<RadialMenuEntry> entries;
+    public static RadialMenu radialMenu;
+    public static bool radialMenuHasOpen = false;
+
+    public GameObject radialItem;
+    public Texture deleteIcon;
+    public Texture upgradeIcon;
+
+    private List<RadialMenuEntry> radialsItems = new List<RadialMenuEntry>();
 
     private void Start()
     {
-        entries = new List<RadialMenuEntry>();
-        radius = 200;
+        radialMenu = this;
     }
 
-    public void Toggle(int levelTower)
+    public void Toggle()
     {
-        if (levelTower == 0)
+        if (Node.selectedNode.GetLevelTower() == 0)
         {
-            Open();
+            OpenBuildMenu();
         } 
         else
         {
-            //Amelioration
+            OpenUpdateMenu();
         }
     }
 
-    public void Open()
+    private void OpenBuildMenu()
     {
+        radialMenuHasOpen = true;
+        AddCancelButton();
         for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
         {
-            AddEntry(GameManager.gameManager.towersList[i].prices[0].ToString(), GameManager.gameManager.towersList[i].icons[0], GameManager.gameManager.towersList[i].towersPrefabs[0]);
+            AddTowerButton(GameManager.gameManager.towersList[i].towersPrefabs[0], GameManager.gameManager.towersList[i].icons[0], GameManager.gameManager.towersList[i].prices[0].ToString());
         }
-        Debug.Log(entries.Count);
         PlaceUI();
+    }
+
+    private void OpenUpdateMenu()
+    {
+        radialMenuHasOpen = true;
+        AddCancelButton();
+        AddDeleteButton();
+        if (Node.selectedNode.GetLevelTower() < 3)
+        {
+            AddUpgradeButton();
+        }
+        PlaceUI();
+    }
+
+    private void AddTowerButton(GameObject prefab, Texture texture, string text)
+    {
+        GameObject towerButton = Instantiate(radialItem, transform);
+        RadialMenuEntry towerButtonScript = towerButton.GetComponent<RadialMenuEntry>();
+        towerButtonScript.prefab = prefab;
+        towerButtonScript.icon.texture = texture;
+        towerButtonScript.label.text = text;
+        radialsItems.Add(towerButtonScript);
+    }
+
+    private void AddDeleteButton()
+    {
+        GameObject deleteButton = Instantiate(radialItem, transform);
+        RadialMenuEntry deleteButtonScript = deleteButton.GetComponent<RadialMenuEntry>();
+        deleteButtonScript.icon.texture = deleteIcon;
+        deleteButtonScript.label.text = "Delete";
+        deleteButtonScript.deleteButton = true;
+        radialsItems.Add(deleteButtonScript);
+    }
+
+    private void AddUpgradeButton()
+    {
+        GameObject updateButton = Instantiate(radialItem, transform);
+        RadialMenuEntry updateButtonScript = updateButton.GetComponent<RadialMenuEntry>();
+        updateButtonScript.prefab = FindUpgradePrefab();
+        updateButtonScript.icon.texture = upgradeIcon;
+        updateButtonScript.label.text = FindUpgradePrice();
+        updateButtonScript.upgradeButton = true;
+        radialsItems.Add(updateButtonScript);
+    }
+
+    private void AddCancelButton()
+    {
+        GameObject cancelButton = Instantiate(radialItem, transform);
+        RadialMenuEntry cancelButtonScript = cancelButton.GetComponent<RadialMenuEntry>();
+        cancelButtonScript.icon.texture = null;
+        cancelButtonScript.label.text = "Cancel";
+        cancelButtonScript.cancelButton = true;
+        radialsItems.Add(cancelButtonScript);
     }
 
     public void Close()
     {
-        for (int i = 0; i < entries.Count; i++)
+        // Erreur DOTween à régler ici
+        for (int i = 0; i < radialsItems.Count; i++)
         {
-            RectTransform rect = entries[i].GetComponent<RectTransform>();
-            GameObject entry = entries[i].gameObject;
+            RectTransform rect = radialsItems[i].GetComponent<RectTransform>();
+            GameObject entry = radialsItems[i].gameObject;
             rect.DOAnchorPos(Vector3.zero, 0.3f).SetEase(Ease.OutQuad).onComplete =
                 delegate ()
                 {
                     Destroy(entry);
                 };
         }
-        entries.Clear();
+        radialsItems.Clear();
+        Node.selectedNode.GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+        Node.selectedNode = null;
+        radialMenuHasOpen = false;
     }
 
-    void AddEntry(string label, Texture icon, GameObject prefab)
+    private void PlaceUI()
     {
-        GameObject entry = Instantiate(entryPrefab, transform);
-        RadialMenuEntry rme = entry.GetComponent<RadialMenuEntry>();
-        rme.prefab = prefab;
-        rme.icon.texture = icon;
-        rme.label.text = label;
-        entries.Add(rme);
-    }
-
-    void PlaceUI()
-    {
-        float radiansOfSeparation = (Mathf.PI * 2) / entries.Count;
-        for (int i = 0; i < entries.Count; i++)
+        float radiansOfSeparation = (Mathf.PI * 2) / radialsItems.Count;
+        for (int i = 0; i < radialsItems.Count; i++)
         {
-            float x = Mathf.Sin(radiansOfSeparation * i) * radius;
-            float y = Mathf.Cos(radiansOfSeparation * i) * radius;
-            RectTransform rect = entries[i].GetComponent<RectTransform>();
+            float x = Mathf.Sin(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
+            float y = Mathf.Cos(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
+            RectTransform rect = radialsItems[i].GetComponent<RectTransform>();
             rect.localScale = Vector3.zero;
             rect.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
             rect.DOAnchorPos(new Vector3(x, y, 0), 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
         }
+    }
+
+    private GameObject FindUpgradePrefab()
+    {
+        // a faire
+        return null;
+    }
+
+    private string FindUpgradePrice()
+    {
+        //a faire
+        return "0";
     }
 }

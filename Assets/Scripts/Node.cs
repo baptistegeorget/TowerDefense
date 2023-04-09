@@ -2,37 +2,63 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    public static Node selectedNode;
+
     private int levelTower = 0;
-    private Renderer rend;
+    private GameObject tower;
 
     private void Start()
     {
-        rend = GetComponent<Renderer>();
-        rend.material.color = GameManager.gameManager.nodeColor;
+        GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
     }
 
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
-        if (!GameManager.gameManager.GetRadialMenuHasOpen())
+        if (!RadialMenu.radialMenuHasOpen)
         {
-            GameManager.gameManager.SetRadialMenuHasOpen(true);
-            GameManager.gameManager.GetRadialMenu().Toggle(levelTower);
+            selectedNode = this;
+            RadialMenu.radialMenu.Toggle();
         }
     }
 
     private void OnMouseExit()
     {
-        if (!GameManager.gameManager.GetRadialMenuHasOpen())
+        if (!RadialMenu.radialMenuHasOpen)
         {
-            rend.material.color = GameManager.gameManager.nodeColor;
+            GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
-        if (!GameManager.gameManager.GetRadialMenuHasOpen())
+        if (!RadialMenu.radialMenuHasOpen)
         {
-            rend.material.color = GameManager.gameManager.nodeHoverColor;
+            GetComponent<Renderer>().material.color = GameManager.gameManager.nodeHoverColor;
         }
+    }
+
+    public void BuildTower(GameObject towerPrefab)
+    {
+        tower = Instantiate(towerPrefab, transform.position + GameManager.gameManager.towerPosition, new Quaternion());
+    }
+
+    public void SetLevelTower(int level)
+    {
+        levelTower = level;
+    }
+
+    public int GetLevelTower()
+    {
+        return levelTower;
+    }
+
+    public void SetTower(GameObject towerPrefab)
+    {
+        tower = towerPrefab;
+    }
+
+    public GameObject GetTower()
+    {
+        return tower;
     }
 }
