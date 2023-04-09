@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 
     public Color nodeColor;
     public Color nodeHoverColor;
-    public TurretBlueprint[] towerListMenu;
+    public TurretBlueprint[] towersList;
 
     private RadialMenu radialMenu;
     private bool radialMenuHasOpen = false;

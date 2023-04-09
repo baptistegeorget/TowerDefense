@@ -4,14 +4,12 @@ using DG.Tweening;
 
 public class RadialMenu : MonoBehaviour
 {
-    private TurretBlueprint[] listTurret;
     private GameObject entryPrefab;
     private float radius;
     private List<RadialMenuEntry> entries;
 
     private void Start()
     {
-        listTurret = GameManager.gameManager.towerListMenu;
         entries = new List<RadialMenuEntry>();
         radius = 200;
     }
@@ -30,11 +28,11 @@ public class RadialMenu : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log(listTurret.Length);
-        for (int i = 0; i < listTurret.Length; i++)
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
         {
-            AddEntry(listTurret[i].prices[0].ToString(), listTurret[i].icons[0], listTurret[i].towersPrefabs[0]);
+            AddEntry(GameManager.gameManager.towersList[i].prices[0].ToString(), GameManager.gameManager.towersList[i].icons[0], GameManager.gameManager.towersList[i].towersPrefabs[0]);
         }
+        Debug.Log(entries.Count);
         PlaceUI();
     }
 

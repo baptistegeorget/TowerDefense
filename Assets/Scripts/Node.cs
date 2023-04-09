@@ -3,16 +3,12 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     private int levelTower = 0;
-    private Color color;
-    private Color hoverColor;
     private Renderer rend;
 
     private void Start()
     {
-        color = GameManager.gameManager.nodeColor;
-        hoverColor = GameManager.gameManager.nodeHoverColor;
         rend = GetComponent<Renderer>();
-        rend.material.color = color;
+        rend.material.color = GameManager.gameManager.nodeColor;
     }
 
     private void OnMouseDown()
@@ -28,7 +24,7 @@ public class Node : MonoBehaviour
     {
         if (!GameManager.gameManager.GetRadialMenuHasOpen())
         {
-            rend.material.color = color;
+            rend.material.color = GameManager.gameManager.nodeColor;
         }
     }
 
@@ -36,7 +32,7 @@ public class Node : MonoBehaviour
     {
         if (!GameManager.gameManager.GetRadialMenuHasOpen())
         {
-            rend.material.color = hoverColor;
+            rend.material.color = GameManager.gameManager.nodeHoverColor;
         }
     }
 }

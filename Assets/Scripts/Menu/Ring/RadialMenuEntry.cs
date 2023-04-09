@@ -7,10 +7,9 @@ using DG.Tweening;
 public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public delegate void RingMenuEntryDelegete(RadialMenuEntry entry);
-    public RadialMenu radialmenu;
     public TextMeshProUGUI label;
     public RawImage icon;
-    public  GameObject prefab;
+    public GameObject prefab;
 
     private RectTransform rect;
     
@@ -22,7 +21,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerClick(PointerEventData eventData)
     {
         BuildManager.BuildTurret(prefab, label.text);
-        radialmenu.Close();
+        GameManager.gameManager.GetRadialMenu().Close();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
