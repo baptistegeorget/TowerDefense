@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3901346229272918436}
   m_Layer: 0
   m_Name: Arcane 1
-  m_TagString: Untagged
+  m_TagString: Arcane1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

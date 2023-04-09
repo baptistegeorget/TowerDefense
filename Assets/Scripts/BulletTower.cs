@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Linq;
 
-public class MachineGun: MonoBehaviour
+public class BulletTower: MonoBehaviour
 {
-    public int level;
     public float range;
     public float fireRate;
     public float damage;

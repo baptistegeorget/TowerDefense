@@ -20,6 +20,24 @@ TagManager:
   - Serpent
   - Tank
   - Victime
+  - Mitrailleuse1
+  - Mitrailleuse2
+  - Mitrailleuse3
+  - Arcane1
+  - Arcane2
+  - Arcane3
+  - Boost1
+  - Boost2
+  - Boost3
+  - Tesla1
+  - Tesla2
+  - Tesla3
+  - Arbalete1
+  - Arbalete2
+  - Arbalete3
+  - Mortier1
+  - Mortier2
+  - Mortier3
   layers:
   - Default
   - TransparentFX

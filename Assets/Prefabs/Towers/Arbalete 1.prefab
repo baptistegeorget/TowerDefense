@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6564683725890726767}
   m_Layer: 0
   m_Name: Arbalete 1
-  m_TagString: Untagged
+  m_TagString: Arbalete1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

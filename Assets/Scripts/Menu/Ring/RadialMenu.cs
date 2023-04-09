@@ -26,7 +26,7 @@ public class RadialMenu : MonoBehaviour
         } 
         else
         {
-            OpenUpdateMenu();
+            OpenUpgradeMenu();
         }
     }
 
@@ -41,7 +41,7 @@ public class RadialMenu : MonoBehaviour
         PlaceUI();
     }
 
-    private void OpenUpdateMenu()
+    private void OpenUpgradeMenu()
     {
         radialMenuHasOpen = true;
         AddCancelButton();
@@ -129,13 +129,33 @@ public class RadialMenu : MonoBehaviour
 
     private GameObject FindUpgradePrefab()
     {
-        // a faire
-        return null;
+        GameObject upgradePrefab = null;
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
+        {
+            for (int j = 0; j < GameManager.gameManager.towersList[i].towersPrefabs.Length; j++)
+            {
+                if (GameManager.gameManager.towersList[i].towersPrefabs[j].tag == Node.selectedNode.GetTower().tag)
+                {
+                    upgradePrefab = GameManager.gameManager.towersList[i].towersPrefabs[j + 1];
+                }
+            }
+        }
+        return upgradePrefab;
     }
 
     private string FindUpgradePrice()
     {
-        //a faire
-        return "0";
+        int upgradePrice = 0;
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
+        {
+            for (int j = 0; j < GameManager.gameManager.towersList[i].towersPrefabs.Length; j++)
+            {
+                if (GameManager.gameManager.towersList[i].towersPrefabs[j].tag == Node.selectedNode.GetTower().tag)
+                {
+                    upgradePrice = GameManager.gameManager.towersList[i].prices[j + 1];
+                }
+            }
+        }
+        return upgradePrice.ToString();
     }
 }

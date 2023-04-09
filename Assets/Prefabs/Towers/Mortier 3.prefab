@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4614977279399961389}
   m_Layer: 0
   m_Name: Mortier 3
-  m_TagString: Untagged
+  m_TagString: Mortier3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
