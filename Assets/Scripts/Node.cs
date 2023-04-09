@@ -17,16 +17,16 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GameManager.gameManager.radialMenuHasOpen)
+        if (!GameManager.gameManager.GetRadialMenuHasOpen())
         {
-            GameManager.gameManager.radialMenuHasOpen = true;
-            //GameManager.gameManager.radialMenu.Toggle(levelTower);
+            GameManager.gameManager.SetRadialMenuHasOpen(true);
+            GameManager.gameManager.GetRadialMenu().Toggle(levelTower);
         }
     }
 
     private void OnMouseExit()
     {
-        if (!GameManager.gameManager.radialMenuHasOpen)
+        if (!GameManager.gameManager.GetRadialMenuHasOpen())
         {
             rend.material.color = color;
         }
@@ -34,7 +34,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!GameManager.gameManager.radialMenuHasOpen)
+        if (!GameManager.gameManager.GetRadialMenuHasOpen())
         {
             rend.material.color = hoverColor;
         }

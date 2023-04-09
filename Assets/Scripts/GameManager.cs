@@ -6,21 +6,31 @@ public class GameManager : MonoBehaviour
 
     public Color nodeColor;
     public Color nodeHoverColor;
-    public bool radialMenuHasOpen = false;
     public TurretBlueprint[] towerListMenu;
-    //public RadialMenu radialMenu;
+
+    private RadialMenu radialMenu;
+    private bool radialMenuHasOpen = false;
 
     //private Player player = new Player(20, 300);
 
-
-    private void Start()
+    private void Awake()
     {
+        radialMenu = new RadialMenu();
         gameManager = this;
-        //radialMenu = new RadialMenu(towerListMenu);
     }
 
-    private void Update()
+    public bool GetRadialMenuHasOpen()
     {
-        
+        return radialMenuHasOpen;
+    }
+
+    public void SetRadialMenuHasOpen(bool radialMenuHasOpen)
+    {
+        this.radialMenuHasOpen = radialMenuHasOpen;
+    }
+
+    public RadialMenu GetRadialMenu()
+    {
+        return radialMenu;
     }
 }

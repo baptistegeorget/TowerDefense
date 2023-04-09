@@ -6,12 +6,14 @@ public class RadialMenu : MonoBehaviour
 {
     private TurretBlueprint[] listTurret;
     private GameObject entryPrefab;
-    private float radius = 200;
-    private List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
+    private float radius;
+    private List<RadialMenuEntry> entries;
 
-    public RadialMenu(TurretBlueprint[] listTurret)
+    private void Start()
     {
-        this.listTurret = listTurret;
+        listTurret = GameManager.gameManager.towerListMenu;
+        entries = new List<RadialMenuEntry>();
+        radius = 200;
     }
 
     public void Toggle(int levelTower)
@@ -24,22 +26,14 @@ public class RadialMenu : MonoBehaviour
         {
             //Amelioration
         }
-        
-        //if (!menuHasOpen)
-        //{
-        //    Open();
-        //}
-        //else
-        //{
-        //    Close();
-        //}
     }
 
     public void Open()
     {
+        Debug.Log(listTurret.Length);
         for (int i = 0; i < listTurret.Length; i++)
         {
-            AddEntry(listTurret[i].price.ToString(), listTurret[i].icon, listTurret[i].prefab);
+            AddEntry(listTurret[i].prices[0].ToString(), listTurret[i].icons[0], listTurret[i].towersPrefabs[0]);
         }
         PlaceUI();
     }
