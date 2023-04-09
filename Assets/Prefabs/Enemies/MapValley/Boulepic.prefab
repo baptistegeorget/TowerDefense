@@ -209,7 +209,7 @@ MonoBehaviour:
   speed: 1
   health: 10
   resistance: 1
-  money: 0
+  money: 10
   healthbar: {fileID: 9172148827498528474}
 --- !u!1 &2659241289790376228
 GameObject:

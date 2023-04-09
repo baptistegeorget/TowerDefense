@@ -4,6 +4,8 @@ using System.Collections.Generic; // Ajout de cette ligne pour utiliser les list
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner waveSpawner;
+
     public GameObject enemy1;
     public GameObject enemy2;
     public GameObject enemy3;
@@ -27,8 +29,13 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public float timeBetweenWaves = 5.5f;
 
-    private float countdown = 2f;
-    private int waveNumber = 0;
+    public float countdown = 2f;
+    public int waveNumber = 0;
+
+    private void Start()
+    {
+        waveSpawner = this;
+    }
 
     private void Loop(int count, GameObject enemy)
     {
@@ -85,7 +92,6 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveNumber == waves.Length)
         {
-            Debug.Log("BRAVO");
             enabled = false;
         }
     }

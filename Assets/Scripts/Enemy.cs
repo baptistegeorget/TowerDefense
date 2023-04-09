@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     public float speed = 1f;
     public float health = 10f;
     public float resistance = 1f;
-    public float money = 0f;
+    public int money = 0;
     public Image healthbar;
 
     private float startHealth;
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        GameManager.gameManager.players[0].money += money;
         Destroy(gameObject);
         WaveSpawner.EnemiesAlives--;
     }
