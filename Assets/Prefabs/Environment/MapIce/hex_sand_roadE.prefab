@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7646979785247356370}
   - component: {fileID: 6750997048814598775}
   - component: {fileID: 8814858686806429373}
-  - component: {fileID: 1693451718100844284}
   m_Layer: 0
   m_Name: hex_sand_roadE
   m_TagString: Untagged
@@ -85,16 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1693451718100844284
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7013326408943578984}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.000002, y: 1, z: 2.3094}
-  m_Center: {x: -0.0000009536743, y: 0.5, z: 0.00000071525574}

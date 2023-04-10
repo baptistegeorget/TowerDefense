@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         life.text = players[0].pv.ToString();
         money.text = players[0].money.ToString();
-        waveCount.text = WaveSpawner.waveSpawner.GetWaveNumber().ToString() + "/" + waves.Length.ToString();
+        waveCount.text = WaveCount().ToString() + "/" + waves.Length.ToString();
         waveTimer.text = Countdown().ToString();
         if (players[0].pv == 0)
         {
@@ -65,6 +65,18 @@ public class GameManager : MonoBehaviour
         else
         {
             return Mathf.Round(WaveSpawner.waveSpawner.GetCountdown());
+        }
+    }
+
+    private int WaveCount()
+    {
+        if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length)
+        {
+            return waves.Length;
+        }
+        else
+        {
+            return WaveSpawner.waveSpawner.GetWaveNumber() + 1;
         }
     }
 }

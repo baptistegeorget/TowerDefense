@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2860371384743835561}
   m_Layer: 0
   m_Name: Invocateur
-  m_TagString: Untagged
+  m_TagString: Invocateur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

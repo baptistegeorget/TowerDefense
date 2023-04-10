@@ -861,7 +861,7 @@ GameObject:
   - component: {fileID: 1242459334941028683}
   m_Layer: 0
   m_Name: Centaure
-  m_TagString: Untagged
+  m_TagString: Centaure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

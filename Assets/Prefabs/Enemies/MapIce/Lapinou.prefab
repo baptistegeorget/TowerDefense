@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 1972267638603629466}
   m_Layer: 0
   m_Name: Lapinou
-  m_TagString: Untagged
+  m_TagString: Lapinou
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

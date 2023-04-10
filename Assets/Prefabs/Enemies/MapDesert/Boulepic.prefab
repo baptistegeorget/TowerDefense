@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 2720855943372223058}
   m_Layer: 0
   m_Name: Boulepic
-  m_TagString: Untagged
+  m_TagString: Boulepic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
