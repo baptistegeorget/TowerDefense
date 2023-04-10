@@ -10,6 +10,7 @@ public class RadialMenu : MonoBehaviour
     public GameObject radialItem;
     public Texture deleteIcon;
     public Texture upgradeIcon;
+    public Texture cancelIcon;
     public Texture transparent;
 
     private List<RadialMenuEntry> radialsItems = new List<RadialMenuEntry>();
@@ -89,7 +90,7 @@ public class RadialMenu : MonoBehaviour
     {
         GameObject cancelButton = Instantiate(radialItem, transform);
         RadialMenuEntry cancelButtonScript = cancelButton.GetComponent<RadialMenuEntry>();
-        cancelButtonScript.icon.texture = null;
+        cancelButtonScript.icon.texture = cancelIcon;
         cancelButtonScript.label.text = "Cancel";
         cancelButtonScript.cancelButton = true;
         radialsItems.Add(cancelButtonScript);
