@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 10
+  health: 100
   resistance: 1
   money: 10
   healthbar: {fileID: 5708681251746682930}

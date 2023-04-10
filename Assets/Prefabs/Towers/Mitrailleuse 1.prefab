@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2827896424291289267}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,6 +215,25 @@ MonoBehaviour:
   range: 5
   fireRate: 4
   damage: 1
-  firePoint: {fileID: 2827896424291289267}
+  bulletSpeed: 10
+  bulletEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  firePoints:
+  - {fileID: 2827896424291289267}
   bulletPrefab: {fileID: 6133813749790203860, guid: 85010c02f33a18c46a8e4372c6af3260, type: 3}
   partToRotate: {fileID: 3052820099537294176}
+  enemiesTags:
+  - Boulepic
+  - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime

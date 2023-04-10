@@ -16,19 +16,15 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     private void Update()
     {
-        //int price;
-        //int.TryParse(label.text, out price);
+        if (!deleteButton && !cancelButton && System.Convert.ToInt32(label.text) > GameManager.gameManager.players[0].money)
+        {
+            label.color = Color.red;
+        }
+        else
+        {
+            label.color = Color.white;
 
-        //if (optionDelete == false && price > Player.money)
-        //{
-        //    label.color = Color.red;
-        //    //label.thi
-        //}
-        //else
-        //{
-        //    label.color = colorLabelBase;
-
-        //}
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
