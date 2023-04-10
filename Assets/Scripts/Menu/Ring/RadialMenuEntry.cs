@@ -23,7 +23,6 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
         else
         {
             label.color = Color.white;
-
         }
     }
 
@@ -40,7 +39,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
         {
             RadialMenu.radialMenu.Close();
         }
-        else if (upgradeButton)
+        else if (upgradeButton && GameManager.gameManager.players[0].money >= System.Convert.ToInt32(label.text))
         {
             Destroy(Node.selectedNode.GetTower());
             Node.selectedNode.SetTower(null);
