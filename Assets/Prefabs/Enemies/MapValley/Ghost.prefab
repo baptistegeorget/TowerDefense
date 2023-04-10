@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.85
-  health: 360
+  health: 350
   resistance: 1
   healthbar: {fileID: 6688937808664748158}
 --- !u!114 &-364682280485979229

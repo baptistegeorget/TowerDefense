@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 135
+  health: 105
   resistance: 1
   healthbar: {fileID: 4091654193511710038}
 --- !u!114 &-8130718743923302113

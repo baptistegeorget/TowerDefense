@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         startHealth = health;
-        money = (int)Mathf.Round(health * 0.2f);
+        money = (int)Mathf.Round(health * 0.18f);
     }
 
     void Update()

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 6
   fireRate: 1
-  damage: 6
+  damage: 7
   bulletSpeed: 9
   bulletEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   firePoints:

@@ -385,9 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 10
+  health: 16
   resistance: 1
-  money: 0
   healthbar: {fileID: 2483011503271547500}
 --- !u!114 &5509455304003189780
 MonoBehaviour:

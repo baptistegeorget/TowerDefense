@@ -19,6 +19,9 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.gameManager.players[0].pv == 0) {
+            enabled = false;
+        }
         if (enemiesAlives > 0)
         {
             return;
@@ -35,21 +38,21 @@ public class WaveSpawner : MonoBehaviour
     private void AddEnemies(Wave wave)
     {
         listEnemy = new List<GameObject>();
-        AddEnemy(wave.enemy1Count, GameManager.gameManager.enemy1);
-        AddEnemy(wave.enemy2Count, GameManager.gameManager.enemy2);
-        AddEnemy(wave.enemy3Count, GameManager.gameManager.enemy3);
-        AddEnemy(wave.enemy4Count, GameManager.gameManager.enemy4);
-        AddEnemy(wave.enemy5Count, GameManager.gameManager.enemy5);
-        AddEnemy(wave.enemy6Count, GameManager.gameManager.enemy6);
-        AddEnemy(wave.enemy7Count, GameManager.gameManager.enemy7);
-        AddEnemy(wave.enemy8Count, GameManager.gameManager.enemy8);
-        AddEnemy(wave.enemy9Count, GameManager.gameManager.enemy9);
-        AddEnemy(wave.enemy10Count, GameManager.gameManager.enemy10);
-        AddEnemy(wave.enemy11Count, GameManager.gameManager.enemy11);
-        AddEnemy(wave.enemy12Count, GameManager.gameManager.enemy12);
-        AddEnemy(wave.enemy13Count, GameManager.gameManager.enemy13);
-        AddEnemy(wave.enemy14Count, GameManager.gameManager.enemy14);
-        AddEnemy(wave.enemy15Count, GameManager.gameManager.enemy15);
+        AddEnemy(wave.BoulepicCount, GameManager.gameManager.Boulepic);
+        AddEnemy(wave.SerpentCount, GameManager.gameManager.Serpent);
+        AddEnemy(wave.TankCount, GameManager.gameManager.Tank);
+        AddEnemy(wave.BatCount, GameManager.gameManager.Bat);
+        AddEnemy(wave.HealerCount, GameManager.gameManager.Healer);
+        AddEnemy(wave.GhostCount, GameManager.gameManager.Ghost);
+        AddEnemy(wave.DragonCount, GameManager.gameManager.Dragon);
+        AddEnemy(wave.RainetteCount, GameManager.gameManager.Rainette);
+        AddEnemy(wave.InvocateurCount, GameManager.gameManager.Invocateur);
+        AddEnemy(wave.NinjaCount, GameManager.gameManager.Ninja);
+        AddEnemy(wave.CentaureCount, GameManager.gameManager.Centaure);
+        AddEnemy(wave.LapinouCount, GameManager.gameManager.Lapinou);
+        AddEnemy(wave.ChamanCount, GameManager.gameManager.Chaman);
+        AddEnemy(wave.SlimeCount, GameManager.gameManager.Slime);
+        AddEnemy(wave.VictimeCount, GameManager.gameManager.Victime);
     }
 
     private void AddEnemy(int count, GameObject enemy)
