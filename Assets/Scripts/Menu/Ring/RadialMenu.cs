@@ -4,72 +4,158 @@ using DG.Tweening;
 
 public class RadialMenu : MonoBehaviour
 {
-    public static Node node;
+    public static RadialMenu radialMenu;
+    public static bool radialMenuHasOpen = false;
 
-    public TurretBlueprint[] listTurret;
-    public GameObject entryPrefab;
+    public GameObject radialItem;
+    public Texture deleteIcon;
+    public Texture upgradeIcon;
 
-    private float radius = 200;
-    private List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
+    private List<RadialMenuEntry> radialsItems = new List<RadialMenuEntry>();
 
-    public void Toggle(Node _node)
+    private void Start()
     {
-        if (entries.Count == 0)
+        radialMenu = this;
+    }
+
+    public void Toggle()
+    {
+        if (Node.selectedNode.GetLevelTower() == 0)
         {
-            node = _node;
-            Open();
-        }
+            OpenBuildMenu();
+        } 
         else
         {
-            Close();
+            OpenUpgradeMenu();
         }
     }
 
-    public void Open()
+    private void OpenBuildMenu()
     {
-        for (int i = 0; i < listTurret.Length; i++)
+        radialMenuHasOpen = true;
+        AddCancelButton();
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
         {
-            AddEntry(listTurret[i].price.ToString(), listTurret[i].icon, listTurret[i].prefab);
+            AddTowerButton(GameManager.gameManager.towersList[i].towersPrefabs[0], GameManager.gameManager.towersList[i].icons[0], GameManager.gameManager.towersList[i].prices[0].ToString());
         }
         PlaceUI();
     }
 
+    private void OpenUpgradeMenu()
+    {
+        radialMenuHasOpen = true;
+        AddCancelButton();
+        AddDeleteButton();
+        if (Node.selectedNode.GetLevelTower() < 3)
+        {
+            AddUpgradeButton();
+        }
+        PlaceUI();
+    }
+
+    private void AddTowerButton(GameObject prefab, Texture texture, string text)
+    {
+        GameObject towerButton = Instantiate(radialItem, transform);
+        RadialMenuEntry towerButtonScript = towerButton.GetComponent<RadialMenuEntry>();
+        towerButtonScript.prefab = prefab;
+        towerButtonScript.icon.texture = texture;
+        towerButtonScript.label.text = text;
+        radialsItems.Add(towerButtonScript);
+    }
+
+    private void AddDeleteButton()
+    {
+        GameObject deleteButton = Instantiate(radialItem, transform);
+        RadialMenuEntry deleteButtonScript = deleteButton.GetComponent<RadialMenuEntry>();
+        deleteButtonScript.icon.texture = deleteIcon;
+        deleteButtonScript.label.text = "Delete";
+        deleteButtonScript.deleteButton = true;
+        radialsItems.Add(deleteButtonScript);
+    }
+
+    private void AddUpgradeButton()
+    {
+        GameObject updateButton = Instantiate(radialItem, transform);
+        RadialMenuEntry updateButtonScript = updateButton.GetComponent<RadialMenuEntry>();
+        updateButtonScript.prefab = FindUpgradePrefab();
+        updateButtonScript.icon.texture = upgradeIcon;
+        updateButtonScript.label.text = FindUpgradePrice();
+        updateButtonScript.upgradeButton = true;
+        radialsItems.Add(updateButtonScript);
+    }
+
+    private void AddCancelButton()
+    {
+        GameObject cancelButton = Instantiate(radialItem, transform);
+        RadialMenuEntry cancelButtonScript = cancelButton.GetComponent<RadialMenuEntry>();
+        cancelButtonScript.icon.texture = null;
+        cancelButtonScript.label.text = "Cancel";
+        cancelButtonScript.cancelButton = true;
+        radialsItems.Add(cancelButtonScript);
+    }
+
     public void Close()
     {
-        for (int i = 0; i < entries.Count; i++)
+        // Erreur DOTween à régler ici
+        for (int i = 0; i < radialsItems.Count; i++)
         {
-            RectTransform rect = entries[i].GetComponent<RectTransform>();
-            GameObject entry = entries[i].gameObject;
+            RectTransform rect = radialsItems[i].GetComponent<RectTransform>();
+            GameObject entry = radialsItems[i].gameObject;
             rect.DOAnchorPos(Vector3.zero, 0.3f).SetEase(Ease.OutQuad).onComplete =
                 delegate ()
                 {
                     Destroy(entry);
                 };
         }
-        entries.Clear();
+        radialsItems.Clear();
+        Node.selectedNode.GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+        Node.selectedNode = null;
+        radialMenuHasOpen = false;
     }
 
-    void AddEntry(string label, Texture icon, GameObject prefab)
+    private void PlaceUI()
     {
-        GameObject entry = Instantiate(entryPrefab, transform);
-        RadialMenuEntry rme = entry.GetComponent<RadialMenuEntry>();
-        rme.prefab = prefab;
-        rme.icon.texture = icon;
-        rme.label.text = label;
-        entries.Add(rme);
-    }
-
-    void PlaceUI()
-    {
-        float radiansOfSeparation = (Mathf.PI * 2) / entries.Count;
-        for (int i = 0; i < entries.Count; i++)
+        float radiansOfSeparation = (Mathf.PI * 2) / radialsItems.Count;
+        for (int i = 0; i < radialsItems.Count; i++)
         {
-            float x = Mathf.Sin(radiansOfSeparation * i) * radius;
-            float y = Mathf.Cos(radiansOfSeparation * i) * radius;
-            RectTransform rect = entries[i].GetComponent<RectTransform>();
+            float x = Mathf.Sin(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
+            float y = Mathf.Cos(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
+            RectTransform rect = radialsItems[i].GetComponent<RectTransform>();
             rect.localScale = Vector3.zero;
             rect.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
             rect.DOAnchorPos(new Vector3(x, y, 0), 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);
         }
+    }
+
+    private GameObject FindUpgradePrefab()
+    {
+        GameObject upgradePrefab = null;
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
+        {
+            for (int j = 0; j < GameManager.gameManager.towersList[i].towersPrefabs.Length; j++)
+            {
+                if (GameManager.gameManager.towersList[i].towersPrefabs[j].tag == Node.selectedNode.GetTower().tag)
+                {
+                    upgradePrefab = GameManager.gameManager.towersList[i].towersPrefabs[j + 1];
+                }
+            }
+        }
+        return upgradePrefab;
+    }
+
+    private string FindUpgradePrice()
+    {
+        int upgradePrice = 0;
+        for (int i = 0; i < GameManager.gameManager.towersList.Length; i++)
+        {
+            for (int j = 0; j < GameManager.gameManager.towersList[i].towersPrefabs.Length; j++)
+            {
+                if (GameManager.gameManager.towersList[i].towersPrefabs[j].tag == Node.selectedNode.GetTower().tag)
+                {
+                    upgradePrice = GameManager.gameManager.towersList[i].prices[j + 1];
+                }
+            }
+        }
+        return upgradePrice.ToString();
     }
 }
