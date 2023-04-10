@@ -10,6 +10,7 @@ public class RadialMenu : MonoBehaviour
     public GameObject radialItem;
     public Texture deleteIcon;
     public Texture upgradeIcon;
+    public Texture transparent;
 
     private List<RadialMenuEntry> radialsItems = new List<RadialMenuEntry>();
 
@@ -45,11 +46,11 @@ public class RadialMenu : MonoBehaviour
     {
         radialMenuHasOpen = true;
         AddCancelButton();
-        AddDeleteButton();
         if (Node.selectedNode.GetLevelTower() < 3)
         {
             AddUpgradeButton();
         }
+        AddDeleteButton();
         PlaceUI();
     }
 
