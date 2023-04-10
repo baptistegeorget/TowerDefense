@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 741283690471557274}
   - component: {fileID: 4460333860090414911}
   - component: {fileID: 1874268522147148789}
-  - component: {fileID: 5234775942137547822}
   m_Layer: 0
   m_Name: hex_sand_waterB
   m_TagString: Untagged
@@ -85,16 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5234775942137547822
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72692262746280480}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1.001184, z: 2.3094}
-  m_Center: {x: 0, y: 0.500592, z: 0}

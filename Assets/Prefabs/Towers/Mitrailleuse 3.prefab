@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  fireRate: 4
-  damage: 1
-  bulletSpeed: 10
+  fireRate: 3
+  damage: 2.25
+  bulletSpeed: 9
   bulletEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   firePoints:
   - {fileID: 6733309298815230162}

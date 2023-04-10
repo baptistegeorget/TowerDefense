@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     public float speed = 1f;
     public float health = 10f;
     public float resistance = 1f;
-    public int money = 0;
+    private int money;
     public Image healthbar;
 
     private float startHealth;
@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         startHealth = health;
+        money = (int)Mathf.Round(health * 0.2f);
     }
 
     void Update()
