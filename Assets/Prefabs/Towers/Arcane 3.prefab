@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4579952448037510033}
   - component: {fileID: 585637178227020852}
   - component: {fileID: 3441997652138074366}
+  - component: {fileID: 8039573000848788200}
   m_Layer: 0
   m_Name: Arcane 3
   m_TagString: Arcane3
@@ -83,3 +84,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8039573000848788200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802325411682353451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062e7f2affca5cb4885012bb8a638537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  fireRate: 0
+  damage: 0
+  bulletSpeed: 0
+  bulletEffect: {fileID: 0}
+  firePoints: []
+  bulletPrefab: {fileID: 0}
+  partToRotate: {fileID: 0}
+  enemiesTags:
+  - Boulepic
+  - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime

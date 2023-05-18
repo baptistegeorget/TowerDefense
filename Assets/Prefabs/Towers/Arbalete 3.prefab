@@ -100,7 +100,7 @@ MonoBehaviour:
   range: 6.5
   fireRate: 0.85
   damage: 25
-  bulletSpeed: 9
+  bulletSpeed: 25
   bulletEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   firePoints:
   - {fileID: 1077066187960845376}
