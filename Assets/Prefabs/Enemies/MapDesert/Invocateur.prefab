@@ -167,10 +167,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afd5f37f2493b4297defd2cfb06229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.85
   health: 110
   resistance: 1
   healthbar: {fileID: 4543372924100608579}
+  enemiesTags:
+  - Boulepic
+  - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime
+  chamanResistance: 1.15
+  lapinouSpeed: 1.2
+  healerPowerInterval: 1
+  healerHeal: 2
+  enemy1: {fileID: 8876617969303641880, guid: b703a96a4f86f89428f383b574a960a9, type: 3}
+  enemy2: {fileID: 3245158338868137370, guid: 4053aafa55a9b0c45962576d177bf51e, type: 3}
+  enemy3: {fileID: 1128805262466465804, guid: 31003b960382e9e48a0b4b9bb83a08da, type: 3}
 --- !u!114 &3739297861229760316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfac47a1e56defb40ba2488155b24b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  waypointIndex: 0
 --- !u!1 &1871166425835188735
 GameObject:
   m_ObjectHideFlags: 0
