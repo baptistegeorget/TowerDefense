@@ -4,25 +4,32 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public string LevelToload = "MenuSelector";
+    public string play = "MenuGameSelector";
+    public string option = "MenuOption";
+    public string returnMenu = "MenuMain";
 
     public SceneFader sceneFader;
 
 
     public void Play()
     {
-        sceneFader.FadeTo(LevelToload);
+        sceneFader.FadeTo(play);
     }
 
     public void Option()
     {
-        Debug.Log("Menu Option");
+        sceneFader.FadeTo(option);
+    }
+
+    public void Return()
+    {
+        sceneFader.FadeTo(returnMenu);
     }
 
     public void Quit()
     {
-        Debug.Log("Le jeu est quité");
-        // ne fonctionera pas sur l'éditeur
+        Debug.Log("Le jeu est quitï¿½");
+        // ne fonctionera pas sur l'ï¿½diteur
         Application.Quit();
     }
 }

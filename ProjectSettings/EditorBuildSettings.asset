@@ -9,8 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: eec38d801b1e0934c8defc1df9fc9387
   - enabled: 1
-    path: Assets/Scenes/Menu/MenuSelector.unity
+    path: Assets/Scenes/Menu/MenuOption.unity
+    guid: be74f0cc1e33d954ca731701321a7edd
+  - enabled: 1
+    path: Assets/Scenes/Menu/MenuSelectDificuty.unity
+    guid: c9fa6eb9e1ab0d84ab5616b9106d80aa
+  - enabled: 1
+    path: Assets/Scenes/Menu/SelecLevels/MenuSelectorExpert.unity
     guid: 6651a1cba6a60504389c4e142edf0bb4
+  - enabled: 1
+    path: Assets/Scenes/Menu/SelecLevels/MenuSelectorDebutant.unity
+    guid: bdf6779e460b5ae409615d12ee7c9b5f
+  - enabled: 1
+    path: Assets/Scenes/Menu/SelecLevels/MenuSelectorIntermediaire.unity
+    guid: c58e2ef6960414b4996c3dac8afeb7eb
   - enabled: 1
     path: Assets/Scenes/MapValley/Level 1.unity
     guid: 6bfe487809384cf45a26deda0162316e
