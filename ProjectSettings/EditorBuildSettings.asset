@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: eec38d801b1e0934c8defc1df9fc9387
   - enabled: 1
-    path: Assets/Scenes/Menu/MenuSelector.unity
+    path: Assets/Scenes/Menu/MenuPause.unity
     guid: 6651a1cba6a60504389c4e142edf0bb4
   - enabled: 1
     path: Assets/Scenes/MapValley/Level 1.unity
