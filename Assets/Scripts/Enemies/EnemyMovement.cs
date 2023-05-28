@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
-        target = Waypoints.waypoints[0];
+        target = Waypoints.waypoints[waypointIndex];
     }
 
     private void Update()
@@ -35,6 +35,26 @@ public class EnemyMovement : MonoBehaviour
         }
         waypointIndex++;
         target = Waypoints.waypoints[waypointIndex];
+    }
+
+    public void SetWaypoint(int index)
+    {
+        this.waypointIndex = index;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
+    public int GetWaypoint()
+    {
+        return this.waypointIndex;
+    }
+
+    public Transform GetTarget()
+    {
+        return this.target;
     }
 
     private void Move()

@@ -490,6 +490,28 @@ MonoBehaviour:
   health: 160
   resistance: 1
   healthbar: {fileID: 387372855280310311}
+  enemiesTags:
+  - Boulepic
+  - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime
+  chamanPowerInterval: 5
+  chamanResistance: 1.1
+  lapinouPowerInterval: 1
+  lapinouSpeed: 1.25
+  healerPowerInterval: 1
+  healerHeal: 2
 --- !u!114 &3742937171941965297
 MonoBehaviour:
   m_ObjectHideFlags: 0

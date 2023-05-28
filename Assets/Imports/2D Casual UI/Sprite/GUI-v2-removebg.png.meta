@@ -1,0 +1,1279 @@
+fileFormatVersion: 2
+guid: 910cb235f13233e4e83b64fe44d401b8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUI-v2-removebg_0
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 1518
+        width: 170
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b0778da0b55f84c9e2fac0dc986e2a
+      internalID: -2133815315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_1
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1548
+        width: 196
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0d4c7022af06549a599d410adb2e79
+      internalID: 279091282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_2
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 1548
+        width: 197
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed3867ce5d707a4781935362da7bcd8
+      internalID: 70538824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_3
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 1744
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925a7b8d6189ec34392b84288308957d
+      internalID: -11176932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1607
+        width: 109
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31225f5def92fa44484d5ff42ebc382b
+      internalID: -774717345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1620
+        width: 265
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e2a60d24862de4fb2d65a2184f09fd
+      internalID: -266858135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_6
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1518
+        width: 167
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a49cadb1463ac84fa7745d5464aaa50
+      internalID: -1241552716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_7
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 1518
+        width: 163
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b619c55f8728df489e28ffd63928f0c
+      internalID: -1817758576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_8
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1462
+        width: 814
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8487dfba2299184d971813ead225bbe
+      internalID: 1838601622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_9
+      rect:
+        serializedVersion: 2
+        x: 2195
+        y: 1481
+        width: 719
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d515def1965ec40a219174ed5f8550
+      internalID: 1824148564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_10
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1518
+        width: 123
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4e4a74732f8934092007e4d6ac27d6
+      internalID: 2085207629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_11
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1472
+        width: 377
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0fb50f58ee53df41bd986049499544d
+      internalID: -1830822974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_12
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1334
+        width: 184
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c9193de47be0d459e6b9bd2dd0488e
+      internalID: -401954625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_13
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1325
+        width: 183
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8feb0fe6ec28b9e4591b600ff1baba33
+      internalID: 1770138064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_14
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1322
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3ed576e5c7c8a4a90beb659cf07974
+      internalID: 2110401466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_15
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 570
+        width: 1326
+        height: 857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3346d54492ae04a8e03162dec61f63
+      internalID: -1173022910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_16
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 683
+        width: 583
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e825e04142a2242a0311524af691c0
+      internalID: 1267040269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1125
+        width: 186
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d7092cda0fb114da9045a1484d81de
+      internalID: -1035840793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_18
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 1125
+        width: 183
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c443bbf5720bc994983a88f549844a59
+      internalID: 527185834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_19
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1125
+        width: 153
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5845eea55117e4f88f42804d8228ec
+      internalID: 752289692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 989
+        width: 110
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007d1eec352ebcd49b2c9ef7d4998db7
+      internalID: -709494277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_21
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 982
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d40f45808eea84ebf2256457e48c49
+      internalID: 88998083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_22
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 982
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808410b2f8d7d104ca53ee1c0beb0209
+      internalID: 693173915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_23
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 988
+        width: 138
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d70a44988f08a4d8d38d6fc0214e57
+      internalID: 252135584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_24
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 832
+        width: 76
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c71ecf5e73f11e4d8eac9a64d3e0c3b
+      internalID: -1732806685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_25
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 833
+        width: 89
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a05dac2b900bc4f8e5c80b1ab6b800
+      internalID: 1036077831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_26
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 836
+        width: 130
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072b51294c3fef84bb47f73ebdb2ebc1
+      internalID: 876700040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_27
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 839
+        width: 117
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610937180fa785749b6d093527546b76
+      internalID: -895936751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_28
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 670
+        width: 57
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8fbf9766033ab4aab03d330aeb0581
+      internalID: 1569804374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_29
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 666
+        width: 140
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3081fea1a3c84ab4dbe4f0d479db777a
+      internalID: 533775715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_30
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 682
+        width: 126
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bd413ec15d4f44784bc9dc601fcf15
+      internalID: -1767269678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_31
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 682
+        width: 130
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d5728a02f93514d964d0072d7a2a5f
+      internalID: 1803902942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_32
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 529
+        width: 81
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcb00c69d6b48644a647857f1af1d47
+      internalID: -1760346165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_33
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 519
+        width: 103
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b7902f104ae0d44aabdc1bca806d5c
+      internalID: -750031854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_34
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 529
+        width: 128
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b323ef6a7006bae41b0a66b579d300df
+      internalID: 1710102658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_35
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 519
+        width: 130
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3d7f4c607e8374098485bd54845843
+      internalID: 1971303154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_36
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 386
+        width: 563
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b250c5b11ffa04fa46a3b2908f3ea3
+      internalID: 428731177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_37
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 357
+        width: 96
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a35981639486fb488ccb98c7d450574
+      internalID: -1285887798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_38
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 367
+        width: 126
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f895c08a0a058409dfcf717a69213a
+      internalID: 532268976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_39
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 366
+        width: 143
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c897d8ea58bb6f744a32b3ae274d21c3
+      internalID: -1385164385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_40
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 359
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f035cb67600f14e9c49611f5476446
+      internalID: 1326343573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_41
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 162
+        width: 1294
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332b5c54873175742a6374b550693353
+      internalID: -415705592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_42
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 183
+        width: 673
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e820157b06f6c5748b3bfe996332bb8a
+      internalID: -1784665448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_43
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 220
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621d9af3087fe284a999cf4ed6b7914a
+      internalID: -1536511247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_44
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 246
+        width: 105
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998ff1d0b2c69164bbb33df1ed56e6a9
+      internalID: -1928111081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_45
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 223
+        width: 120
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ee05f2949d7084fbaf4fd9ff61a9c2
+      internalID: -638460215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_46
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 223
+        width: 124
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d99c5a649b1bb846b53727382bc72c7
+      internalID: -377123720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_47
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 81
+        width: 48
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247e36c13b382174cb54595f16281b97
+      internalID: -551938764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_48
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 73
+        width: 127
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5ee4b261b4b454da611d720f4a53f6
+      internalID: 2049675079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_49
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 73
+        width: 111
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb0bd84e5267d540b7bf7558bc0aef3
+      internalID: 320157982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_50
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 74
+        width: 108
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01b6f4d299725d41a1cf74a5851c8b9
+      internalID: 400364669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-v2-removebg_51
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 14
+        width: 672
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62853e656ccb984fa4e43e9b70c292a
+      internalID: -723538333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GUI-v2-removebg_43: -1536511247
+      GUI-v2-removebg_49: 320157982
+      GUI-v2-removebg_3: -11176932
+      GUI-v2-removebg_5: -266858135
+      GUI-v2-removebg_24: -1732806685
+      GUI-v2-removebg_9: 1824148564
+      GUI-v2-removebg_2: 70538824
+      GUI-v2-removebg_37: -1285887798
+      GUI-v2-removebg_38: 532268976
+      GUI-v2-removebg_35: 1971303154
+      GUI-v2-removebg_51: -723538333
+      GUI-v2-removebg_41: -415705592
+      GUI-v2-removebg_8: 1838601622
+      GUI-v2-removebg_34: 1710102658
+      GUI-v2-removebg_6: -1241552716
+      GUI-v2-removebg_39: -1385164385
+      GUI-v2-removebg_7: -1817758576
+      GUI-v2-removebg_42: -1784665448
+      GUI-v2-removebg_14: 2110401466
+      GUI-v2-removebg_0: -2133815315
+      GUI-v2-removebg_10: 2085207629
+      GUI-v2-removebg_27: -895936751
+      GUI-v2-removebg_18: 527185834
+      GUI-v2-removebg_22: 693173915
+      GUI-v2-removebg_46: -377123720
+      GUI-v2-removebg_4: -774717345
+      GUI-v2-removebg_33: -750031854
+      GUI-v2-removebg_25: 1036077831
+      GUI-v2-removebg_40: 1326343573
+      GUI-v2-removebg_50: 400364669
+      GUI-v2-removebg_26: 876700040
+      GUI-v2-removebg_17: -1035840793
+      GUI-v2-removebg_13: 1770138064
+      GUI-v2-removebg_36: 428731177
+      GUI-v2-removebg_28: 1569804374
+      GUI-v2-removebg_15: -1173022910
+      GUI-v2-removebg_11: -1830822974
+      GUI-v2-removebg_21: 88998083
+      GUI-v2-removebg_20: -709494277
+      GUI-v2-removebg_44: -1928111081
+      GUI-v2-removebg_32: -1760346165
+      GUI-v2-removebg_12: -401954625
+      GUI-v2-removebg_47: -551938764
+      GUI-v2-removebg_19: 752289692
+      GUI-v2-removebg_45: -638460215
+      GUI-v2-removebg_23: 252135584
+      GUI-v2-removebg_16: 1267040269
+      GUI-v2-removebg_30: -1767269678
+      GUI-v2-removebg_29: 533775715
+      GUI-v2-removebg_1: 279091282
+      GUI-v2-removebg_31: 1803902942
+      GUI-v2-removebg_48: 2049675079
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
