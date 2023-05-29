@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7939629008402543235}
   - component: {fileID: 6449402130065751334}
   - component: {fileID: 9107428917054507500}
+  - component: {fileID: -2067837197717947921}
   m_Layer: 0
   m_Name: Boost 3
   m_TagString: Boost3
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7306221957258160185}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 91.94, y: 1, z: 94.12}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -83,3 +84,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2067837197717947921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306221957258160185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ddaa43c0c3ffd4484ef2b610f1e9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 6
+  effect: {fileID: 303765686572201433, guid: aeb2d789aee440f4183331965e4b8b40, type: 3}
+  machineGunDamage: 2
+  machineGunFireRate: 2
+  arcanaDamage: 2
+  teslaDamage: 2
+  crossbowDamage: 2
+  crossbowFireRate: 2
+  mortarDamage: 2
+  mortarFireRate: 2

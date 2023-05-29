@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        startSpeed = speed;
         startHealth = health;
         startSpeed = speed;
         startResistance = resistance;
@@ -54,17 +55,17 @@ public class Enemy : MonoBehaviour
         money = (int)Mathf.Round(health * 0.18f);
     }
 
-    private void Update() // FAIRE BELEK CA CASSE LA CONDITION DU MONSTRE VICTIME
+    private void Update()
     {
-       // freezeTime -= Time.deltaTime;
-       // if (freezeTime > 0)
-       // {
-       //     speed = 0;
-       // }
-       // else
-       // {
-       //     speed = startSpeed;
-       // }
+        freezeTime -= Time.deltaTime;
+        if (freezeTime > 0)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = startSpeed;
+        }
         if (health <= 0f)
         {
             Die();

@@ -40,6 +40,7 @@ public class Node : MonoBehaviour
     public void BuildTower(GameObject towerPrefab)
     {
         tower = Instantiate(towerPrefab, transform.position + new Vector3(0f,1f,0f), new Quaternion());
+        tower.transform.SetParent(GameManager.gameManager.transform.GetChild(3));
     }
 
     public void SetLevelTower(int level)

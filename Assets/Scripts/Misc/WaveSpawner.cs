@@ -93,7 +93,8 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, GameManager.gameManager.spawnPoint.transform.position, GameManager.gameManager.spawnPoint.transform.rotation);
+        GameObject enemyTemp = Instantiate(enemy, GameManager.gameManager.spawnPoint.transform.position, GameManager.gameManager.spawnPoint.transform.rotation);
+        enemyTemp.transform.SetParent(transform);
         yield return new WaitForSeconds(1f/2);
         enemiesAlives++;
     }
