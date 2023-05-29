@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3268819980222864853}
   - component: {fileID: 1941884760727818864}
   - component: {fileID: 4401708637920028346}
-  - component: {fileID: 7822981908187572245}
+  - component: {fileID: 8191547488262260209}
   m_Layer: 0
   m_Name: Crossbow 3
   m_TagString: Crossbow3
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7822981908187572245
+--- !u!114 &8191547488262260209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2744661258292840303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f51eea56263621409dde7711f8109c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d62b120db33367f40944f4bc85c552e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 6.5
-  fireRate: 0.85
-  damage: 25
+  range: 4
+  fireRate: 1
+  damage: 10
   partToRotate: {fileID: 3268819980222864853}
   firePoints:
   - {fileID: 1077066187960845376}
@@ -120,7 +120,7 @@ MonoBehaviour:
   - Tank
   - Victime
   bulletPrefab: {fileID: 4528323387322945887, guid: 59f72c4a85db3a04d87448dbe139eaf5, type: 3}
-  bulletSpeed: 25
+  bulletSpeed: 5
   bulletEffect: {fileID: 2593070317945713414, guid: 847914c56cbd0d94ab9b238b872f7ded, type: 3}
 --- !u!1 &5693032006322594997
 GameObject:

@@ -5,10 +5,13 @@ using System.Collections.Generic;
 public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner waveSpawner;
-    public static int enemiesAlives = 0;
+
+    private int enemiesAlives = 0;
     
     private int waveNumber = 0;
+
     private List<GameObject> listEnemy;
+
     private float countdown;
 
     private void Start()
@@ -19,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.gameManager.players[0].pv == 0) {
+        if (GameManager.gameManager.GetPlayers()[0].GetPv() == 0) {
             enabled = false;
         }
         if (enemiesAlives > 0)
@@ -93,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy(GameObject enemy)
     {
-        GameObject enemyTemp = Instantiate(enemy, GameManager.gameManager.spawnPoint.transform.position, GameManager.gameManager.spawnPoint.transform.rotation);
+        GameObject enemyTemp = Instantiate(enemy, SpawnPoint.spawnPoint.transform.position, SpawnPoint.spawnPoint.transform.rotation);
         enemyTemp.transform.SetParent(transform);
         yield return new WaitForSeconds(1f/2);
         enemiesAlives++;
@@ -107,5 +110,15 @@ public class WaveSpawner : MonoBehaviour
     public float GetCountdown()
     {
         return countdown;
+    }
+
+    public int GetEnemiesAlives()
+    {
+        return enemiesAlives;
+    }
+
+    public void SetEnemiesAlives(int enemiesAlives)
+    {
+        this.enemiesAlives = enemiesAlives;
     }
 }

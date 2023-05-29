@@ -3,7 +3,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform target;
+
     private int waypointIndex = 0;
+
     private Enemy enemy;
 
     private void Start()
@@ -25,10 +27,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (waypointIndex >= Waypoints.waypoints.Length - 1)
         {
-            WaveSpawner.enemiesAlives--;
-            if (GameManager.gameManager.players[0].pv > 0)
+            WaveSpawner.waveSpawner.SetEnemiesAlives(WaveSpawner.waveSpawner.GetEnemiesAlives() - 1);
+            if (GameManager.gameManager.GetPlayers()[0].GetPv() > 0)
             {
-                GameManager.gameManager.players[0].pv--;
+                GameManager.gameManager.GetPlayers()[0].SetPv(GameManager.gameManager.GetPlayers()[0].GetPv() - 1);
             }
             Destroy(gameObject);
             return;
@@ -39,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetWaypoint(int index)
     {
-        this.waypointIndex = index;
+        waypointIndex = index;
     }
 
     public void SetTarget(Transform target)
@@ -49,12 +51,12 @@ public class EnemyMovement : MonoBehaviour
 
     public int GetWaypoint()
     {
-        return this.waypointIndex;
+        return waypointIndex;
     }
 
     public Transform GetTarget()
     {
-        return this.target;
+        return target;
     }
 
     private void Move()
@@ -63,6 +65,6 @@ public class EnemyMovement : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * enemy.GetSpeed() * Time.deltaTime, Space.World);
     }
 }

@@ -205,10 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: {fileID: 6864948909924796346}
   icon: {fileID: 6864948910519496418}
-  prefab: {fileID: 0}
-  deleteButton: 0
-  cancelButton: 0
-  upgradeButton: 0
 --- !u!1 &6864948909924796347
 GameObject:
   m_ObjectHideFlags: 0

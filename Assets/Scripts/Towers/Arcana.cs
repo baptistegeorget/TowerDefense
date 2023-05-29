@@ -24,10 +24,13 @@ public class Arcana : MonoBehaviour
 
     private float timeTarget;
 
+    private float startDamage;
+
     private void Start()
     {
         UpdateTarget();
         lineRenderer = transform.GetComponent<LineRenderer>();
+        startDamage = damage;
     }
 
     private void Update()
@@ -108,6 +111,11 @@ public class Arcana : MonoBehaviour
     public void SetDamage(float damage)
     {
         this.damage = damage;
+    }
+
+    public float GetStartDamage()
+    {
+        return startDamage;
     }
 
     public float GetDamage()

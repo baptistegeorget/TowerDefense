@@ -1,49 +1,74 @@
 using System.Collections;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("stat de chaque ennemi")]
-    public float speed = 1f;
-    public float health = 10f;
-    public float resistance = 1f;
-    private int money;
-    public Image healthbar;
+    [Header("Enemy")]
+    [SerializeField]
+    private float speed = 1f;
 
-    [Header("stockage des stats de base de chaque ennemi")]
+    [SerializeField]
+    private float health = 10f;
+
+    [SerializeField]
+    private float resistance = 1f;
+
+    [SerializeField]
+    private int money;
+
+    [SerializeField]
+    private Image healthbar;
+
+    [Header("Chaman")]
+    [SerializeField]
+    private float chamanResistance = 1.15f;
+
+    [Header("Lapinou")]
+    [SerializeField]
+    private float lapinouSpeed = 1.20f;
+
+    [Header("Healer")]
+    [SerializeField]
+    public float healerPowerInterval = 1;
+
+    [SerializeField]
+    public float healerHeal = 2;
+
+    [Header("Invocateur")]
+    [SerializeField]
+    private float invocateurPowerInterval = 12;
+
+    [SerializeField]
+    private float delayInvocation = 2;
+
+    [SerializeField]
+    public GameObject enemy1;
+
+    [SerializeField]
+    public GameObject enemy2;
+
+    [SerializeField]
+    public GameObject enemy3;
+
     private float startHealth;
+
     private float startSpeed;
+
     private float startResistance;
+
     private float freezeTime;
 
-    [Header("liste des tags des ennemis")]
-    public string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime" };
+    private string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime" };
 
-    [Header("condition du pouvoir de Victime")]
     private bool powerApplied = false;
 
-    [Header("chaman's settings")]
-    public float chamanResistance = 1.15f;
+    private GameObject[] enemyPrefabs;
 
-    [Header("lapinou's settings")]
-    public float lapinouSpeed = 1.20f;
-
-    [Header("healer's settings")]
-    public int healerPowerInterval = 1;
     private float healerPowerTimer = 0f;
-    public int healerHeal = 2;
 
-    [Header("invocateur's settings")]
-    private int invocateurPowerInterval = 12;
-    private float invocateurPowerTimer = 4f;
-    private float delayInvocation = 2;
-    public GameObject enemy1;
-    public GameObject enemy2;
-    public GameObject enemy3;
-    public GameObject[] enemyPrefabs;
+    private float invocateurPowerTimer = 0f;
 
     private void Start()
     {
@@ -75,9 +100,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        GameManager.gameManager.players[0].money += money;
+        GameManager.gameManager.GetPlayers()[0].SetMoney(GameManager.gameManager.GetPlayers()[0].GetMoney() + money);
         Destroy(gameObject);
-        WaveSpawner.enemiesAlives--;
+        WaveSpawner.waveSpawner.SetEnemiesAlives(WaveSpawner.waveSpawner.GetEnemiesAlives() - 1);
     }
 
     public void Damage(float damage)
@@ -91,48 +116,44 @@ public class Enemy : MonoBehaviour
         freezeTime = time;
     }
 
-    private IEnumerator SpawnEnemiesWithDelay(int enemyIndex)
+    private IEnumerator SpawnEnemiesWithDelay()
     {
+        int enemyIndex = 0;
         while (enemyIndex < enemyPrefabs.Length)
         {
             GameObject enemy = Instantiate(enemyPrefabs[enemyIndex], transform.position, transform.rotation);
+            enemy.transform.SetParent(WaveSpawner.waveSpawner.gameObject.transform);
             enemy.GetComponent<EnemyMovement>().SetTarget(GetComponent<EnemyMovement>().GetTarget());
             enemy.GetComponent<EnemyMovement>().SetWaypoint(GetComponent<EnemyMovement>().GetWaypoint());
-
-            WaveSpawner.enemiesAlives++;
-
-            yield return new WaitForSeconds(delayInvocation);
-
+            WaveSpawner.waveSpawner.SetEnemiesAlives(WaveSpawner.waveSpawner.GetEnemiesAlives() + 1);
             enemyIndex++;
+            yield return new WaitForSeconds(delayInvocation);
         }
     }
 
     private void Power()
     {
-        // Récupère tout les ennemis sur le terrain
         GameObject[] enemies = { };
         foreach (string enemyTag in enemiesTags)
         {
             GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
             enemies = enemies.Concat(temp).ToArray();
         }
-        //Récupère le tag de l'ennemi courant
-        //switch -> différents pouvoirs
         switch (gameObject.GetComponent<Enemy>().tag)
         {
             case "Victime":
-                // double sa vitesse quand il arrive à la moitié de sa vie
                 if (!powerApplied)
                 {
                     if (health <= startHealth / 2)
                     {
                         speed *= 2f;
+                        startSpeed *= 2f;
                         powerApplied = !powerApplied;
                     }
                 }
                 break;
+
             case "Chaman":
-                // augmente la résistance de x% aux ennemis se trouvant autour de lui
                 foreach (GameObject enemy in enemies)
                 {
                     float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -147,14 +168,13 @@ public class Enemy : MonoBehaviour
                         }
                     }
                     else
-                    //retour à la résistance de base si l'ennemi sort du cercle d'action
                     {
                         enemy.GetComponent<Enemy>().resistance = enemy.GetComponent<Enemy>().startResistance;
                     }
                 }
                 break;
+
             case "Lapinou":
-                // augmente la vitesse de x% aux ennemis se trouvant autour de lui
                 foreach (GameObject enemy in enemies)
                 {
                     float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -169,29 +189,22 @@ public class Enemy : MonoBehaviour
                         }
                     }
                     else
-                    //retour à la vitesse de base si l'ennemi sort du cercle d'action
                     {
                         enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().startSpeed;
                     }
                 }
                 break;
+
             case "Invocateur":
-                // invoque 3 monstres à la position où il se trouve
                 invocateurPowerTimer += Time.deltaTime;
                 if (invocateurPowerTimer >= invocateurPowerInterval)
                 {
-                    invocateurPowerTimer += Time.deltaTime;
-                    if (invocateurPowerTimer >= invocateurPowerInterval)
-                    {
-                        int enemyIndex = 0;
-                        StartCoroutine(SpawnEnemiesWithDelay(enemyIndex));
-                        invocateurPowerTimer = 0;
-                    }
+                    StartCoroutine(SpawnEnemiesWithDelay());
                     invocateurPowerTimer = 0;
                 }
                 break;
+
             case "Healer":
-                // régénère de x% aux ennemis se trouvant autour de lui
                 healerPowerTimer += Time.deltaTime;
                 if (healerPowerTimer >= healerPowerInterval)
                 {
@@ -219,6 +232,9 @@ public class Enemy : MonoBehaviour
                 break;
         }
     }
-    
-}
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+}

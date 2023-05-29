@@ -37,10 +37,13 @@ public class Tesla : MonoBehaviour
 
     private float fireCountDown;
 
+    private float startDamage;
+
     private void Start()
     {
         fireCountDown = 1 / fireRate;
         lineRenderer = transform.GetComponent<LineRenderer>();
+        startDamage = damage;
     }
 
     private void Update()
@@ -127,7 +130,6 @@ public class Tesla : MonoBehaviour
         for (int i = 0; i < targets.Length; i++)
         {
             targets[i].GetComponent<Enemy>().Damage(damage);
-            targets[i].GetComponent<Enemy>().speed = 0;
             targets[i].GetComponent<Enemy>().Freeze(freezeTime);
             GameObject effect = Instantiate(this.effect, targets[i].position, this.effect.transform.rotation);
             effect.transform.SetParent(transform);
@@ -144,6 +146,11 @@ public class Tesla : MonoBehaviour
     public void SetDamage(float damage)
     {
         this.damage = damage;
+    }
+
+    public float GetStartDamage()
+    {
+        return startDamage;
     }
 
     public float GetDamage()

@@ -65,7 +65,7 @@ public class Boost : MonoBehaviour
             bool remove = true;
             foreach (GameObject target in targets)
             {
-                if (target.transform.position + new Vector3(0f, 0.01f, 0f) == effect.transform.position)
+                if (target.transform.position + new Vector3(0f, 0.02f, 0f) == effect.transform.position)
                 {
                     remove = false;
                 }
@@ -89,7 +89,7 @@ public class Boost : MonoBehaviour
             {
                 targets.Add(tower);
                 BoostTower(tower);
-                GameObject effectTemp = Instantiate(effect, tower.transform.position + new Vector3(0f, 0.01f, 0f), effect.transform.rotation);
+                GameObject effectTemp = Instantiate(effect, tower.transform.position + new Vector3(0f, 0.02f, 0f), effect.transform.rotation);
                 effects.Add(effectTemp);
                 effectTemp.transform.SetParent(transform);
             }
@@ -100,31 +100,31 @@ public class Boost : MonoBehaviour
     {
         if (tower.tag == towerTags[0] || tower.tag == towerTags[1] || tower.tag == towerTags[2])
         {
-            Tower machineGun = tower.GetComponent<Tower>();
-            machineGun.SetDamage(machineGun.GetDamage() * machineGunDamage);
-            machineGun.SetFireRate(machineGun.GetFireRate() * machineGunFireRate);
+            BulletTower machineGun = tower.GetComponent<BulletTower>();
+            machineGun.SetDamage(machineGun.GetDamage() + (machineGun.GetStartDamage() * machineGunDamage - machineGun.GetStartDamage()));
+            machineGun.SetFireRate(machineGun.GetFireRate() + (machineGun.GetStartFireRate() * machineGunFireRate - machineGun.GetStartFireRate()));
         }
         else if(tower.tag == towerTags[3] || tower.tag == towerTags[4] || tower.tag == towerTags[5])
         {
             Arcana arcana = tower.GetComponent<Arcana>();
-            arcana.SetDamage(arcana.GetDamage() * arcanaDamage);
+            arcana.SetDamage(arcana.GetDamage() + (arcana.GetStartDamage() * arcanaDamage - arcana.GetStartDamage()));
         }
         else if (tower.tag == towerTags[6] || tower.tag == towerTags[7] || tower.tag == towerTags[8])
         {
             Tesla tesla = tower.GetComponent<Tesla>();
-            tesla.SetDamage(tesla.GetDamage() * teslaDamage);
+            tesla.SetDamage(tesla.GetDamage() + (tesla.GetStartDamage() * teslaDamage - tesla.GetStartDamage()));
         }
         else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
         {
-            Tower crossbow = tower.GetComponent<Tower>();
-            crossbow.SetDamage(crossbow.GetDamage() * crossbowDamage);
-            crossbow.SetFireRate(crossbow.GetFireRate() * crossbowFireRate);
+            BulletTower crossbow = tower.GetComponent<BulletTower>();
+            crossbow.SetDamage(crossbow.GetDamage() + (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
+            crossbow.SetFireRate(crossbow.GetFireRate() + (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
         }
         else if (tower.tag == towerTags[12] || tower.tag == towerTags[13] || tower.tag == towerTags[14])
         {
             Mortar mortar = tower.GetComponent<Mortar>();
-            mortar.SetFireRate(mortar.GetFireRate() * mortarFireRate);
-            mortar.SetDamage(mortar.GetDamage() * mortarDamage);
+            mortar.SetFireRate(mortar.GetFireRate() + (mortar.GetStartFireRate() * mortarFireRate + mortar.GetStartFireRate()));
+            mortar.SetDamage(mortar.GetDamage() + (mortar.GetStartDamage() * mortarDamage - mortar.GetStartDamage()));
         }
     }
 
@@ -134,31 +134,31 @@ public class Boost : MonoBehaviour
         {
             if (tower.tag == towerTags[0] || tower.tag == towerTags[1] || tower.tag == towerTags[2])
             {
-                Tower machineGun = tower.GetComponent<Tower>();
-                machineGun.SetDamage(machineGun.GetDamage() / machineGunDamage);
-                machineGun.SetFireRate(machineGun.GetFireRate() / machineGunFireRate);
+                BulletTower machineGun = tower.GetComponent<BulletTower>();
+                machineGun.SetDamage(machineGun.GetDamage() - (machineGun.GetStartDamage() * machineGunDamage - machineGun.GetStartDamage()));
+                machineGun.SetFireRate(machineGun.GetFireRate() - (machineGun.GetStartFireRate() * machineGunFireRate - machineGun.GetStartFireRate()));
             }
             else if (tower.tag == towerTags[3] || tower.tag == towerTags[4] || tower.tag == towerTags[5])
             {
                 Arcana arcana = tower.GetComponent<Arcana>();
-                arcana.SetDamage(arcana.GetDamage() / arcanaDamage);
+                arcana.SetDamage(arcana.GetDamage() - (arcana.GetStartDamage() * arcanaDamage - arcana.GetStartDamage()));
             }
             else if (tower.tag == towerTags[6] || tower.tag == towerTags[7] || tower.tag == towerTags[8])
             {
                 Tesla tesla = tower.GetComponent<Tesla>();
-                tesla.SetDamage(tesla.GetDamage() / teslaDamage);
+                tesla.SetDamage(tesla.GetDamage() - (tesla.GetStartDamage() * teslaDamage - tesla.GetStartDamage()));
             }
             else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
             {
-                Tower crossbow = tower.GetComponent<Tower>();
-                crossbow.SetDamage(crossbow.GetDamage() / crossbowDamage);
-                crossbow.SetFireRate(crossbow.GetFireRate() / crossbowFireRate);
+                BulletTower crossbow = tower.GetComponent<BulletTower>();
+                crossbow.SetDamage(crossbow.GetDamage() - (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
+                crossbow.SetFireRate(crossbow.GetFireRate() - (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
             }
             else if (tower.tag == towerTags[12] || tower.tag == towerTags[13] || tower.tag == towerTags[14])
             {
                 Mortar mortar = tower.GetComponent<Mortar>();
-                mortar.SetFireRate(mortar.GetFireRate() / mortarFireRate);
-                mortar.SetDamage(mortar.GetDamage() / mortarDamage);
+                mortar.SetFireRate(mortar.GetFireRate() - (mortar.GetStartFireRate() * mortarFireRate + mortar.GetStartFireRate()));
+                mortar.SetDamage(mortar.GetDamage() - (mortar.GetStartDamage() * mortarDamage - mortar.GetStartDamage()));
             }
         }
     }

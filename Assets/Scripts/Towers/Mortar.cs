@@ -36,9 +36,15 @@ public class Mortar : MonoBehaviour
 
     private float fireCountDown;
 
+    private float startDamage;
+
+    private float startFireRate;
+
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        startDamage = damage;
+        startFireRate = fireRate;
     }
 
     private void Update()
@@ -113,6 +119,16 @@ public class Mortar : MonoBehaviour
     public float GetDamage()
     {
         return damage;
+    }
+
+    public float GetStartFireRate()
+    {
+        return startFireRate;
+    }
+
+    public float GetStartDamage()
+    {
+        return startDamage;
     }
 
     public void SetFireRate(float fireRate)

@@ -2,14 +2,29 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float cameraSpeed = 30f;
-    public float border = 10f;
-    public float zoom = 5f;
-    public float dezoom = 20f;
-    public float top = 20f;
-    public float bottom = 20f;
-    public float left = 20f;
-    public float right = 20f;
+    [SerializeField]
+    private float cameraSpeed = 30f;
+
+    [SerializeField]
+    private float border = 10f;
+
+    [SerializeField]
+    private float zoom = 5f;
+
+    [SerializeField]
+    private float dezoom = 20f;
+
+    [SerializeField]
+    private float top = 20f;
+
+    [SerializeField]
+    private float bottom = 20f;
+
+    [SerializeField]
+    private float left = 20f;
+
+    [SerializeField]
+    private float right = 20f;
 
     private Vector3 startPosition;
 

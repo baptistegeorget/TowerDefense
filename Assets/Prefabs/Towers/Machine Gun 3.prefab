@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1530613658080536576}
   - component: {fileID: 2491069583248549797}
   - component: {fileID: 393776756271584111}
-  - component: {fileID: 4757992510798699872}
+  - component: {fileID: 4993469890249536716}
   m_Layer: 0
   m_Name: Machine Gun 3
   m_TagString: MachineGun3
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4757992510798699872
+--- !u!114 &4993469890249536716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2194948120401425082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f51eea56263621409dde7711f8109c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d62b120db33367f40944f4bc85c552e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  fireRate: 3
-  damage: 2.25
+  range: 4
+  fireRate: 1
+  damage: 10
   partToRotate: {fileID: 782043074582558003}
   firePoints:
   - {fileID: 6733309298815230162}
@@ -122,7 +122,7 @@ MonoBehaviour:
   - Tank
   - Victime
   bulletPrefab: {fileID: 6133813749790203860, guid: 85010c02f33a18c46a8e4372c6af3260, type: 3}
-  bulletSpeed: 9
+  bulletSpeed: 5
   bulletEffect: {fileID: 2593070317945713414, guid: 847914c56cbd0d94ab9b238b872f7ded, type: 3}
 --- !u!1 &3765464007989547791
 GameObject:

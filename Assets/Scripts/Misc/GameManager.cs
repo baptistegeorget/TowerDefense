@@ -5,10 +5,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
-    // Variables à setup dans Unity
-    public GameObject spawnPoint;
-    public PlayerBlueprint[] players;
-    public TowerBlueprint[] towersList;
+    [SerializeField]
+    private Player[] players;
+
+    [SerializeField]
+    private Tower[] towers;
+
     public Color nodeColor;
     public Color nodeHoverColor;
     public int radialMenuRadius;
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI money;
     public TextMeshProUGUI waveTimer;
     public TextMeshProUGUI waveCount;
-    public TextMeshProUGUI endText;
 
     private void Awake()
     {
@@ -42,23 +43,23 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        life.text = players[0].pv.ToString();
-        money.text = players[0].money.ToString();
+        life.text = players[0].GetPv().ToString();
+        money.text = players[0].GetMoney().ToString();
         waveCount.text = WaveCount().ToString() + "/" + waves.Length.ToString();
         waveTimer.text = Countdown().ToString();
-        if (players[0].pv == 0)
+        if (players[0].GetPv() == 0)
         {
-            endText.text = "Game Over";
+            
         }
-        if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length && WaveSpawner.enemiesAlives == 0)
+        if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length && WaveSpawner.waveSpawner.GetEnemiesAlives() == 0)
         {
-            endText.text = "Win";
+            
         }
     }
 
     private float Countdown()
     {
-        if (WaveSpawner.enemiesAlives > 0 || Mathf.Round(WaveSpawner.waveSpawner.GetCountdown()) == timeBetweenWaves)
+        if (WaveSpawner.waveSpawner.GetEnemiesAlives() > 0 || Mathf.Round(WaveSpawner.waveSpawner.GetCountdown()) == timeBetweenWaves)
         {
             return 0f;
         }
@@ -78,5 +79,15 @@ public class GameManager : MonoBehaviour
         {
             return WaveSpawner.waveSpawner.GetWaveNumber() + 1;
         }
+    }
+
+    public Tower[] GetTowers()
+    {
+        return towers;
+    }
+
+    public Player[] GetPlayers()
+    {
+        return players;
     }
 }

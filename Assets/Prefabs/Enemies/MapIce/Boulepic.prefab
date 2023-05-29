@@ -387,7 +387,17 @@ MonoBehaviour:
   speed: 1
   health: 16
   resistance: 1
+  money: 0
   healthbar: {fileID: 2483011503271547500}
+  chamanResistance: 1.15
+  lapinouSpeed: 1.2
+  healerPowerInterval: 1
+  healerHeal: 2
+  invocateurPowerInterval: 12
+  delayInvocation: 2
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
 --- !u!114 &5509455304003189780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,18 +609,6 @@ PrefabInstance:
     - target: {fileID: 9172148826737600555, guid: 3a3027ca07bb5d74eb88387fee69cfe6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0.083
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172148826737600555, guid: 3a3027ca07bb5d74eb88387fee69cfe6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172148826737600555, guid: 3a3027ca07bb5d74eb88387fee69cfe6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172148826737600555, guid: 3a3027ca07bb5d74eb88387fee69cfe6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9172148826737600555, guid: 3a3027ca07bb5d74eb88387fee69cfe6, type: 3}
       propertyPath: m_LocalPosition.x
