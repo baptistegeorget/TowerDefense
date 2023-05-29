@@ -4,17 +4,20 @@ public class Node : MonoBehaviour
 {
     public static Node selectedNode;
 
+    public static bool disable;
     private int levelTower = 0;
     private GameObject tower;
+    
 
     private void Start()
     {
         GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+        disable = false;
     }
 
     private void OnMouseUpAsButton()
     {
-        if (!RadialMenu.radialMenuHasOpen)
+        if (!RadialMenu.radialMenuHasOpen && !disable)
         {
             selectedNode = this;
             RadialMenu.radialMenu.Toggle();
@@ -23,7 +26,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!RadialMenu.radialMenuHasOpen)
+        if (!RadialMenu.radialMenuHasOpen  && !disable)
         {
             GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
         }
@@ -31,7 +34,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (!RadialMenu.radialMenuHasOpen)
+        if (!RadialMenu.radialMenuHasOpen  && !disable)
         {
             GetComponent<Renderer>().material.color = GameManager.gameManager.nodeHoverColor;
         }

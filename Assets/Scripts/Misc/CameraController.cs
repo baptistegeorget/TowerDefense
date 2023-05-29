@@ -10,16 +10,23 @@ public class CameraController : MonoBehaviour
     public float bottom = 20f;
     public float left = 20f;
     public float right = 20f;
+    
+    public static bool cameraLock;
 
     private Vector3 startPosition;
 
     private void Start()
     {
         startPosition = transform.position;
+        cameraLock = false;
     }
-
+    
     void Update()
     {
+        if (cameraLock)
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
         {
             transform.Translate(Vector3.forward * cameraSpeed * Time.deltaTime, Space.World);

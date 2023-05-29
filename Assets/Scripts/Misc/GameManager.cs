@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
-    // Variables à setup dans Unity
+    // Variables ï¿½ setup dans Unity
     public GameObject spawnPoint;
     public PlayerBlueprint[] players;
     public TowerBlueprint[] towersList;
@@ -33,11 +33,18 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI money;
     public TextMeshProUGUI waveTimer;
     public TextMeshProUGUI waveCount;
-    public TextMeshProUGUI endText;
+    public Canvas gameOverCanvas;
+    public Canvas winCanvas;
+    public int nextLevelNumber = 2;
+    public string dificulty = "levelReachedDebutant";
+    
+    
 
     private void Awake()
     {
         gameManager = this;
+        gameOverCanvas.enabled = false;
+        winCanvas.enabled = false;
     }
 
     private void Update()
@@ -48,11 +55,19 @@ public class GameManager : MonoBehaviour
         waveTimer.text = Countdown().ToString();
         if (players[0].pv == 0)
         {
-            endText.text = "Game Over";
+            CameraController.cameraLock = true;
+            gameOverCanvas.enabled = true;
+            Node.disable = true;
+            
+            
         }
         if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length && WaveSpawner.enemiesAlives == 0)
         {
-            endText.text = "Win";
+            PlayerPrefs.SetInt(dificulty, nextLevelNumber);
+            CameraController.cameraLock = true;
+            Node.disable = true;
+            winCanvas.enabled = true;
+
         }
     }
 
