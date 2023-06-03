@@ -5,15 +5,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
+    [Header("Players")]
     [SerializeField]
     private Player[] players;
 
+    [Header("Towers")]
     [SerializeField]
     private Tower[] towers;
 
-    public Color nodeColor;
-    public Color nodeHoverColor;
-    public int radialMenuRadius;
+    [Header("Waves")]
+    [SerializeField]
+    private Wave[] waves;
+    public float timeBetweenWaves;
     public GameObject Boulepic;
     public GameObject Serpent;
     public GameObject Tank;
@@ -29,12 +32,25 @@ public class GameManager : MonoBehaviour
     public GameObject Chaman;
     public GameObject Slime;
     public GameObject Victime;
-    public Wave[] waves;
-    public float timeBetweenWaves;
+
+    [Header("Nodes")]
+    [SerializeField]
+    private Color nodeColor;
+
+    [SerializeField]
+    private Color nodeHoverColor;
+
+    [Header("GUI")]
+    public TextMeshProUGUI waveTimer;
     public TextMeshProUGUI life;
     public TextMeshProUGUI money;
-    public TextMeshProUGUI waveTimer;
     public TextMeshProUGUI waveCount;
+
+    private int radialMenuRadius = 300;
+
+    private float countdown;
+
+    private int waveNumber;
 
     private void Awake()
     {
@@ -45,40 +61,18 @@ public class GameManager : MonoBehaviour
     {
         life.text = players[0].GetPv().ToString();
         money.text = players[0].GetMoney().ToString();
-        waveCount.text = WaveCount().ToString() + "/" + waves.Length.ToString();
-        waveTimer.text = Countdown().ToString();
-        if (players[0].GetPv() == 0)
-        {
-            
-        }
-        if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length && WaveSpawner.waveSpawner.GetEnemiesAlives() == 0)
-        {
-            
-        }
+        waveCount.text = waveNumber + "/" + waves.Length.ToString();
+        waveTimer.text = Mathf.Round(countdown).ToString();
     }
 
-    private float Countdown()
+    public void SetCountdown(float countdown)
     {
-        if (WaveSpawner.waveSpawner.GetEnemiesAlives() > 0 || Mathf.Round(WaveSpawner.waveSpawner.GetCountdown()) == timeBetweenWaves)
-        {
-            return 0f;
-        }
-        else
-        {
-            return Mathf.Round(WaveSpawner.waveSpawner.GetCountdown());
-        }
+        this.countdown = countdown;
     }
 
-    private int WaveCount()
+    public void SetWaveNumber(int waveNumber)
     {
-        if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length)
-        {
-            return waves.Length;
-        }
-        else
-        {
-            return WaveSpawner.waveSpawner.GetWaveNumber() + 1;
-        }
+        this.waveNumber = waveNumber;
     }
 
     public Tower[] GetTowers()
@@ -89,5 +83,25 @@ public class GameManager : MonoBehaviour
     public Player[] GetPlayers()
     {
         return players;
+    }
+
+    public Wave[] GetWaves()
+    {
+        return waves;
+    }
+
+    public Color GetNodeColor()
+    {
+        return nodeColor;
+    }
+
+    public Color GetNodeHoverColor()
+    {
+        return nodeHoverColor;
+    }
+
+    public int GetRadialMenuRadius()
+    {
+        return radialMenuRadius;
     }
 }

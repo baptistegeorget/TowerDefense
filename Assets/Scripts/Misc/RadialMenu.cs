@@ -114,7 +114,7 @@ public class RadialMenu : MonoBehaviour
                 };
         }
         radialsItems.Clear();
-        Node.selectedNode.GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+        Node.selectedNode.GetComponent<Renderer>().material.color = GameManager.gameManager.GetNodeColor();
         Node.selectedNode = null;
         radialMenuHasOpen = false;
     }
@@ -124,8 +124,8 @@ public class RadialMenu : MonoBehaviour
         float radiansOfSeparation = (Mathf.PI * 2) / radialsItems.Count;
         for (int i = 0; i < radialsItems.Count; i++)
         {
-            float x = Mathf.Sin(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
-            float y = Mathf.Cos(radiansOfSeparation * i) * GameManager.gameManager.radialMenuRadius;
+            float x = Mathf.Sin(radiansOfSeparation * i) * GameManager.gameManager.GetRadialMenuRadius();
+            float y = Mathf.Cos(radiansOfSeparation * i) * GameManager.gameManager.GetRadialMenuRadius();
             RectTransform rect = radialsItems[i].GetComponent<RectTransform>();
             rect.localScale = Vector3.zero;
             rect.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.05f * i);

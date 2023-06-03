@@ -234,66 +234,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - pv: 20
-    money: 300
+  - pv: 10000
+    money: 44444
   towers:
   - icons:
-    - {fileID: 2800000, guid: 3116188d37a6c68429215b1c7001ca8c, type: 3}
-    - {fileID: 2800000, guid: 204c0f53058cf3242a7b2007ceeb06c4, type: 3}
-    - {fileID: 2800000, guid: 5330e96c3d6e8824096643b4a092270f, type: 3}
+    - {fileID: 2800000, guid: bbbde5002a2df00479c1308ebbac067e, type: 3}
+    - {fileID: 2800000, guid: dc47060004b00714a92f4e3e839ff72f, type: 3}
+    - {fileID: 2800000, guid: ab60bfdfd7161c1408171b94dc8246d5, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 5200343376586279977, guid: 006ca36848dd3fb44b8e50d080877a80, type: 3}
     - {fileID: 7045714420348370960, guid: 0b3dc58fc0082c14e9e09b5443f71398, type: 3}
     - {fileID: 2194948120401425082, guid: 19c77a934b1562046838d305a5cdd547, type: 3}
   - icons:
-    - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
-    - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
-    - {fileID: 2800000, guid: 499619a4356109a45b1f86e1210a8cd0, type: 3}
+    - {fileID: 2800000, guid: 141c9360a40132b4db03cd57b354ab53, type: 3}
+    - {fileID: 2800000, guid: b97f22a4355b19a4799e61257af62daa, type: 3}
+    - {fileID: 2800000, guid: 772b976a5cce2e74480e5790aeef68e5, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 4619159817690188474, guid: 95d47908be033044d9bdd016cdb7f8f6, type: 3}
     - {fileID: 4901106160808021721, guid: a619d2762e75ad643bfc5181ca6da31f, type: 3}
     - {fileID: 2744661258292840303, guid: 0f70b57636dc79c4db9eaddda9338865, type: 3}
   - icons:
-    - {fileID: 2800000, guid: 3f104cfb8029c1141a54d744eb18ea1b, type: 3}
-    - {fileID: 2800000, guid: a813e8b09e10e304192e27f4ff684e13, type: 3}
-    - {fileID: 2800000, guid: 2d3d4118d97c2624bb84e1a679b0e8c7, type: 3}
+    - {fileID: 2800000, guid: a366290307658e74599ab572f9ebb0eb, type: 3}
+    - {fileID: 2800000, guid: 09241129f32c93745ad19a64d32284af, type: 3}
+    - {fileID: 2800000, guid: 5244268373017554bb4994da6fd218dd, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 5131420340136088422, guid: 55e102e50218c6f4285f48c1981776a2, type: 3}
     - {fileID: 3530453091593162249, guid: 9490ffe5eecd9b844939f731f82ae937, type: 3}
     - {fileID: 6560422023503119096, guid: ec32b8d57beb72b43968015b1062625e, type: 3}
   - icons:
-    - {fileID: 2800000, guid: be44a0696783adf4faf6231f64e10bc5, type: 3}
-    - {fileID: 2800000, guid: d85408e295fb9c641859424f8810e665, type: 3}
-    - {fileID: 2800000, guid: 33d9cd1ab656d8a429f42d0127540e14, type: 3}
+    - {fileID: 2800000, guid: 2ef47da14afb33d4e94a27af68dcd75f, type: 3}
+    - {fileID: 2800000, guid: 25e32e51c8afac142aebc4732dada4c4, type: 3}
+    - {fileID: 2800000, guid: 91d95a94e86a1204c9fbd5a2fe5958d3, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 3252902718132492401, guid: a395e58c5a20db2419f1cc1a745df698, type: 3}
     - {fileID: 2322240049629207947, guid: 5a9180c92489bd74ba22ae1e41752ee4, type: 3}
     - {fileID: 3802325411682353451, guid: c8a758e40abdd6b45a23ebb2d426a3e9, type: 3}
   - icons:
-    - {fileID: 2800000, guid: f785dd0ac8b813e409bb273fd33213fd, type: 3}
-    - {fileID: 2800000, guid: 9ca0dc608bec9fc44b17f3826d47a672, type: 3}
-    - {fileID: 2800000, guid: 8492fc5f9a63c4f4dba4b82e067c011f, type: 3}
+    - {fileID: 2800000, guid: 981a67962f19c9f4687c1822aea3f2c1, type: 3}
+    - {fileID: 2800000, guid: 8cf3d6544ae231246b55522850215afd, type: 3}
+    - {fileID: 2800000, guid: 2a85e03e8861a2d4fb0edf7aca8e71d2, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 5833721632203723605, guid: a1df31e887c0aea499ee4d84689e5846, type: 3}
     - {fileID: 2504899140893237436, guid: 83f9a37649bc69144ab287ad92385027, type: 3}
     - {fileID: 2088493959561449959, guid: 8588eb6f33c5e1349b1c669e588126d1, type: 3}
   - icons:
-    - {fileID: 2800000, guid: d02881f9e006db14cb994dfb914dd34b, type: 3}
-    - {fileID: 2800000, guid: f0e11965c4b98b641823c369d8cbb97b, type: 3}
-    - {fileID: 2800000, guid: 21f7152cb5a3d414cb07e586149787a2, type: 3}
+    - {fileID: 2800000, guid: ed3be861bf26ea34e962e44301eb3d15, type: 3}
+    - {fileID: 2800000, guid: 11a224d9c866adf489462f2e69b5acb6, type: 3}
+    - {fileID: 2800000, guid: 4ff9de8d294041c4eb221efcfecdf79b, type: 3}
     prices: 010000000200000003000000
     towersPrefabs:
     - {fileID: 2346682685908710649, guid: c9d36c82820f5af4cb1f1c81dbf4ef36, type: 3}
     - {fileID: 4661188103249080816, guid: 1846a0d9f16b4c34883ca223d43bac24, type: 3}
     - {fileID: 7306221957258160185, guid: 86af706300caf95429a7265ca47725a1, type: 3}
-  nodeColor: {r: 0.078431375, g: 0.6117647, b: 0.3254902, a: 0}
-  nodeHoverColor: {r: 1, g: 0.74509805, b: 0, a: 0}
-  radialMenuRadius: 300
+  waves:
+  - boulepicCount: 1
+    serpentCount: 1
+    tankCount: 1
+    batCount: 1
+    healerCount: 1
+    ghostCount: 1
+    dragonCount: 1
+    rainetteCount: 1
+    invocateurCount: 1
+    ninjaCount: 1
+    centaureCount: 1
+    lapinouCount: 1
+    chamanCount: 1
+    slimeCount: 1
+    victimeCount: 1
+    rate: 2
+  - boulepicCount: 0
+    serpentCount: 1
+    tankCount: 1
+    batCount: 1
+    healerCount: 1
+    ghostCount: 1
+    dragonCount: 1
+    rainetteCount: 1
+    invocateurCount: 1
+    ninjaCount: 1
+    centaureCount: 1
+    lapinouCount: 1
+    chamanCount: 1
+    slimeCount: 1
+    victimeCount: 1
+    rate: 1
+  - boulepicCount: 1
+    serpentCount: 1
+    tankCount: 1
+    batCount: 1
+    healerCount: 1
+    ghostCount: 1
+    dragonCount: 1
+    rainetteCount: 1
+    invocateurCount: 1
+    ninjaCount: 1
+    centaureCount: 1
+    lapinouCount: 1
+    chamanCount: 1
+    slimeCount: 1
+    victimeCount: 1
+    rate: 1
+  timeBetweenWaves: 5.5
   Boulepic: {fileID: 1904942019794526895, guid: 5e9118a40c8ad6e42849a55891ee151f, type: 3}
   Serpent: {fileID: 8406846271270991097, guid: 6bb33c8d9ec446d42a081c57f405657b, type: 3}
   Tank: {fileID: 3044784711534721734, guid: 9c886042ea9d9db46af4bb4ae154f66f, type: 3}
@@ -309,171 +356,11 @@ MonoBehaviour:
   Chaman: {fileID: 2275989457917477093, guid: 4ca47ea5fd8cefd4bbcc8613ca7cb9b9, type: 3}
   Slime: {fileID: 2368842057992470800, guid: bbb87a13994214847a3ae7ea11646263, type: 3}
   Victime: {fileID: 8883188399209060101, guid: d74eabe28c6e12a42994f2304b2bfafd, type: 3}
-  waves:
-  - BoulepicCount: 1
-    SerpentCount: 1
-    TankCount: 1
-    BatCount: 1
-    HealerCount: 1
-    GhostCount: 1
-    DragonCount: 1
-    RainetteCount: 1
-    InvocateurCount: 1
-    NinjaCount: 1
-    CentaureCount: 1
-    LapinouCount: 1
-    ChamanCount: 1
-    SlimeCount: 1
-    VictimeCount: 1
-    rate: 1.5
-  - BoulepicCount: 15
-    SerpentCount: 5
-    TankCount: 0
-    BatCount: 5
-    HealerCount: 0
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 0
-    InvocateurCount: 0
-    NinjaCount: 0
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 0
-    rate: 1.5
-  - BoulepicCount: 5
-    SerpentCount: 10
-    TankCount: 0
-    BatCount: 10
-    HealerCount: 0
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 1
-    InvocateurCount: 1
-    NinjaCount: 1
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 0
-    rate: 1.5
-  - BoulepicCount: 0
-    SerpentCount: 0
-    TankCount: 0
-    BatCount: 15
-    HealerCount: 3
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 0
-    InvocateurCount: 0
-    NinjaCount: 0
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 3
-    rate: 1.25
-  - BoulepicCount: 15
-    SerpentCount: 3
-    TankCount: 0
-    BatCount: 0
-    HealerCount: 0
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 0
-    InvocateurCount: 0
-    NinjaCount: 0
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 5
-    VictimeCount: 0
-    rate: 1.25
-  - BoulepicCount: 0
-    SerpentCount: 5
-    TankCount: 0
-    BatCount: 0
-    HealerCount: 2
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 3
-    InvocateurCount: 3
-    NinjaCount: 3
-    CentaureCount: 0
-    LapinouCount: 2
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 4
-    rate: 1.2
-  - BoulepicCount: 5
-    SerpentCount: 5
-    TankCount: 1
-    BatCount: 0
-    HealerCount: 0
-    GhostCount: 0
-    DragonCount: 0
-    RainetteCount: 0
-    InvocateurCount: 0
-    NinjaCount: 0
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 2
-    rate: 1.2
-  - BoulepicCount: 0
-    SerpentCount: 5
-    TankCount: 0
-    BatCount: 15
-    HealerCount: 0
-    GhostCount: 0
-    DragonCount: 1
-    RainetteCount: 0
-    InvocateurCount: 0
-    NinjaCount: 0
-    CentaureCount: 0
-    LapinouCount: 0
-    ChamanCount: 0
-    SlimeCount: 0
-    VictimeCount: 3
-    rate: 1.2
-  - BoulepicCount: 0
-    SerpentCount: 5
-    TankCount: 0
-    BatCount: 0
-    HealerCount: 1
-    GhostCount: 3
-    DragonCount: 0
-    RainetteCount: 0
-    InvocateurCount: 1
-    NinjaCount: 5
-    CentaureCount: 3
-    LapinouCount: 0
-    ChamanCount: 1
-    SlimeCount: 0
-    VictimeCount: 5
-    rate: 1.2
-  - BoulepicCount: 0
-    SerpentCount: 10
-    TankCount: 0
-    BatCount: 0
-    HealerCount: 3
-    GhostCount: 0
-    DragonCount: 1
-    RainetteCount: 2
-    InvocateurCount: 8
-    NinjaCount: 8
-    CentaureCount: 8
-    LapinouCount: 8
-    ChamanCount: 8
-    SlimeCount: 2
-    VictimeCount: 3
-    rate: 1
-  timeBetweenWaves: 5.5
+  nodeColor: {r: 0.078431375, g: 0.6117647, b: 0.3254902, a: 0}
+  nodeHoverColor: {r: 1, g: 0.74509805, b: 0, a: 0}
+  waveTimer: {fileID: 3692965302855863726}
   life: {fileID: 3692965301427007933}
   money: {fileID: 3692965301352597537}
-  waveTimer: {fileID: 3692965302855863726}
   waveCount: {fileID: 3692965301329431236}
 --- !u!1 &3692965301329431238
 GameObject:
@@ -645,8 +532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.018, y: 1.1}
-  m_SizeDelta: {x: 91.925, y: 26.0824}
+  m_AnchoredPosition: {x: -19.02131, y: 1.1}
+  m_SizeDelta: {x: 103.9184, y: 26.0824}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!222 &3692965301352597536
 CanvasRenderer:
@@ -914,8 +801,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42, y: 1.1}
-  m_SizeDelta: {x: 51.031, y: 26.0824}
+  m_AnchoredPosition: {x: -17.6075, y: 1.1}
+  m_SizeDelta: {x: 99.8161, y: 26.0824}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!222 &3692965301427007932
 CanvasRenderer:
@@ -1468,9 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radialItem: {fileID: 6864948909898597970, guid: 1abdc2773f0eba4499c000a4379645aa, type: 3}
   deleteIcon: {fileID: 2800000, guid: b5661ec9720057f4d9d64b2081d81c20, type: 3}
-  upgradeIcon: {fileID: 2800000, guid: f613d89558ce3034196083007ad6f4f2, type: 3}
   cancelIcon: {fileID: 2800000, guid: a5a24d82378f0b04c824aff254ebd5e4, type: 3}
-  transparent: {fileID: 2800000, guid: 8f093fb16485bf4428a68a79f8e4f577, type: 3}
 --- !u!1 &3692965302173671512
 GameObject:
   m_ObjectHideFlags: 0

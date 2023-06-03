@@ -27,6 +27,8 @@ public class MortarBullet : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private float damageMultiplicator;
+
     void Start()
     {
         targetPosition = target.position;
@@ -56,7 +58,14 @@ public class MortarBullet : MonoBehaviour
         foreach (Transform target in targets)
         {
             Enemy enemy = target.GetComponent<Enemy>();
-            enemy.Damage(damage);
+            if (target.tag == "Boulepic" && target.tag == "Serpent" && target.tag == "Victime")
+            {
+                enemy.Damage(damage * damageMultiplicator);
+            }
+            else
+            {
+                enemy.Damage(damage);
+            }
         }
         GameObject effect = Instantiate(this.effect, transform.position, this.effect.transform.rotation);
         effect.transform.SetParent(transform.parent);
@@ -111,5 +120,10 @@ public class MortarBullet : MonoBehaviour
     public void SetEnemiesTags(string[] enemiesTags)
     {
         this.enemiesTags = enemiesTags;
+    }
+
+    public void SetDamageMultiplicator(float damageMultiplicator)
+    {
+        this.damageMultiplicator = damageMultiplicator;
     }
 }
