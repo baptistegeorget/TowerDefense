@@ -100,7 +100,7 @@ public class Boost : MonoBehaviour
     {
         if (tower.tag == towerTags[0] || tower.tag == towerTags[1] || tower.tag == towerTags[2])
         {
-            BulletTower machineGun = tower.GetComponent<BulletTower>();
+            MachineGun machineGun = tower.GetComponent<MachineGun>();
             machineGun.SetDamage(machineGun.GetDamage() + (machineGun.GetStartDamage() * machineGunDamage - machineGun.GetStartDamage()));
             machineGun.SetFireRate(machineGun.GetFireRate() + (machineGun.GetStartFireRate() * machineGunFireRate - machineGun.GetStartFireRate()));
         }
@@ -116,7 +116,7 @@ public class Boost : MonoBehaviour
         }
         else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
         {
-            BulletTower crossbow = tower.GetComponent<BulletTower>();
+            MachineGun crossbow = tower.GetComponent<MachineGun>();
             crossbow.SetDamage(crossbow.GetDamage() + (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
             crossbow.SetFireRate(crossbow.GetFireRate() + (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
         }
@@ -134,7 +134,7 @@ public class Boost : MonoBehaviour
         {
             if (tower.tag == towerTags[0] || tower.tag == towerTags[1] || tower.tag == towerTags[2])
             {
-                BulletTower machineGun = tower.GetComponent<BulletTower>();
+                MachineGun machineGun = tower.GetComponent<MachineGun>();
                 machineGun.SetDamage(machineGun.GetDamage() - (machineGun.GetStartDamage() * machineGunDamage - machineGun.GetStartDamage()));
                 machineGun.SetFireRate(machineGun.GetFireRate() - (machineGun.GetStartFireRate() * machineGunFireRate - machineGun.GetStartFireRate()));
             }
@@ -150,7 +150,7 @@ public class Boost : MonoBehaviour
             }
             else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
             {
-                BulletTower crossbow = tower.GetComponent<BulletTower>();
+                MachineGun crossbow = tower.GetComponent<MachineGun>();
                 crossbow.SetDamage(crossbow.GetDamage() - (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
                 crossbow.SetFireRate(crossbow.GetFireRate() - (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
             }

@@ -17,6 +17,9 @@ public class Mortar : MonoBehaviour
     private Transform[] firePoints;
 
     [SerializeField]
+    private float damageMultiplicator;
+
+    [SerializeField]
     private string[] enemiesTags;
 
     [Header("Bullet")]
@@ -97,6 +100,7 @@ public class Mortar : MonoBehaviour
             MortarBullet bullet = Instantiate(bulletPrefab, firePoints[i].position, firePoints[i].rotation).GetComponent<MortarBullet>();
             bullet.transform.SetParent(transform);
             bullet.SetDamage(damage);
+            bullet.SetDamageMultiplicator(damageMultiplicator);
             bullet.SetEffect(bulletEffect);
             bullet.SetSpeed(bulletSpeed);
             bullet.SetRange(bulletRange);

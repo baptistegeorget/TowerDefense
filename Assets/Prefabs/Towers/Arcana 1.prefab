@@ -101,6 +101,7 @@ MonoBehaviour:
   range: 7
   damage: 1
   firePoints: {fileID: 7918269318552668448}
+  damageMultiplicator: 1
   enemiesTags:
   - Boulepic
   - Slime

@@ -14,6 +14,9 @@ public class Arcana : MonoBehaviour
     private Transform firePoints;
 
     [SerializeField]
+    private float damageMultiplicator;
+
+    [SerializeField]
     private string[] enemiesTags;
 
     private LineRenderer lineRenderer;
@@ -97,7 +100,14 @@ public class Arcana : MonoBehaviour
         lineRenderer.SetPosition(1, target.position);
         if (fireCountDown <= 0)
         {
-            target.GetComponent<Enemy>().Damage(damage * timeTarget);
+            if (target.tag == "Dragon" || target.tag == "Tank")
+            {
+                target.GetComponent<Enemy>().Damage(damage * timeTarget * damageMultiplicator);
+            }
+            else
+            {
+                target.GetComponent<Enemy>().Damage(damage * timeTarget);
+            }
             fireCountDown = 1;
         }
     }

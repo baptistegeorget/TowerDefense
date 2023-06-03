@@ -17,6 +17,8 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         countdown = GameManager.gameManager.timeBetweenWaves;
+        GameManager.gameManager.SetCountdown(countdown);
+        GameManager.gameManager.SetWaveNumber(waveNumber + 1);
         waveSpawner = this;
     }
 
@@ -32,30 +34,33 @@ public class WaveSpawner : MonoBehaviour
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
+            enemiesAlives += listEnemy.Count;
+            GameManager.gameManager.SetWaveNumber(waveNumber + 1);
             countdown = GameManager.gameManager.timeBetweenWaves;
             return;
         }
         countdown -= Time.deltaTime;
+        GameManager.gameManager.SetCountdown(countdown);
     }
 
     private void AddEnemies(Wave wave)
     {
         listEnemy = new List<GameObject>();
-        AddEnemy(wave.BoulepicCount, GameManager.gameManager.Boulepic);
-        AddEnemy(wave.SerpentCount, GameManager.gameManager.Serpent);
-        AddEnemy(wave.TankCount, GameManager.gameManager.Tank);
-        AddEnemy(wave.BatCount, GameManager.gameManager.Bat);
-        AddEnemy(wave.HealerCount, GameManager.gameManager.Healer);
-        AddEnemy(wave.GhostCount, GameManager.gameManager.Ghost);
-        AddEnemy(wave.DragonCount, GameManager.gameManager.Dragon);
-        AddEnemy(wave.RainetteCount, GameManager.gameManager.Rainette);
-        AddEnemy(wave.InvocateurCount, GameManager.gameManager.Invocateur);
-        AddEnemy(wave.NinjaCount, GameManager.gameManager.Ninja);
-        AddEnemy(wave.CentaureCount, GameManager.gameManager.Centaure);
-        AddEnemy(wave.LapinouCount, GameManager.gameManager.Lapinou);
-        AddEnemy(wave.ChamanCount, GameManager.gameManager.Chaman);
-        AddEnemy(wave.SlimeCount, GameManager.gameManager.Slime);
-        AddEnemy(wave.VictimeCount, GameManager.gameManager.Victime);
+        AddEnemy(wave.GetBoulepicCount(), GameManager.gameManager.Boulepic);
+        AddEnemy(wave.GetSerpentCount(), GameManager.gameManager.Serpent);
+        AddEnemy(wave.GetTankCount(), GameManager.gameManager.Tank);
+        AddEnemy(wave.GetBatCount(), GameManager.gameManager.Bat);
+        AddEnemy(wave.GetHealerCount(), GameManager.gameManager.Healer);
+        AddEnemy(wave.GetGhostCount(), GameManager.gameManager.Ghost);
+        AddEnemy(wave.GetDragonCount(), GameManager.gameManager.Dragon);
+        AddEnemy(wave.GetRainetteCount(), GameManager.gameManager.Rainette);
+        AddEnemy(wave.GetInvocateurCount(), GameManager.gameManager.Invocateur);
+        AddEnemy(wave.GetNinjaCount(), GameManager.gameManager.Ninja);
+        AddEnemy(wave.GetCentaureCount(), GameManager.gameManager.Centaure);
+        AddEnemy(wave.GetLapinouCount(), GameManager.gameManager.Lapinou);
+        AddEnemy(wave.GetChamanCount(), GameManager.gameManager.Chaman);
+        AddEnemy(wave.GetSlimeCount(), GameManager.gameManager.Slime);
+        AddEnemy(wave.GetVictimeCount(), GameManager.gameManager.Victime);
     }
 
     private void AddEnemy(int count, GameObject enemy)
@@ -79,16 +84,16 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        Wave wave = GameManager.gameManager.waves[waveNumber];
+        Wave wave = GameManager.gameManager.GetWaves()[waveNumber];
         AddEnemies(wave);
         SuffleListEnemy();
         for (int i = 0; i < (listEnemy.Count); i++)
         {
             StartCoroutine(SpawnEnemy(listEnemy[i]));
-            yield return new WaitForSeconds(1f / wave.rate);
+            yield return new WaitForSeconds(1f / wave.GetRate());
         }
         waveNumber++;
-        if (waveNumber == GameManager.gameManager.waves.Length)
+        if (waveNumber == GameManager.gameManager.GetWaves().Length)
         {
             enabled = false;
         }
@@ -99,7 +104,6 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemyTemp = Instantiate(enemy, SpawnPoint.spawnPoint.transform.position, SpawnPoint.spawnPoint.transform.rotation);
         enemyTemp.transform.SetParent(transform);
         yield return new WaitForSeconds(1f/2);
-        enemiesAlives++;
     }
 
     public int GetWaveNumber()

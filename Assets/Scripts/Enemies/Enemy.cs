@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,17 +14,14 @@ public class Enemy : MonoBehaviour
     private float health = 10f;
 
     [SerializeField]
-    private float resistance = 1f;
-
-    [SerializeField]
-    private int money;
+    private float resistance = 0;
 
     [SerializeField]
     private Image healthbar;
 
     [Header("Chaman")]
     [SerializeField]
-    private float chamanResistance = 1.15f;
+    private int chamanResistance = 20;
 
     [Header("Lapinou")]
     [SerializeField]
@@ -52,13 +50,17 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public GameObject enemy3;
 
+    private int money;
+
     private float startHealth;
 
     private float startSpeed;
 
     private float startResistance;
 
-    private float freezeTime;
+    private float freezeTime = 0;
+
+    private bool freeze = false;
 
     private string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime" };
 
@@ -68,7 +70,9 @@ public class Enemy : MonoBehaviour
 
     private float healerPowerTimer = 0f;
 
-    private float invocateurPowerTimer = 0f;
+    private float invocateurPowerTimer = 6f;
+
+    private List<GameObject> listEnemyBoost = new List<GameObject>();
 
     private void Start()
     {
@@ -78,24 +82,27 @@ public class Enemy : MonoBehaviour
         startResistance = resistance;
         enemyPrefabs = new GameObject[] { enemy1, enemy2, enemy3 };
         money = (int)Mathf.Round(health * 0.18f);
+        InvokeRepeating("Power", 0, 1f);
     }
 
     private void Update()
     {
-        freezeTime -= Time.deltaTime;
         if (freezeTime > 0)
         {
             speed = 0;
+            freezeTime -= Time.deltaTime;
         }
-        else
+        else if (freeze)
         {
             speed = startSpeed;
+            freeze = false;
         }
         if (health <= 0f)
         {
             Die();
         }
-        Power();
+        invocateurPowerTimer += Time.deltaTime;
+        healerPowerTimer += Time.deltaTime;
     }
 
     private void Die()
@@ -107,13 +114,14 @@ public class Enemy : MonoBehaviour
 
     public void Damage(float damage)
     {
-        health -= damage * resistance;
+        health -= damage - (damage * resistance / 100);
         healthbar.fillAmount = health / startHealth;
     }
 
     public void Freeze(float time)
     {
         freezeTime = time;
+        freeze = true;
     }
 
     private IEnumerator SpawnEnemiesWithDelay()
@@ -134,69 +142,84 @@ public class Enemy : MonoBehaviour
     private void Power()
     {
         GameObject[] enemies = { };
-        foreach (string enemyTag in enemiesTags)
-        {
-            GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
-            enemies = enemies.Concat(temp).ToArray();
-        }
         switch (gameObject.GetComponent<Enemy>().tag)
         {
             case "Victime":
-                if (!powerApplied)
+                if (!powerApplied && health <= startHealth / 2)
                 {
-                    if (health <= startHealth / 2)
-                    {
-                        speed *= 2f;
-                        startSpeed *= 2f;
-                        powerApplied = !powerApplied;
-                    }
+                    speed *= 2f;
+                    startSpeed *= 2f;
+                    powerApplied = true;
                 }
                 break;
 
             case "Chaman":
-                foreach (GameObject enemy in enemies)
+                foreach (var enemy in listEnemyBoost.ToList())
                 {
-                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                    if (distanceToEnemy < 2.5)
+                    if (enemy != null)
                     {
-                        if (enemy.GetComponent<Enemy>().tag != "Chaman")
+                        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                        if (distanceToEnemy >= 2.5)
                         {
-                            if (enemy.GetComponent<Enemy>().resistance == enemy.GetComponent<Enemy>().startResistance)
-                            {
-                                enemy.GetComponent<Enemy>().resistance *= chamanResistance;
-                            }
+                            enemy.GetComponent<Enemy>().resistance = enemy.GetComponent<Enemy>().startResistance;
+                            listEnemyBoost.Remove(enemy);
                         }
                     }
                     else
                     {
-                        enemy.GetComponent<Enemy>().resistance = enemy.GetComponent<Enemy>().startResistance;
+                        listEnemyBoost.Remove(enemy);
+                    }
+                }
+                foreach (string enemyTag in enemiesTags)
+                {
+                    GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
+                    enemies = enemies.Concat(temp).ToArray();
+                }
+                foreach (GameObject enemy in enemies)
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distanceToEnemy < 2.5 && enemy.GetComponent<Enemy>().tag != "Chaman" && !listEnemyBoost.Contains(enemy))
+                    {
+                        enemy.GetComponent<Enemy>().resistance = chamanResistance;
+                        listEnemyBoost.Add(enemy);
                     }
                 }
                 break;
 
             case "Lapinou":
-                foreach (GameObject enemy in enemies)
+                foreach (var enemy in listEnemyBoost.ToList())
                 {
-                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                    if (distanceToEnemy < 2.5)
+                    if (enemy != null)
                     {
-                        if (enemy.GetComponent<Enemy>().tag != "Lapinou")
+                        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                        if (distanceToEnemy >= 2.5)
                         {
-                            if (enemy.GetComponent<Enemy>().speed == enemy.GetComponent<Enemy>().startSpeed)
-                            {
-                                enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().speed * lapinouSpeed;
-                            }
+                            enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().startSpeed;
+                            listEnemyBoost.Remove(enemy);
                         }
                     }
                     else
                     {
-                        enemy.GetComponent<Enemy>().speed = enemy.GetComponent<Enemy>().startSpeed;
+                        listEnemyBoost.Remove(enemy);
+                    }
+                }
+                foreach (string enemyTag in enemiesTags)
+                {
+                    GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
+                    enemies = enemies.Concat(temp).ToArray();
+                }
+                foreach (GameObject enemy in enemies)
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distanceToEnemy < 2.5 && enemy.GetComponent<Enemy>().tag != "Lapinou" && !listEnemyBoost.Contains(enemy))
+                    {
+                        enemy.GetComponent<Enemy>().speed *= lapinouSpeed;
+                        listEnemyBoost.Add(enemy);
                     }
                 }
                 break;
 
             case "Invocateur":
-                invocateurPowerTimer += Time.deltaTime;
                 if (invocateurPowerTimer >= invocateurPowerInterval)
                 {
                     StartCoroutine(SpawnEnemiesWithDelay());
@@ -205,25 +228,27 @@ public class Enemy : MonoBehaviour
                 break;
 
             case "Healer":
-                healerPowerTimer += Time.deltaTime;
+                foreach (string enemyTag in enemiesTags)
+                {
+                    GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
+                    enemies = enemies.Concat(temp).ToArray();
+                }
                 if (healerPowerTimer >= healerPowerInterval)
                 {
                     foreach (GameObject enemy in enemies)
                     {
                         float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                        if (distanceToEnemy < 2.5)
+                        if (distanceToEnemy < 2.5 && enemy.GetComponent<Enemy>().tag != "Healer")
                         {
-                            if (enemy.GetComponent<Enemy>().tag != "Healer")
+                            if (enemy.GetComponent<Enemy>().health < enemy.GetComponent<Enemy>().startHealth - healerHeal)
                             {
-                                if (enemy.GetComponent<Enemy>().health < enemy.GetComponent<Enemy>().startHealth - healerHeal)
-                                {
-                                    enemy.GetComponent<Enemy>().health += healerHeal;
-                                    enemy.GetComponent<Enemy>().Damage(0);
-                                }
-                                else
-                                {
-                                    enemy.GetComponent<Enemy>().health = enemy.GetComponent<Enemy>().startHealth;
-                                }
+                                enemy.GetComponent<Enemy>().health += healerHeal;
+                                enemy.GetComponent<Enemy>().Damage(0);
+                            }
+                            else
+                            {
+                                enemy.GetComponent<Enemy>().health = enemy.GetComponent<Enemy>().startHealth;
+                                enemy.GetComponent<Enemy>().Damage(0);
                             }
                         }
                     }

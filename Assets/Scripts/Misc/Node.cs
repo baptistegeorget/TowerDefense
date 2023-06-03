@@ -10,7 +10,7 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+        GetComponent<Renderer>().material.color = GameManager.gameManager.GetNodeColor();
     }
 
     private void OnMouseUpAsButton()
@@ -26,7 +26,7 @@ public class Node : MonoBehaviour
     {
         if (!RadialMenu.radialMenu.GetRadialMenuHasOpen())
         {
-            GetComponent<Renderer>().material.color = GameManager.gameManager.nodeColor;
+            GetComponent<Renderer>().material.color = GameManager.gameManager.GetNodeColor();
         }
     }
 
@@ -34,7 +34,7 @@ public class Node : MonoBehaviour
     {
         if (!RadialMenu.radialMenu.GetRadialMenuHasOpen())
         {
-            GetComponent<Renderer>().material.color = GameManager.gameManager.nodeHoverColor;
+            GetComponent<Renderer>().material.color = GameManager.gameManager.GetNodeHoverColor();
         }
     }
 

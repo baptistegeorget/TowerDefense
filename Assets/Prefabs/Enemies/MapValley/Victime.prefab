@@ -981,33 +981,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 50
-  resistance: 1
+  resistance: 0
+  money: 0
   healthbar: {fileID: 1438251025041502121}
-  startSpeed: 2
-  enemiesTags:
-  - Boulepic
-  - Slime
-  - Centaure
-  - Chaman
-  - Chauve-souris
-  - Dragon
-  - Ghost
-  - Healer
-  - Invocateur
-  - Lapinou
-  - Ninja
-  - Rainette
-  - Serpent
-  - Tank
-  - Victime
-  chamanResistance: 1.15
+  chamanResistance: 1
   lapinouSpeed: 1.2
   healerPowerInterval: 1
   healerHeal: 2
+  invocateurPowerInterval: 12
+  delayInvocation: 2
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
-  enemyPrefabs: []
 --- !u!114 &-2681224739725176538
 MonoBehaviour:
   m_ObjectHideFlags: 0

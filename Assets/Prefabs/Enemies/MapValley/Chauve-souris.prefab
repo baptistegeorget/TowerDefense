@@ -847,8 +847,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   health: 20
-  resistance: 1
+  resistance: 0
+  money: 0
   healthbar: {fileID: 4055679736151823043}
+  chamanResistance: 20
+  lapinouSpeed: 1.2
+  healerPowerInterval: 1
+  healerHeal: 2
+  invocateurPowerInterval: 12
+  delayInvocation: 2
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
 --- !u!114 &-797999267650596030
 MonoBehaviour:
   m_ObjectHideFlags: 0
