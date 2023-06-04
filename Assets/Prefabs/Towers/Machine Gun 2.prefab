@@ -159,15 +159,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e055c3da0b08b494d86b4285c6ba957b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
-  fireRate: 0
-  damage: 0
-  partToRotate: {fileID: 0}
-  firePoints: []
-  enemiesTags: []
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 0
-  bulletEffect: {fileID: 0}
+  range: 5
+  fireRate: 2
+  damage: 3
+  partToRotate: {fileID: 4013711968914878219}
+  firePoints:
+  - {fileID: 1289267376725453507}
+  - {fileID: 2482675285463987565}
+  enemiesTags:
+  - Boulepic
+  - Slime
+  - Centaure
+  - Chaman
+  - Chauve-souris
+  - Dragon
+  - Ghost
+  - Healer
+  - Invocateur
+  - Lapinou
+  - Ninja
+  - Rainette
+  - Serpent
+  - Tank
+  - Victime
+  bulletPrefab: {fileID: 6133813749790203860, guid: 85010c02f33a18c46a8e4372c6af3260, type: 3}
+  bulletSpeed: 15
+  bulletEffect: {fileID: 2593070317945713414, guid: 847914c56cbd0d94ab9b238b872f7ded, type: 3}
 --- !u!1 &8771883516872943129
 GameObject:
   m_ObjectHideFlags: 0

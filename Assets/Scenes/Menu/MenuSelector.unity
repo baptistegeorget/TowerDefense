@@ -165,7 +165,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &240182111
 PrefabInstance:
@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapDesert/Level 2.unity
+      value: Assets/Scenes/Levels/Level 1.6.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
@@ -422,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapIce/Level 2.unity
+      value: Assets/Scenes/Levels/Level 1.4.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
@@ -536,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapDesert/Level 1.unity
+      value: Assets/Scenes/Levels/Level 1.5.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 483276760}
   - component: {fileID: 483276759}
   m_Layer: 5
-  m_Name: UiCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +724,7 @@ RectTransform:
   - {fileID: 1265650559}
   - {fileID: 644720867}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -744,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602814801290289243, guid: 3a7127498f6432d44a757b218e8272c3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3602814801290289243, guid: 3a7127498f6432d44a757b218e8272c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1676896107}
   m_HandleRect: {fileID: 1676896106}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -993,104 +993,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926843869}
   m_CullTransparentMesh: 1
---- !u!1 &958121108
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 958121112}
-  - component: {fileID: 958121111}
-  - component: {fileID: 958121110}
-  - component: {fileID: 958121109}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &958121109
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958121108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &958121110
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958121108}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9930a7fbdd209fe4abda2356ccd45953, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &958121111
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958121108}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &958121112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958121108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.888252, y: 8.528666, z: 3.0243511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265650558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1246,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapIce/Level 1.unity
+      value: Assets/Scenes/Levels/Level 1.3.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
@@ -1534,7 +1436,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapValley/Level 2.unity
+      value: Assets/Scenes/Levels/Level 1.2.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
@@ -1820,7 +1722,7 @@ PrefabInstance:
       objectReference: {fileID: 58006130}
     - target: {fileID: 7528724297602898047, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Scenes/MapValley/Level 1.unity
+      value: Assets/Scenes/Levels/Level 1.1.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7684856868427221953, guid: 4c6a1047d61697c4c97705e924ed50d2, type: 3}
       propertyPath: m_Pivot.x
