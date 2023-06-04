@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        countdown = GameManager.gameManager.timeBetweenWaves;
+        countdown = GameManager.gameManager.GetTimeBetweenWaves();
         GameManager.gameManager.SetCountdown(countdown);
         GameManager.gameManager.SetWaveNumber(waveNumber + 1);
         waveSpawner = this;
@@ -36,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave());
             enemiesAlives += listEnemy.Count;
             GameManager.gameManager.SetWaveNumber(waveNumber + 1);
-            countdown = GameManager.gameManager.timeBetweenWaves;
+            countdown = GameManager.gameManager.GetTimeBetweenWaves();
             return;
         }
         countdown -= Time.deltaTime;
@@ -46,21 +46,21 @@ public class WaveSpawner : MonoBehaviour
     private void AddEnemies(Wave wave)
     {
         listEnemy = new List<GameObject>();
-        AddEnemy(wave.GetBoulepicCount(), GameManager.gameManager.Boulepic);
-        AddEnemy(wave.GetSerpentCount(), GameManager.gameManager.Serpent);
-        AddEnemy(wave.GetTankCount(), GameManager.gameManager.Tank);
-        AddEnemy(wave.GetBatCount(), GameManager.gameManager.Bat);
-        AddEnemy(wave.GetHealerCount(), GameManager.gameManager.Healer);
-        AddEnemy(wave.GetGhostCount(), GameManager.gameManager.Ghost);
-        AddEnemy(wave.GetDragonCount(), GameManager.gameManager.Dragon);
-        AddEnemy(wave.GetRainetteCount(), GameManager.gameManager.Rainette);
-        AddEnemy(wave.GetInvocateurCount(), GameManager.gameManager.Invocateur);
-        AddEnemy(wave.GetNinjaCount(), GameManager.gameManager.Ninja);
-        AddEnemy(wave.GetCentaureCount(), GameManager.gameManager.Centaure);
-        AddEnemy(wave.GetLapinouCount(), GameManager.gameManager.Lapinou);
-        AddEnemy(wave.GetChamanCount(), GameManager.gameManager.Chaman);
-        AddEnemy(wave.GetSlimeCount(), GameManager.gameManager.Slime);
-        AddEnemy(wave.GetVictimeCount(), GameManager.gameManager.Victime);
+        AddEnemy(wave.GetBoulepicCount(), GameManager.gameManager.GetBoulepic());
+        AddEnemy(wave.GetSerpentCount(), GameManager.gameManager.GetSerpent());
+        AddEnemy(wave.GetTankCount(), GameManager.gameManager.GetTank());
+        AddEnemy(wave.GetBatCount(), GameManager.gameManager.GetBat());
+        AddEnemy(wave.GetHealerCount(), GameManager.gameManager.GetHealer());
+        AddEnemy(wave.GetGhostCount(), GameManager.gameManager.GetGhost());
+        AddEnemy(wave.GetDragonCount(), GameManager.gameManager.GetDragon());
+        AddEnemy(wave.GetRainetteCount(), GameManager.gameManager.GetRainette());
+        AddEnemy(wave.GetInvocateurCount(), GameManager.gameManager.GetInvocateur());
+        AddEnemy(wave.GetNinjaCount(), GameManager.gameManager.GetNinja());
+        AddEnemy(wave.GetCentaureCount(), GameManager.gameManager.GetCentaure());
+        AddEnemy(wave.GetLapinouCount(), GameManager.gameManager.GetLapinou());
+        AddEnemy(wave.GetChamanCount(), GameManager.gameManager.GetChaman());
+        AddEnemy(wave.GetSlimeCount(), GameManager.gameManager.GetSlime());
+        AddEnemy(wave.GetVictimeCount(), GameManager.gameManager.GetVictime());
     }
 
     private void AddEnemy(int count, GameObject enemy)

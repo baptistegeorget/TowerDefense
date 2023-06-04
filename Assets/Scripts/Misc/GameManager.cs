@@ -16,22 +16,54 @@ public class GameManager : MonoBehaviour
     [Header("Waves")]
     [SerializeField]
     private Wave[] waves;
-    public float timeBetweenWaves;
-    public GameObject Boulepic;
-    public GameObject Serpent;
-    public GameObject Tank;
-    public GameObject Bat;
-    public GameObject Healer;
-    public GameObject Ghost;
-    public GameObject Dragon;
-    public GameObject Rainette;
-    public GameObject Invocateur;
-    public GameObject Ninja;
-    public GameObject Centaure;
-    public GameObject Lapinou;
-    public GameObject Chaman;
-    public GameObject Slime;
-    public GameObject Victime;
+
+    [SerializeField]
+    private float timeBetweenWaves;
+
+    [SerializeField]
+    private GameObject boulepic;
+
+    [SerializeField]
+    private GameObject serpent;
+
+    [SerializeField]
+    private GameObject tank;
+
+    [SerializeField]
+    private GameObject bat;
+
+    [SerializeField]
+    private GameObject healer;
+
+    [SerializeField]
+    private GameObject ghost;
+
+    [SerializeField]
+    private GameObject dragon;
+
+    [SerializeField]
+    private GameObject rainette;
+
+    [SerializeField]
+    private GameObject invocateur;
+
+    [SerializeField]
+    private GameObject ninja;
+
+    [SerializeField]
+    private GameObject centaure;
+
+    [SerializeField]
+    private GameObject lapinou;
+
+    [SerializeField]
+    private GameObject chaman;
+
+    [SerializeField]
+    private GameObject slime;
+
+    [SerializeField]
+    private GameObject victime;
 
     [Header("Nodes")]
     [SerializeField]
@@ -41,10 +73,17 @@ public class GameManager : MonoBehaviour
     private Color nodeHoverColor;
 
     [Header("GUI")]
-    public TextMeshProUGUI waveTimer;
-    public TextMeshProUGUI life;
-    public TextMeshProUGUI money;
-    public TextMeshProUGUI waveCount;
+    [SerializeField]
+    private TextMeshProUGUI waveTimer;
+
+    [SerializeField]
+    private TextMeshProUGUI life;
+
+    [SerializeField]
+    private TextMeshProUGUI money;
+
+    [SerializeField]
+    private TextMeshProUGUI waveCount;
 
     private int radialMenuRadius = 300;
 
@@ -103,5 +142,85 @@ public class GameManager : MonoBehaviour
     public int GetRadialMenuRadius()
     {
         return radialMenuRadius;
+    }
+
+    public float GetTimeBetweenWaves()
+    {
+        return timeBetweenWaves;
+    }
+
+    public GameObject GetBoulepic()
+    {
+        return boulepic;
+    }
+
+    public GameObject GetSerpent()
+    {
+        return serpent;
+    }
+
+    public GameObject GetTank()
+    {
+        return tank;
+    }
+
+    public GameObject GetBat()
+    {
+        return bat;
+    }
+
+    public GameObject GetHealer()
+    {
+        return healer;
+    }
+
+    public GameObject GetGhost()
+    {
+        return ghost;
+    }
+
+    public GameObject GetDragon()
+    {
+        return dragon;
+    }
+
+    public GameObject GetRainette()
+    {
+        return rainette;
+    }
+
+    public GameObject GetInvocateur()
+    {
+        return invocateur;
+    }
+
+    public GameObject GetNinja()
+    {
+        return ninja;
+    }
+
+    public GameObject GetCentaure()
+    {
+        return centaure;
+    }
+
+    public GameObject GetLapinou()
+    {
+        return lapinou;
+    }
+
+    public GameObject GetChaman()
+    {
+        return chaman;
+    }
+
+    public GameObject GetSlime()
+    {
+        return slime;
+    }
+
+    public GameObject GetVictime()
+    {
+        return victime;
     }
 }

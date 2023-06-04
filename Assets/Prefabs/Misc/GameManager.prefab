@@ -294,7 +294,7 @@ MonoBehaviour:
   waves:
   - boulepicCount: 1
     serpentCount: 1
-    tankCount: 1
+    tankCount: 1000
     batCount: 1
     healerCount: 1
     ghostCount: 1
@@ -341,21 +341,21 @@ MonoBehaviour:
     victimeCount: 1
     rate: 1
   timeBetweenWaves: 5.5
-  Boulepic: {fileID: 1904942019794526895, guid: 5e9118a40c8ad6e42849a55891ee151f, type: 3}
-  Serpent: {fileID: 8406846271270991097, guid: 6bb33c8d9ec446d42a081c57f405657b, type: 3}
-  Tank: {fileID: 3044784711534721734, guid: 9c886042ea9d9db46af4bb4ae154f66f, type: 3}
-  Bat: {fileID: 8712437020066545906, guid: 80d33639c06423b4285bb3c1a493bdeb, type: 3}
-  Healer: {fileID: 1648973101688056433, guid: beeadc6293857304ca52e305ffa43a66, type: 3}
-  Ghost: {fileID: 9145155411863577444, guid: e2b17185aaad7c84bad4e367c5ab2f67, type: 3}
-  Dragon: {fileID: 595577930964572008, guid: 8e5dd9b80c7e02f43abd8c208eac49a7, type: 3}
-  Rainette: {fileID: 7396011525959235714, guid: 37ff0343017bcd645a97ee064586bd72, type: 3}
-  Invocateur: {fileID: 8760501375091021964, guid: 4a177e27b6fb3494590a44e553ec2f28, type: 3}
-  Ninja: {fileID: 2140267724908298902, guid: bce9681993b0c044891dab3af5f51582, type: 3}
-  Centaure: {fileID: 1788909281533227312, guid: 2d938167c795a794e9bcc694fb42304a, type: 3}
-  Lapinou: {fileID: 1972414195587453172, guid: 97cafa98cf2250e4d9451ce7723c1214, type: 3}
-  Chaman: {fileID: 2275989457917477093, guid: 4ca47ea5fd8cefd4bbcc8613ca7cb9b9, type: 3}
-  Slime: {fileID: 2368842057992470800, guid: bbb87a13994214847a3ae7ea11646263, type: 3}
-  Victime: {fileID: 8883188399209060101, guid: d74eabe28c6e12a42994f2304b2bfafd, type: 3}
+  boulepic: {fileID: 1904942019794526895, guid: 5e9118a40c8ad6e42849a55891ee151f, type: 3}
+  serpent: {fileID: 8406846271270991097, guid: 6bb33c8d9ec446d42a081c57f405657b, type: 3}
+  tank: {fileID: 3044784711534721734, guid: 9c886042ea9d9db46af4bb4ae154f66f, type: 3}
+  bat: {fileID: 8712437020066545906, guid: 80d33639c06423b4285bb3c1a493bdeb, type: 3}
+  healer: {fileID: 1648973101688056433, guid: beeadc6293857304ca52e305ffa43a66, type: 3}
+  ghost: {fileID: 9145155411863577444, guid: e2b17185aaad7c84bad4e367c5ab2f67, type: 3}
+  dragon: {fileID: 595577930964572008, guid: 8e5dd9b80c7e02f43abd8c208eac49a7, type: 3}
+  rainette: {fileID: 7396011525959235714, guid: 37ff0343017bcd645a97ee064586bd72, type: 3}
+  invocateur: {fileID: 8760501375091021964, guid: 4a177e27b6fb3494590a44e553ec2f28, type: 3}
+  ninja: {fileID: 2140267724908298902, guid: bce9681993b0c044891dab3af5f51582, type: 3}
+  centaure: {fileID: 1788909281533227312, guid: 2d938167c795a794e9bcc694fb42304a, type: 3}
+  lapinou: {fileID: 1972414195587453172, guid: 97cafa98cf2250e4d9451ce7723c1214, type: 3}
+  chaman: {fileID: 2275989457917477093, guid: 4ca47ea5fd8cefd4bbcc8613ca7cb9b9, type: 3}
+  slime: {fileID: 2368842057992470800, guid: bbb87a13994214847a3ae7ea11646263, type: 3}
+  victime: {fileID: 8883188399209060101, guid: d74eabe28c6e12a42994f2304b2bfafd, type: 3}
   nodeColor: {r: 0.078431375, g: 0.6117647, b: 0.3254902, a: 0}
   nodeHoverColor: {r: 1, g: 0.74509805, b: 0, a: 0}
   waveTimer: {fileID: 3692965302855863726}

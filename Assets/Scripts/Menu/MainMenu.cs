@@ -1,17 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    public string LevelToload = "MenuSelector";
+    public string LevelToLoad = "MenuSelector";
 
     public SceneFader sceneFader;
 
-
     public void Play()
     {
-        sceneFader.FadeTo(LevelToload);
+        sceneFader.FadeTo(LevelToLoad);
     }
 
     public void Option()
@@ -22,7 +19,6 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         Debug.Log("Le jeu est quité");
-        // ne fonctionera pas sur l'éditeur
         Application.Quit();
     }
 }
