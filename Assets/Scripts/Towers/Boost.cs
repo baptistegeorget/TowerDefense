@@ -116,7 +116,7 @@ public class Boost : MonoBehaviour
         }
         else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
         {
-            MachineGun crossbow = tower.GetComponent<MachineGun>();
+            Crossbow crossbow = tower.GetComponent<Crossbow>();
             crossbow.SetDamage(crossbow.GetDamage() + (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
             crossbow.SetFireRate(crossbow.GetFireRate() + (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
         }
@@ -150,7 +150,7 @@ public class Boost : MonoBehaviour
             }
             else if (tower.tag == towerTags[9] || tower.tag == towerTags[10] || tower.tag == towerTags[11])
             {
-                MachineGun crossbow = tower.GetComponent<MachineGun>();
+                Crossbow crossbow = tower.GetComponent<Crossbow>();
                 crossbow.SetDamage(crossbow.GetDamage() - (crossbow.GetStartDamage() * crossbowDamage - crossbow.GetStartDamage()));
                 crossbow.SetFireRate(crossbow.GetFireRate() - (crossbow.GetStartFireRate() * crossbowFireRate - crossbow.GetStartFireRate()));
             }

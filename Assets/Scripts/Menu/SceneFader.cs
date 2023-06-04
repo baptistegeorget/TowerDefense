@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneFader : MonoBehaviour
 {
-    public Image img;
+    [SerializeField]
+    private Image img;
 
-    public AnimationCurve curve;
+    [SerializeField]
+    private AnimationCurve curve;
 
     private void Start()
     {
@@ -17,14 +19,11 @@ public class SceneFader : MonoBehaviour
     public void FadeTo(string scene)
     {
         StartCoroutine(FadeOut(scene));
-        
     }
 
-    // écrant noir à la scène
     IEnumerator FadeIn()
     {
         float t = 1f;
-
         while (t > 0f)
         {
             t -= Time.deltaTime;
@@ -32,15 +31,11 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0f, 0f, 0f, alpha);
             yield return 0;
         }
-
-
     }
 
-    // la scène a écrant noir
     IEnumerator FadeOut(string scene)
     {
         float t = 0f;
-
         while (t < 1f)
         {
             t += Time.deltaTime;
@@ -48,11 +43,6 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0f, 0f, 0f, alpha);
             yield return 0;
         }
-
-        // chargement de la scene
-
         SceneManager.LoadScene(scene);
-
-
     }
 }
