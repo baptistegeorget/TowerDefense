@@ -42,13 +42,13 @@ public class Enemy : MonoBehaviour
     private float delayInvocation = 2;
 
     [SerializeField]
-    public GameObject enemy1;
+    private GameObject enemy1;
 
     [SerializeField]
-    public GameObject enemy2;
+    private GameObject enemy2;
 
     [SerializeField]
-    public GameObject enemy3;
+    private GameObject enemy3;
 
     private int money;
 
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
         startSpeed = speed;
         startResistance = resistance;
         enemyPrefabs = new GameObject[] { enemy1, enemy2, enemy3 };
-        money = (int)Mathf.Round(health * 0.18f);
+        money = (int)Mathf.Round(health * GameManager.gameManager.GetMoneyByHealth() / 100);
         InvokeRepeating("Power", 0, 1f);
     }
 
@@ -261,5 +261,10 @@ public class Enemy : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public int GetMoney()
+    {
+        return money;
     }
 }

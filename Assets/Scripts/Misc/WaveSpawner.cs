@@ -33,11 +33,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (countdown <= 0f)
         {
-            StartCoroutine(SpawnWave());
-            enemiesAlives += listEnemy.Count;
-            GameManager.gameManager.SetWaveNumber(waveNumber + 1);
-            countdown = GameManager.gameManager.GetTimeBetweenWaves();
-            return;
+            StartNextWave();
         }
         countdown -= Time.deltaTime;
         GameManager.gameManager.SetCountdown(countdown);
@@ -82,6 +78,16 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    public void StartNextWave()
+    {
+        GameManager.gameManager.SetCountdown(0);
+        StartCoroutine(SpawnWave());
+        enemiesAlives += listEnemy.Count;
+        GameManager.gameManager.SetWaveNumber(waveNumber + 1);
+        countdown = GameManager.gameManager.GetTimeBetweenWaves();
+        return;
+    }
+
     private IEnumerator SpawnWave()
     {
         Wave wave = GameManager.gameManager.GetWaves()[waveNumber];
@@ -96,6 +102,10 @@ public class WaveSpawner : MonoBehaviour
         if (waveNumber == GameManager.gameManager.GetWaves().Length)
         {
             enabled = false;
+        }
+        else
+        {
+            GameManager.gameManager.DisplaySkipButton();
         }
     }
 

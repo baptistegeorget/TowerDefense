@@ -1,5 +1,7 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class GameManager : MonoBehaviour
     private Tower[] towers;
 
     [Header("Waves")]
+    [SerializeField]
+    private int moneyByHealth;
+
     [SerializeField]
     private Wave[] waves;
 
@@ -85,11 +90,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI waveCount;
 
+    [SerializeField]
+    private GameObject skipButton;
+
     private int radialMenuRadius = 300;
 
     private float countdown;
 
     private int waveNumber;
+
+    private string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime" };
 
     private void Awake()
     {
@@ -102,6 +112,35 @@ public class GameManager : MonoBehaviour
         money.text = players[0].GetMoney().ToString();
         waveCount.text = waveNumber + "/" + waves.Length.ToString();
         waveTimer.text = Mathf.Round(countdown).ToString();
+    }
+
+    public void SkipWave()
+    {
+        if (countdown == 0)
+        {
+            players[0].SetMoney(players[0].GetMoney() + (int) timeBetweenWaves);
+            GameObject[] enemies = { };
+            foreach (string enemyTag in enemiesTags)
+            {
+                GameObject[] temp = GameObject.FindGameObjectsWithTag(enemyTag);
+                enemies = enemies.Concat(temp).ToArray();
+            }
+            foreach (var enemy in enemies)
+            {
+                players[0].SetMoney(players[0].GetMoney() + 1 + enemy.GetComponent<Enemy>().GetMoney() / 2);
+            }
+        }
+        else
+        {
+            players[0].SetMoney(players[0].GetMoney() + (int) countdown);
+        }
+        WaveSpawner.waveSpawner.StartNextWave();
+        skipButton.SetActive(false);
+    }
+
+    public void DisplaySkipButton()
+    {
+        skipButton.SetActive(true);
     }
 
     public void SetCountdown(float countdown)
@@ -222,5 +261,10 @@ public class GameManager : MonoBehaviour
     public GameObject GetVictime()
     {
         return victime;
+    }
+
+    public int GetMoneyByHealth()
+    {
+        return moneyByHealth;
     }
 }
