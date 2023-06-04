@@ -143,6 +143,11 @@ public class GameManager : MonoBehaviour
         skipButton.SetActive(true);
     }
 
+    public void HiddenSkipButton()
+    {
+        skipButton.SetActive(false);
+    }
+
     public void SetCountdown(float countdown)
     {
         this.countdown = countdown;

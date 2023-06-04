@@ -33,6 +33,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (countdown <= 0f)
         {
+            GameManager.gameManager.HiddenSkipButton();
             StartNextWave();
         }
         countdown -= Time.deltaTime;

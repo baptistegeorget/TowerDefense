@@ -36,6 +36,18 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         if (deleteButton)
         {
+            int price = 0;
+            for (int i = 0; i < GameManager.gameManager.GetTowers().Length; i++)
+            {
+                for (int j = 0; j < GameManager.gameManager.GetTowers()[i].GetTowersPrefabs().Length; j++)
+                {
+                    if (GameManager.gameManager.GetTowers()[i].GetTowersPrefabs()[j].tag == Node.selectedNode.GetTower().tag)
+                    {
+                        price = GameManager.gameManager.GetTowers()[i].GetPrices()[j];
+                    }
+                }
+            }
+            GameManager.gameManager.GetPlayers()[0].SetMoney(GameManager.gameManager.GetPlayers()[0].GetMoney() + price / 2);
             Destroy(Node.selectedNode.GetTower());
             Node.selectedNode.SetTower(null);
             Node.selectedNode.SetLevelTower(0);
