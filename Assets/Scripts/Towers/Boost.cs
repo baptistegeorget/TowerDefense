@@ -65,7 +65,7 @@ public class Boost : MonoBehaviour
             bool remove = true;
             foreach (GameObject target in targets)
             {
-                if (target.transform.position + new Vector3(0f, 0.02f, 0f) == effect.transform.position)
+                if (target.transform.position + new Vector3(0f, 0.1f, 0f) == effect.transform.position)
                 {
                     remove = false;
                 }
@@ -85,11 +85,11 @@ public class Boost : MonoBehaviour
         foreach (GameObject tower in towers)
         {
             float distanceToTower = Vector3.Distance(transform.position, tower.transform.position);
-            if (distanceToTower <= range && !targets.Find(delegate (GameObject gameObject) { return gameObject == tower; }))
+            if (distanceToTower <= range && targets.FirstOrDefault(obj => obj.transform.position == tower.transform.position) == null)
             {
                 targets.Add(tower);
                 BoostTower(tower);
-                GameObject effectTemp = Instantiate(effect, tower.transform.position + new Vector3(0f, 0.02f, 0f), effect.transform.rotation);
+                GameObject effectTemp = Instantiate(effect, tower.transform.position + new Vector3(0f, 0.1f, 0f), effect.transform.rotation);
                 effects.Add(effectTemp);
                 effectTemp.transform.SetParent(transform);
             }
