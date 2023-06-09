@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class MenuSelectDificuty : MonoBehaviour
 {
-    public string debutant;
-    public string intermediaire;
-    public string expert;
     public string returnMenu = "MenuMain";
     public SceneFader sceneFader;
     
-    public void Debutant()
+    public void Select(int index)
     {
-        sceneFader.FadeTo(debutant);
+        LevelController.SetDIficulty(index);
+        sceneFader.FadeTo("Assets/Scenes/Menu/MenuSelector.unity");
     }
-    public void Intermediaire()
+    
+    public void ReturnMenu()
     {
-        sceneFader.FadeTo(intermediaire);
-    }
-    public void Expert()
-    {
-        sceneFader.FadeTo(expert); 
+        sceneFader.FadeTo(returnMenu);
     }
     
 }

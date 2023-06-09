@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd0a36b4a949a547801dbd1a17186ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnMenu: MenuMain
+  returnMenu: MainMenu
   sceneFader: {fileID: 660077838}
   solo: MenuSelectDificuty
 --- !u!4 &273546028

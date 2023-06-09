@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class WinMenu : MonoBehaviour
 {
-    public string retry = "MenuGameSelector";
-    public string returnMenu = "MenuMain";
-    public string nextLevel = "MenuGameSelector";
+    
     public SceneFader sceneFader;
     
     public void NextLevel()
     {
-        sceneFader.FadeTo(nextLevel);
+        sceneFader.FadeTo(LevelController.NextLevel());
     }
     public void ReturnMenu()
     {
-        sceneFader.FadeTo(returnMenu);
+        sceneFader.FadeTo("Assets/Scenes/Menu/MenuSelector.unity");
     }
 
     public void Retry()
     {
-        sceneFader.FadeTo(retry);
+        sceneFader.FadeTo(LevelController.GetLevel());
     }
 }

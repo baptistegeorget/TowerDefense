@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fb7e3f59e191c4ba4c223fc67b4163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnMenu: MenuMain
+  returnMenu: MainMenu
   sceneFader: {fileID: 694431548}
 --- !u!4 &976983740
 Transform:

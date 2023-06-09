@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas winCanvas;
     public int nextLevelNumber = 2;
-    public string dificulty = "levelReachedDebutant";
+    
     
     
 
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
         gameOverCanvas.enabled = false;
         winCanvas.enabled = false;
     }
+
+    
 
     private void Update()
     {
@@ -63,10 +66,10 @@ public class GameManager : MonoBehaviour
         }
         if (WaveSpawner.waveSpawner.GetWaveNumber() == waves.Length && WaveSpawner.enemiesAlives == 0)
         {
-            PlayerPrefs.SetInt(dificulty, nextLevelNumber);
             CameraController.cameraLock = true;
             Node.disable = true;
             winCanvas.enabled = true;
+            LevelController.NextLevel();
 
         }
     }

@@ -205,7 +205,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &66617634
 GameObject:
@@ -293,12 +293,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 856107541}
         m_TargetAssemblyTypeName: MenuSelectDificuty, Assembly-CSharp
-        m_MethodName: Intermediaire
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -575,7 +575,7 @@ RectTransform:
   - {fileID: 868624990}
   - {fileID: 2111011191}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -668,12 +668,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 856107541}
         m_TargetAssemblyTypeName: MenuSelectDificuty, Assembly-CSharp
-        m_MethodName: Expert
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -802,8 +802,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 856107541}
         m_TargetAssemblyTypeName: MenuSelectDificuty, Assembly-CSharp
-        m_MethodName: Debutant
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -959,10 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66f71bcada73fa478bf37c2505307a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debutant: MenuSelectorDebutant
-  intermediaire: MenuSelectorIntermediaire
-  expert: MenuSelectorExpert
-  returnMenu: MenuMain
+  returnMenu: MenuGameSelector
   sceneFader: {fileID: 1879646486}
 --- !u!4 &856107542
 Transform:
@@ -1063,9 +1060,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuGameSelector, Assembly-CSharp
-        m_MethodName: Return
+      - m_Target: {fileID: 856107541}
+        m_TargetAssemblyTypeName: MenuSelectDificuty, Assembly-CSharp
+        m_MethodName: ReturnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1340,7 +1337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1259224450
 GameObject:
@@ -1484,7 +1481,51 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1739947790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739947792}
+  - component: {fileID: 1739947791}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1739947791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739947790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8876f259d9131754bb563ecf3707fe02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1739947792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739947790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1879646485
 PrefabInstance:
@@ -1503,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602814801290289243, guid: 3a7127498f6432d44a757b218e8272c3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3602814801290289243, guid: 3a7127498f6432d44a757b218e8272c3, type: 3}
       propertyPath: m_LocalPosition.x
