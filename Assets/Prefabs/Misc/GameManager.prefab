@@ -966,9 +966,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: f3fda8402bb6a1745937b36b00e009c0, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 3692965301280574049}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Break
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1567,8 +1567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radialItem: {fileID: 6864948909898597970, guid: 1abdc2773f0eba4499c000a4379645aa, type: 3}
-  deleteIcon: {fileID: 2800000, guid: b5661ec9720057f4d9d64b2081d81c20, type: 3}
-  cancelIcon: {fileID: 2800000, guid: a5a24d82378f0b04c824aff254ebd5e4, type: 3}
+  deleteIcon: {fileID: 2800000, guid: ac55b149efd2bc1418fa3dfd50676658, type: 3}
+  cancelIcon: {fileID: 2800000, guid: 0bdd9c8d8f89a43298ec8d59579cc08b, type: 3}
 --- !u!1 &3692965302173671512
 GameObject:
   m_ObjectHideFlags: 0

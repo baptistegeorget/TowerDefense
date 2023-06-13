@@ -138,6 +138,18 @@ public class GameManager : MonoBehaviour
         skipButton.SetActive(false);
     }
 
+    public void Break()
+    {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0;
+        } 
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
     public void DisplaySkipButton()
     {
         skipButton.SetActive(true);
