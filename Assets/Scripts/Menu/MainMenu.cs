@@ -1,24 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string LevelToLoad = "MenuSelector";
-
-    public SceneFader sceneFader;
-
     public void Play()
     {
-        sceneFader.FadeTo(LevelToLoad);
+        SceneManager.LoadScene("Assets/Scenes/Menu/MenuSelector.unity");
     }
 
     public void Option()
     {
-        Debug.Log("Menu Option");
+        Debug.Log("Option");
     }
 
     public void Quit()
     {
-        Debug.Log("Le jeu est quité");
         Application.Quit();
     }
 }
