@@ -29,6 +29,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (enemiesAlives > 0)
         {
+            GameManager.gameManager.SetCountdown(0);
             return;
         }
         if (countdown <= 0f)
@@ -102,6 +103,7 @@ public class WaveSpawner : MonoBehaviour
         waveNumber++;
         if (waveNumber == GameManager.gameManager.GetWaves().Length)
         {
+            GameManager.gameManager.SetEndWaves(true);
             enabled = false;
         }
         else

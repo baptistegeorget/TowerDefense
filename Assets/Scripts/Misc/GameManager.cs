@@ -1,6 +1,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -93,11 +94,22 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject skipButton;
 
+    [SerializeField]
+    private GameObject breakMenu;
+
+    [SerializeField]
+    private GameObject winMenu;
+
+    [SerializeField]
+    private GameObject looseMenu;
+
     private int radialMenuRadius = 300;
 
     private float countdown;
 
     private int waveNumber;
+
+    private bool endWaves;
 
     private string[] enemiesTags = { "Boulepic", "Slime", "Centaure", "Chaman", "Chauve-souris", "Dragon", "Ghost", "Healer", "Invocateur", "Lapinou", "Ninja", "Rainette", "Serpent", "Tank", "Victime" };
 
@@ -112,6 +124,14 @@ public class GameManager : MonoBehaviour
         money.text = players[0].GetMoney().ToString();
         waveCount.text = waveNumber + "/" + waves.Length.ToString();
         waveTimer.text = Mathf.Round(countdown).ToString();
+        if (players[0].GetPv() <= 0)
+        {
+            looseMenu.SetActive(true);
+        }
+        if (endWaves && WaveSpawner.waveSpawner.GetEnemiesAlives() == 0)
+        {
+            winMenu.SetActive(true);
+        }
     }
 
     public void SkipWave()
@@ -143,11 +163,26 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 1f)
         {
             Time.timeScale = 0;
+            breakMenu.SetActive(true);
         } 
         else
         {
             Time.timeScale = 1f;
+            breakMenu.SetActive(false);
         }
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void QuitLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void DisplaySkipButton()
@@ -283,5 +318,10 @@ public class GameManager : MonoBehaviour
     public int GetMoneyByHealth()
     {
         return moneyByHealth;
+    }
+
+    public void SetEndWaves(bool endWaves)
+    {
+        this.endWaves = endWaves;
     }
 }
