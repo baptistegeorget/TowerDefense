@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ExitGames.Client.Photon;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviourPunCallbacks
 {
     [Header("Panels")]
     [SerializeField]
@@ -14,7 +16,7 @@ public class MainMenu : MonoBehaviour
     private GameObject difficultyPanel;
 
     [SerializeField]
-    private GameObject gamemodePanel;
+    private GameObject gameModePanel;
 
     [SerializeField]
     private GameObject easyPanel;
@@ -26,9 +28,30 @@ public class MainMenu : MonoBehaviour
     private GameObject hardPanel;
 
     [SerializeField]
-    private GameObject multiplayerPanel;
+    private GameObject connectionPanel;
 
-    [Header("Level Selecter")]
+    [SerializeField] 
+    private InputField loginInput;
+
+    [SerializeField]
+    private GameObject createJoinPanel;
+
+    [SerializeField]
+    private GameObject multiGameMode;
+
+    [SerializeField]
+    private GameObject roomPanel;
+
+    [SerializeField]
+    private GameObject listRoomPanel;
+
+    [SerializeField]
+    private Transform listRoomContent;
+
+    [SerializeField]
+    private GameObject roomButton;
+
+    [Header("Level Selector")]
     [SerializeField]
     private Transform easyContent;
 
@@ -43,16 +66,127 @@ public class MainMenu : MonoBehaviour
 
     private GameObject actualPanel;
 
+    private string nickname;
+
     private List<string> easyLevels = new List<string>();
 
     private List<string> mediumLevels = new List<string>();
 
     private List<string> hardLevels = new List<string>();
 
+    private List<RoomInfo> roomInfos = new List<RoomInfo>();
+
     private void Start()
     {
         FindLevels();
         PlaceButton();
+    }
+
+    public void Connect()
+    {
+        if (loginInput.text.Length > 3 && !loginInput.text.Contains(' '))
+        {
+            Debug.Log("Connection au serveur...");
+            PhotonNetwork.ConnectUsingSettings();
+        }
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Connecté au serveur !");
+        Debug.Log("Connection au lobby...");
+        PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Lobby rejoint !");
+        nickname = loginInput.text;
+        actualPanel = createJoinPanel;
+        connectionPanel.SetActive(false);
+        createJoinPanel.SetActive(true);
+    }
+
+    public void Disconnect()
+    {
+        Debug.Log("Déconnection du serveur...");
+        PhotonNetwork.Disconnect();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log("Déconnecté du serveur !");
+        actualPanel.SetActive(false);
+        actualPanel = connectionPanel;
+        connectionPanel.SetActive(true);
+    }
+
+    public void CreateRoom(string gameMode)
+    {
+        Debug.Log("Création de la room...");
+        Hashtable customProperties = new Hashtable();
+        if (gameMode == "Green")
+        {
+            customProperties.Add("GameMode", "Green");
+        }
+        else if (gameMode == "Green Circle")
+        {
+            customProperties.Add("GameMode", "Green Circle");
+        }
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.CustomRoomProperties = customProperties;
+        roomOptions.CustomRoomPropertiesForLobby = new string[] { "GameMode" };
+        roomOptions.IsOpen = true;
+        roomOptions.IsVisible = true;
+        roomOptions.MaxPlayers = 9;
+        PhotonNetwork.CreateRoom(nickname, roomOptions);
+    }
+
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("La room a été créée !");
+    }
+
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("Connecté à la room -> " + PhotonNetwork.CurrentRoom.Name);
+        actualPanel.SetActive(false);
+        actualPanel = roomPanel;
+        roomPanel.SetActive(true);
+    }
+
+    public void LeaveRoom()
+    {
+        Debug.Log("Déconnection de la room...");
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("La room a été quittée !");
+        actualPanel = createJoinPanel;
+        roomPanel.SetActive(false);
+        createJoinPanel.SetActive(true);
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        roomInfos = roomList;
+        PlaceRoomButton();
+    }
+
+    public void ListRoom()
+    {
+        actualPanel = listRoomPanel;
+        createJoinPanel.SetActive(false);
+        listRoomPanel.SetActive(true);
+    }
+
+    public void Create()
+    {
+        actualPanel = multiGameMode;
+        createJoinPanel.SetActive(false);
+        multiGameMode.SetActive(true);
     }
 
     public void Back(GameObject panel)
@@ -64,9 +198,9 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        actualPanel = gamemodePanel;
+        actualPanel = gameModePanel;
         mainPanel.SetActive(false); 
-        gamemodePanel.SetActive(true);
+        gameModePanel.SetActive(true);
     }
 
     public void Quit()
@@ -77,15 +211,15 @@ public class MainMenu : MonoBehaviour
     public void Solo()
     {
         actualPanel = difficultyPanel;
-        gamemodePanel.SetActive(false);
+        gameModePanel.SetActive(false);
         difficultyPanel.SetActive(true);
     }
 
     public void Multiplayer()
     {
-        actualPanel = multiplayerPanel;
-        gamemodePanel.SetActive(false);
-        multiplayerPanel.SetActive(true);
+        actualPanel = connectionPanel;
+        gameModePanel.SetActive(false);
+        connectionPanel.SetActive(true);
     }
 
     public void Easy()
@@ -107,6 +241,16 @@ public class MainMenu : MonoBehaviour
         actualPanel = hardPanel;
         difficultyPanel.SetActive(false);
         hardPanel.SetActive(true);
+    }
+
+    private void PlaceRoomButton()
+    {
+        foreach (RoomInfo roomInfo in roomInfos)
+        {
+            GameObject button = Instantiate(roomButton, listRoomContent);
+            button.GetComponentInChildren<Text>().text = roomInfo.CustomProperties["GameMode"] + " : " + roomInfo.Name;
+            button.GetComponent<RoomButton>().roomName = roomInfo.Name;
+        }
     }
 
     private void PlaceButton()
