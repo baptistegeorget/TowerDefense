@@ -250,6 +250,21 @@ public class MainMenu : MonoBehaviourPunCallbacks
         hardPanel.SetActive(true);
     }
 
+    public void StartLevel()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (PhotonNetwork.CurrentRoom.CustomProperties["GameMode"].ToString() == "Green")
+            {
+                PhotonNetwork.LoadLevel("Assets/Scenes/Levels/Green TD.unity");
+            }
+            else if (PhotonNetwork.CurrentRoom.CustomProperties["GameMode"].ToString() == "Green Circle")
+            {
+                PhotonNetwork.LoadLevel("Assets/Scenes/Levels/Green Circle TD.unity");
+            }
+        }
+    }
+
     private void PlacePlayerButton()
     {
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
