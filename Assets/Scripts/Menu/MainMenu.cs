@@ -5,64 +5,51 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
+using System;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
     [Header("Panels")]
-    [SerializeField]
-    private GameObject mainPanel;
+    [SerializeField] private GameObject mainPanel;
 
-    [SerializeField]
-    private GameObject difficultyPanel;
+    [SerializeField] private GameObject difficultyPanel;
 
-    [SerializeField]
-    private GameObject gameModePanel;
+    [SerializeField] private GameObject gameModePanel;
 
-    [SerializeField]
-    private GameObject easyPanel;
+    [SerializeField] private GameObject easyPanel;
 
-    [SerializeField]
-    private GameObject mediumPanel;
+    [SerializeField] private GameObject mediumPanel;
 
-    [SerializeField]
-    private GameObject hardPanel;
+    [SerializeField] private GameObject hardPanel;
 
-    [SerializeField]
-    private GameObject connectionPanel;
+    [SerializeField] private GameObject connectionPanel;
 
-    [SerializeField] 
-    private InputField loginInput;
+    [SerializeField] private InputField loginInput;
 
-    [SerializeField]
-    private GameObject createJoinPanel;
+    [SerializeField] private GameObject createJoinPanel;
 
-    [SerializeField]
-    private GameObject multiGameMode;
+    [SerializeField] private GameObject multiGameMode;
 
-    [SerializeField]
-    private GameObject roomPanel;
+    [SerializeField] private GameObject roomPanel;
 
-    [SerializeField]
-    private GameObject listRoomPanel;
+    [SerializeField] private Transform roomContent;
 
-    [SerializeField]
-    private Transform listRoomContent;
+    [SerializeField] private GameObject playerButton;
 
-    [SerializeField]
-    private GameObject roomButton;
+    [SerializeField] private GameObject listRoomPanel;
+
+    [SerializeField] private Transform listRoomContent;
+
+    [SerializeField] private GameObject roomButton;
 
     [Header("Level Selector")]
-    [SerializeField]
-    private Transform easyContent;
+    [SerializeField] private Transform easyContent;
 
-    [SerializeField] 
-    private Transform mediumContent;
+    [SerializeField] private Transform mediumContent;
 
-    [SerializeField] 
-    private Transform hardContent;
+    [SerializeField] private Transform hardContent;
 
-    [SerializeField]
-    private GameObject buttonPrefab;
+    [SerializeField] private GameObject buttonPrefab;
 
     private GameObject actualPanel;
 
@@ -79,7 +66,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     private void Start()
     {
         FindLevels();
-        PlaceButton();
+        PlaceLevelButton();
     }
 
     public void Connect()
@@ -102,6 +89,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         Debug.Log("Lobby rejoint !");
         nickname = loginInput.text;
+        PhotonNetwork.LocalPlayer.NickName = nickname;
         actualPanel = createJoinPanel;
         connectionPanel.SetActive(false);
         createJoinPanel.SetActive(true);
@@ -125,21 +113,22 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         Debug.Log("Création de la room...");
         Hashtable customProperties = new Hashtable();
+        RoomOptions roomOptions = new RoomOptions();
         if (gameMode == "Green")
         {
             customProperties.Add("GameMode", "Green");
+            roomOptions.MaxPlayers = 9;
         }
         else if (gameMode == "Green Circle")
         {
             customProperties.Add("GameMode", "Green Circle");
+            roomOptions.MaxPlayers = 8;
         }
-        RoomOptions roomOptions = new RoomOptions();
         roomOptions.CustomRoomProperties = customProperties;
         roomOptions.CustomRoomPropertiesForLobby = new string[] { "GameMode" };
         roomOptions.IsOpen = true;
         roomOptions.IsVisible = true;
-        roomOptions.MaxPlayers = 9;
-        PhotonNetwork.CreateRoom(nickname, roomOptions);
+        PhotonNetwork.CreateRoom(nickname + " " + GenerateRandomString(20), roomOptions);
     }
 
     public override void OnCreatedRoom()
@@ -150,6 +139,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Connecté à la room -> " + PhotonNetwork.CurrentRoom.Name);
+        PlacePlayerButton();
         actualPanel.SetActive(false);
         actualPanel = roomPanel;
         roomPanel.SetActive(true);
@@ -157,6 +147,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+        }
         Debug.Log("Déconnection de la room...");
         PhotonNetwork.LeaveRoom();
     }
@@ -167,6 +162,18 @@ public class MainMenu : MonoBehaviourPunCallbacks
         actualPanel = createJoinPanel;
         roomPanel.SetActive(false);
         createJoinPanel.SetActive(true);
+    }
+
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        Debug.Log(otherPlayer.NickName + " a quitté la room !");
+        PlacePlayerButton();
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        Debug.Log(newPlayer.NickName + " a rejoint la room !");
+        PlacePlayerButton();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -243,17 +250,50 @@ public class MainMenu : MonoBehaviourPunCallbacks
         hardPanel.SetActive(true);
     }
 
-    private void PlaceRoomButton()
+    private void PlacePlayerButton()
     {
-        foreach (RoomInfo roomInfo in roomInfos)
+        Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; i < roomContent.childCount; i++)
         {
-            GameObject button = Instantiate(roomButton, listRoomContent);
-            button.GetComponentInChildren<Text>().text = roomInfo.CustomProperties["GameMode"] + " : " + roomInfo.Name;
-            button.GetComponent<RoomButton>().roomName = roomInfo.Name;
+            Destroy(roomContent.GetChild(i).gameObject);
+        }
+        foreach (var player in players)
+        {
+            GameObject button = Instantiate(playerButton, roomContent);
+            button.GetComponentInChildren<Text>().text = player.NickName;
         }
     }
 
-    private void PlaceButton()
+    private void PlaceRoomButton()
+    {
+        for (int i = 0; i < listRoomContent.childCount; i++)
+        {
+            Destroy(listRoomContent.GetChild(i).gameObject);
+        }
+        for (int i = 0; i < roomInfos.Count; i++)
+        {
+            if (roomInfos[i].CustomProperties["GameMode"] == null || !roomInfos[i].IsOpen || !roomInfos[i].IsVisible)
+            {
+                roomInfos.RemoveAt(i);
+            }
+        }
+        AutoResizeScrollView(listRoomContent, roomInfos.Count);
+        foreach (RoomInfo roomInfo in roomInfos)
+        {
+            GameObject button = Instantiate(roomButton, listRoomContent);
+            button.GetComponentInChildren<Text>().text = roomInfo.CustomProperties["GameMode"] + " : " + roomInfo.Name.Split(' ')[0];
+            button.name = roomInfo.Name;
+        }
+    }
+
+    private void AutoResizeScrollView(Transform content, int elements)
+    {
+        RectTransform rectTransform = content.GetComponent<RectTransform>();
+        GridLayoutGroup gridLayoutGroup = content.GetComponent<GridLayoutGroup>();
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, (elements * (gridLayoutGroup.cellSize.y + gridLayoutGroup.spacing.y)) + gridLayoutGroup.spacing.y);
+    }
+
+    private void PlaceLevelButton()
     {
         for (int i = 0; i < easyLevels.Count; i++)
         {
@@ -303,5 +343,18 @@ public class MainMenu : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    private string GenerateRandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        System.Random random = new System.Random();
+        string randomString = "";
+        for (int i = 0; i < length; i++)
+        {
+            int nbRandom = random.Next(0, chars.Length - 1);
+            randomString += chars[nbRandom].ToString();
+        }
+        return randomString;
     }
 }
