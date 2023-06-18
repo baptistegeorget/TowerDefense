@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Green TD.unity
     guid: 4a4ce0ff3c0bb4a9192ecbb04051fa60
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 1.1.unity
+    path: Assets/Scenes/Levels/Level 3.1.unity
     guid: 6bfe487809384cf45a26deda0162316e
   - enabled: 1
     path: Assets/Scenes/Levels/Level 1.2.unity
