@@ -123,7 +123,7 @@ public class Boost : MonoBehaviour
         else if (tower.tag == towerTags[12] || tower.tag == towerTags[13] || tower.tag == towerTags[14])
         {
             Mortar mortar = tower.GetComponent<Mortar>();
-            mortar.SetFireRate(mortar.GetFireRate() + (mortar.GetStartFireRate() * mortarFireRate + mortar.GetStartFireRate()));
+            mortar.SetFireRate(mortar.GetFireRate() + (mortar.GetStartFireRate() * mortarFireRate - mortar.GetStartFireRate()));
             mortar.SetDamage(mortar.GetDamage() + (mortar.GetStartDamage() * mortarDamage - mortar.GetStartDamage()));
         }
     }
@@ -157,7 +157,7 @@ public class Boost : MonoBehaviour
             else if (tower.tag == towerTags[12] || tower.tag == towerTags[13] || tower.tag == towerTags[14])
             {
                 Mortar mortar = tower.GetComponent<Mortar>();
-                mortar.SetFireRate(mortar.GetFireRate() - (mortar.GetStartFireRate() * mortarFireRate + mortar.GetStartFireRate()));
+                mortar.SetFireRate(mortar.GetFireRate() - (mortar.GetStartFireRate() * mortarFireRate - mortar.GetStartFireRate()));
                 mortar.SetDamage(mortar.GetDamage() - (mortar.GetStartDamage() * mortarDamage - mortar.GetStartDamage()));
             }
         }

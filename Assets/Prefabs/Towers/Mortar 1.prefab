@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  fireRate: 0.5
+  fireRate: 0.35
   damage: 5
   firePoints:
   - {fileID: 7761164629960823683}
+  damageMultiplicator: 0
   enemiesTags:
   - Boulepic
   - Centaure
@@ -112,7 +113,6 @@ MonoBehaviour:
   - Ninja
   - Rainette
   - Serpent
-  - Slime
   - Tank
   - Victime
   bulletPrefab: {fileID: 1912111766882317892, guid: 3bb0a24841a4f6d4ea9062b48ff16a38, type: 3}

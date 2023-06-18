@@ -98,17 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f608aab802434041a53f16c65ed6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  damage: 3
-  freezeTime: 0.1
-  fireRate: 0.5
+  range: 4
+  damage: 6
+  freezeTime: 0.45
+  fireRate: 0.4
   firePoint: {fileID: 8424211024971909221}
-  maxEnemies: 5
+  maxEnemies: 4
   effect: {fileID: 5070410584692292990, guid: 4948f90ebdc20d54282eb57fd05710ec, type: 3}
   enemiesTags:
   - Boulepic
   - Slime
-  - Centaure
   - Chaman
   - Chauve-souris
   - Dragon

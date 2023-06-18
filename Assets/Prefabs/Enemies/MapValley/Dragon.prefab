@@ -198,9 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.8
-  health: 1100
+  health: 1150
   resistance: 0
-  money: 0
   healthbar: {fileID: 5769894428131145583}
   chamanResistance: 20
   lapinouSpeed: 1.2

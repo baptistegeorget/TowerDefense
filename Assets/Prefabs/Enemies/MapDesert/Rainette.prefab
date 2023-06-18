@@ -914,10 +914,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afd5f37f2493b4297defd2cfb06229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.15
-  health: 135
+  speed: 1.2
+  health: 160
   resistance: 1
   healthbar: {fileID: 2088657971320389947}
+  chamanResistance: 20
+  lapinouSpeed: 1.2
+  healerPowerInterval: 1
+  healerHeal: 2
+  invocateurPowerInterval: 12
+  delayInvocation: 2
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
 --- !u!114 &1094431467070944788
 MonoBehaviour:
   m_ObjectHideFlags: 0

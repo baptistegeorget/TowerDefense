@@ -96,13 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ddaa43c0c3ffd4484ef2b610f1e9f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
+  range: 3.6
   effect: {fileID: 303765686572201433, guid: aeb2d789aee440f4183331965e4b8b40, type: 3}
-  machineGunDamage: 2
-  machineGunFireRate: 2
-  arcanaDamage: 2
-  teslaDamage: 2
-  crossbowDamage: 2
-  crossbowFireRate: 2
-  mortarDamage: 2
-  mortarFireRate: 2
+  machineGunDamage: 1.1
+  machineGunFireRate: 1.05
+  arcanaDamage: 1.1
+  teslaDamage: 1
+  crossbowDamage: 1.1
+  crossbowFireRate: 1.1
+  mortarDamage: 1.1
+  mortarFireRate: 1.1

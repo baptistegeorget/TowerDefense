@@ -944,10 +944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afd5f37f2493b4297defd2cfb06229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  health: 110
+  speed: 0.9
+  health: 125
   resistance: 0
-  money: 0
   healthbar: {fileID: 910832867727734831}
   chamanResistance: 1
   lapinouSpeed: 1.2

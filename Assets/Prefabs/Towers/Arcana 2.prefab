@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  damage: 2
-  lineRenderer: {fileID: -3422007409984705081}
+  damage: 2.2
   firePoints: {fileID: 1089349761474380668}
+  damageMultiplicator: 1.1
   enemiesTags:
   - Boulepic
   - Slime
@@ -113,8 +113,6 @@ MonoBehaviour:
   - Healer
   - Invocateur
   - Lapinou
-  - Ninja
-  - Rainette
   - Serpent
   - Tank
   - Victime

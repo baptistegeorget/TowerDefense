@@ -332,7 +332,7 @@ MonoBehaviour:
   chamanResistance: 1
   lapinouSpeed: 1.25
   healerPowerInterval: 1
-  healerHeal: 2
+  healerHeal: 2.5
   invocateurPowerInterval: 12
   delayInvocation: 2
   enemy1: {fileID: 0}

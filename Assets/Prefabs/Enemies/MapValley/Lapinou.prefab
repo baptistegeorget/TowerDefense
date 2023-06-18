@@ -296,12 +296,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afd5f37f2493b4297defd2cfb06229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  health: 125
+  speed: 1.7
+  health: 140
   resistance: 0
   healthbar: {fileID: 2329714635025325409}
   chamanResistance: 1
-  lapinouSpeed: 2
+  lapinouSpeed: 1.35
   healerPowerInterval: 5
   healerHeal: 30
   invocateurPowerInterval: 12

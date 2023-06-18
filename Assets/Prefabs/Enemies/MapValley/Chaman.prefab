@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 105
+  health: 140
   resistance: 0
   healthbar: {fileID: 4091654193511710038}
   chamanResistance: 20
