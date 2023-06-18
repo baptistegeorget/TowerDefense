@@ -113,9 +113,9 @@ MonoBehaviour:
   healerHeal: 2
   invocateurPowerInterval: 12
   delayInvocation: 2
-  enemy1: {fileID: 0}
-  enemy2: {fileID: 0}
-  enemy3: {fileID: 0}
+  enemy1: {fileID: 6701388132769096435, guid: fab14dcaf2be38443aed273544b82524, type: 3}
+  enemy2: {fileID: 9217960290729866699, guid: 30f167fed0141c24995d49b20a08da40, type: 3}
+  enemy3: {fileID: 2021117596865500301, guid: 1c890463976e47d4eb58dcf04703f592, type: 3}
 --- !u!114 &2860371384743835561
 MonoBehaviour:
   m_ObjectHideFlags: 0
