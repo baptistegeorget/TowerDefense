@@ -9,8 +9,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnectedAndReady)
         {
-            GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, transform.rotation);
-            player.transform.SetParent(transform);
+            PhotonNetwork.Instantiate(playerPrefab.name, transform.position, transform.rotation);
         }
     }
 }
