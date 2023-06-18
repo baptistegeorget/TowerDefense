@@ -28,19 +28,19 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
+        if (Input.GetKey(KeyCode.Z))
         {
             transform.Translate(Vector3.forward * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= border)
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= border)
+        if (Input.GetKey(KeyCode.Q))
         {
             transform.Translate(Vector3.left * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - border)
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * cameraSpeed * Time.deltaTime, Space.World);
         }
