@@ -5,7 +5,6 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
-using System;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
@@ -53,8 +52,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     private GameObject actualPanel;
 
-    private string nickname;
-
     private List<string> easyLevels = new List<string>();
 
     private List<string> mediumLevels = new List<string>();
@@ -62,6 +59,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
     private List<string> hardLevels = new List<string>();
 
     private List<RoomInfo> roomInfos = new List<RoomInfo>();
+
+    private void Awake()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
     private void Start()
     {
@@ -71,25 +73,20 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void Connect()
     {
-        if (loginInput.text.Length > 3 && !loginInput.text.Contains(' '))
+        if (loginInput.text.Length > 3 && !loginInput.text.Contains(' ') && loginInput.text.Length < 11)
         {
-            Debug.Log("Connection au serveur...");
             PhotonNetwork.ConnectUsingSettings();
         }
     }
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connecté au serveur !");
-        Debug.Log("Connection au lobby...");
         PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("Lobby rejoint !");
-        nickname = loginInput.text;
-        PhotonNetwork.LocalPlayer.NickName = nickname;
+        PhotonNetwork.LocalPlayer.NickName = loginInput.text;
         actualPanel = createJoinPanel;
         connectionPanel.SetActive(false);
         createJoinPanel.SetActive(true);
@@ -97,13 +94,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void Disconnect()
     {
-        Debug.Log("Déconnection du serveur...");
         PhotonNetwork.Disconnect();
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("Déconnecté du serveur !");
         actualPanel.SetActive(false);
         actualPanel = connectionPanel;
         connectionPanel.SetActive(true);
@@ -111,7 +106,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void CreateRoom(string gameMode)
     {
-        Debug.Log("Création de la room...");
         Hashtable customProperties = new Hashtable();
         RoomOptions roomOptions = new RoomOptions();
         if (gameMode == "Green")
@@ -128,17 +122,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
         roomOptions.CustomRoomPropertiesForLobby = new string[] { "GameMode" };
         roomOptions.IsOpen = true;
         roomOptions.IsVisible = true;
-        PhotonNetwork.CreateRoom(nickname + " " + GenerateRandomString(20), roomOptions);
-    }
-
-    public override void OnCreatedRoom()
-    {
-        Debug.Log("La room a été créée !");
+        PhotonNetwork.CreateRoom(PhotonNetwork.LocalPlayer.NickName + " " + GenerateRandomString(20), roomOptions);
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Connecté à la room -> " + PhotonNetwork.CurrentRoom.Name);
         PlacePlayerButton();
         actualPanel.SetActive(false);
         actualPanel = roomPanel;
@@ -152,13 +140,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
         }
-        Debug.Log("Déconnection de la room...");
         PhotonNetwork.LeaveRoom();
     }
 
     public override void OnLeftRoom()
     {
-        Debug.Log("La room a été quittée !");
         actualPanel = createJoinPanel;
         roomPanel.SetActive(false);
         createJoinPanel.SetActive(true);
@@ -166,13 +152,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        Debug.Log(otherPlayer.NickName + " a quitté la room !");
         PlacePlayerButton();
     }
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        Debug.Log(newPlayer.NickName + " a rejoint la room !");
         PlacePlayerButton();
     }
 
@@ -250,6 +234,21 @@ public class MainMenu : MonoBehaviourPunCallbacks
         hardPanel.SetActive(true);
     }
 
+    public void StartLevel()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (PhotonNetwork.CurrentRoom.CustomProperties["GameMode"].ToString() == "Green")
+            {
+                PhotonNetwork.LoadLevel("Assets/Scenes/Levels/Green TD.unity");
+            }
+            else if (PhotonNetwork.CurrentRoom.CustomProperties["GameMode"].ToString() == "Green Circle")
+            {
+                PhotonNetwork.LoadLevel("Assets/Scenes/Levels/Green Circle TD.unity");
+            }
+        }
+    }
+
     private void PlacePlayerButton()
     {
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
@@ -257,6 +256,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
         {
             Destroy(roomContent.GetChild(i).gameObject);
         }
+        AutoResizeScrollView(roomContent, players.Length);
         foreach (var player in players)
         {
             GameObject button = Instantiate(playerButton, roomContent);

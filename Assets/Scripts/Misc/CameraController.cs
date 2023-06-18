@@ -1,30 +1,23 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    private float cameraSpeed = 30f;
+    [SerializeField] private float cameraSpeed = 30f;
 
-    [SerializeField]
-    private float border = 10f;
+    [SerializeField] private float border = 10f;
 
-    [SerializeField]
-    private float zoom = 5f;
+    [SerializeField] private float zoom = 5f;
 
-    [SerializeField]
-    private float dezoom = 20f;
+    [SerializeField] private float dezoom = 20f;
 
-    [SerializeField]
-    private float top = 20f;
+    [SerializeField] private float top = 20f;
 
-    [SerializeField]
-    private float bottom = 20f;
+    [SerializeField] private float bottom = 20f;
 
-    [SerializeField]
-    private float left = 20f;
+    [SerializeField] private float left = 20f;
 
-    [SerializeField]
-    private float right = 20f;
+    [SerializeField] private float right = 20f;
 
     private Vector3 startPosition;
 
@@ -35,19 +28,19 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - border)
+        if (Input.GetKey(KeyCode.Z))
         {
             transform.Translate(Vector3.forward * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= border)
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= border)
+        if (Input.GetKey(KeyCode.Q))
         {
             transform.Translate(Vector3.left * cameraSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - border)
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * cameraSpeed * Time.deltaTime, Space.World);
         }
