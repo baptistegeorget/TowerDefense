@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu/MainMenu.unity
+    guid: eec38d801b1e0934c8defc1df9fc9387
+  - enabled: 1
     path: Assets/Scenes/Levels/Green Circle TD.unity
     guid: 9b5ca51748b493948a9c2b52ae2840bc
   - enabled: 1
@@ -65,7 +68,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level 3.6.unity
     guid: 3c946e81f2eafdd4582390c9a0679cc7
-  - enabled: 1
-    path: Assets/Scenes/Menu/MainMenu.unity
-    guid: eec38d801b1e0934c8defc1df9fc9387
   m_configObjects: {}
